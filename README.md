@@ -34,6 +34,14 @@ Main file:
 index.html
 ```
 
+## Live Website
+
+The public website is available through GitHub Pages:
+
+```text
+https://impactlabsglobal.github.io/impact-holdings-website/
+```
+
 ## Contact Form
 
 The contact form currently sends inquiries to:
