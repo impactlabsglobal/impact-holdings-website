@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Impact Holdings LLC — Professional LLC Formation & Tax Services. Perth Amboy, NJ.">
+<meta name="theme-color" content="#1565c0">
+<title>Impact Holdings LLC — LLC Formation & Tax Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS — URENA TAX INSPIRED STYLE
+   Clean professional blue + white portal look
+═══════════════════════════════════════════ */
+:root {
+  --blue:       #1565c0;
+  --blue-mid:   #1976d2;
+  --blue-light: #2196f3;
+  --blue-pale:  #e3f2fd;
+  --blue-soft:  #bbdefb;
+  --accent:     #ff6f00;
+  --accent-lt:  #ffa726;
+  --white:      #ffffff;
+  --off-white:  #f5f7fa;
+  --gray-100:   #f0f4f8;
+  --gray-200:   #e2e8f0;
+  --gray-400:   #94a3b8;
+  --gray-600:   #475569;
+  --gray-800:   #1e293b;
+  --radius-sm:  4px;
+  --radius:     10px;
+  --radius-lg:  18px;
+  --shadow-sm:  0 2px 8px rgba(21,101,192,0.10);
+  --shadow:     0 6px 24px rgba(21,101,192,0.13);
+  --shadow-lg:  0 16px 48px rgba(21,101,192,0.18);
+  --tr:         0.22s ease;
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+  --white:     #1a2234;
+  --off-white: #151d2e;
+  --gray-100:  #1e2a3d;
+  --gray-200:  #253348;
+  --gray-400:  #7a90a8;
+  --gray-600:  #94a3b8;
+  --gray-800:  #e2e8f0;
+  --blue-pale: rgba(21,101,192,0.18);
+  --blue-soft: rgba(33,150,243,0.22);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow:    0 6px 24px rgba(0,0,0,0.35);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.45);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:82px;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--off-white);
+  color:var(--gray-800);
+  line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  transition:background var(--tr),color var(--tr);
+}
+a{text-decoration:none;color:inherit}
+input,select,textarea,button{font-family:'Inter',sans-serif;font-size:16px}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid rgba(255,167,38,.85);
+  outline-offset:3px;
+}
+img{display:block;max-width:100%}
+
+/* ═══════════════════════════════════════════
+   TOP BAR
+═══════════════════════════════════════════ */
+.topbar{
+  background:var(--blue);
+  padding:.45rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;
+}
+.topbar-left{
+  display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;
+}
+.topbar a{
+  color:rgba(255,255,255,.88);font-size:.78rem;font-weight:500;
+  display:flex;align-items:center;gap:.35rem;
+  transition:color var(--tr);
+}
+.topbar a:hover{color:#fff}
+.topbar-right{display:flex;align-items:center;gap:.6rem}
+
+/* Language + theme toggles */
+.t-pill{
+  display:flex;align-items:center;gap:.3rem;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;padding:.22rem .7rem;
+  min-height:34px;
+  transition:background var(--tr);
+  color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;
+}
+.t-pill:hover{background:rgba(255,255,255,.25)}
+.t-circle{
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;
+  transition:background var(--tr);
+}
+.t-circle:hover{background:rgba(255,255,255,.25)}
+
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--white);
+  box-shadow:0 2px 12px rgba(21,101,192,.12);
+  padding:0 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  transition:background var(--tr);
+}
+.nav-brand{
+  display:flex;align-items:center;gap:.75rem;
+  min-width:0;
+}
+.nav-logo-box{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue) 0%,var(--blue-light) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;
+  letter-spacing:-.02em;
+  box-shadow:var(--shadow-sm);
+  flex-shrink:0;
+}
+.nav-name{
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;
+  color:var(--blue);line-height:1.1;
+  min-width:0;
+}
+.nav-name span{display:block;font-size:.65rem;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:.12em}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--gray-600);transition:color var(--tr)}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{
+  background:var(--accent);color:#fff;
+  padding:.55rem 1.5rem;border-radius:var(--radius-sm);
+  font-size:.82rem;font-weight:700;letter-spacing:.04em;
+  transition:background var(--tr),transform var(--tr);
+  box-shadow:0 3px 12px rgba(255,111,0,.25);
+  min-height:44px;display:inline-flex;align-items:center;justify-content:center;
+  text-align:center;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--accent-lt);transform:translateY(-1px)}
+
+/* ═══════════════════════════════════════════
+   HERO — BLUE GRADIENT BANNER
+═══════════════════════════════════════════ */
+.hero{
+  background:linear-gradient(135deg,#0d47a1 0%,#1565c0 45%,#1976d2 100%);
+  padding:4.5rem 1.5rem 5rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:60px;
+  background:var(--off-white);
+  clip-path:ellipse(55% 100% at 50% 100%);
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 420px;gap:3.5rem;align-items:center;
+  position:relative;z-index:2;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;padding:.35rem 1rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);margin-bottom:1.25rem;
+}
+.hero h1{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.1;
+  color:#fff;margin-bottom:1rem;
+}
+.hero h1 span{color:#ffd54f}
+.hero-sub{
+  font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.82);
+  margin-bottom:2rem;max-width:500px;
+}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn-white{
+  background:#fff;color:var(--blue);
+  padding:.82rem 2rem;border-radius:var(--radius-sm);
+  font-size:.88rem;font-weight:700;letter-spacing:.04em;
+  transition:all var(--tr);box-shadow:0 4px 14px rgba(0,0,0,.15);
+  display:inline-flex;align-items:center;justify-content:center;min-height:46px;
+  text-align:center;
+}
+.btn-white:hover{background:#e3f2fd;transform:translateY(-2px)}
+.btn-outline-white{
+  border:2px solid rgba(255,255,255,.55);color:#fff;
+  padding:.8rem 2rem;border-radius:var(--radius-sm);
+  font-size:.88rem;font-weight:600;
+  transition:all var(--tr);display:inline-flex;align-items:center;justify-content:center;min-height:46px;
+  text-align:center;
+}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+/* Hero card */
+.hero-card{
+  background:#fff;border-radius:var(--radius-lg);
+  padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.2);
+  position:relative;
+  width:100%;
+}
+[data-theme="dark"] .hero-card{background:#1e2a3d}
+.hero-card-title{
+  font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;
+  color:var(--blue);margin-bottom:1.25rem;text-align:center;
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.quick-services{display:flex;flex-direction:column;gap:.55rem}
+.qs-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.7rem 1rem;
+  background:var(--blue-pale);border-radius:var(--radius-sm);
+  transition:background var(--tr);
+  gap:.75rem;
+}
+.qs-item:hover{background:var(--blue-soft)}
+.qs-name{font-size:.88rem;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:.5rem}
+.qs-icon{font-size:1rem}
+.qs-price{font-size:.95rem;font-weight:800;color:var(--blue)}
+.qs-divider{height:1px;background:var(--gray-200);margin:.5rem 0}
+.hero-card-cta{
+  display:block;text-align:center;margin-top:1.2rem;
+  background:var(--accent);color:#fff;
+  padding:.85rem;border-radius:var(--radius-sm);
+  font-size:.88rem;font-weight:700;letter-spacing:.04em;
+  transition:background var(--tr),transform var(--tr);
+  box-shadow:0 4px 14px rgba(255,111,0,.3);
+  min-height:46px;
+}
+.hero-card-cta:hover{background:var(--accent-lt);transform:translateY(-1px)}
+
+/* ═══════════════════════════════════════════
+   TRUST STRIP
+═══════════════════════════════════════════ */
+.trust-strip{
+  background:var(--white);
+  border-bottom:1px solid var(--gray-200);
+  padding:1.5rem;
+}
+.trust-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:1.5rem;
+}
+.trust-item{display:flex;align-items:center;gap:.75rem}
+.trust-icon-box{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--blue-pale);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.trust-item strong{display:block;font-size:.88rem;font-weight:700;color:var(--gray-800)}
+.trust-item span{display:block;font-size:.77rem;color:var(--gray-400)}
+
+/* ═══════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════ */
+.section{padding:5rem 1.5rem}
+.section[id]{scroll-margin-top:82px}
+.container{max-width:1100px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--blue-pale);border-radius:20px;
+  padding:.35rem 1rem;
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:.85rem;
+}
+.section-title{
+  font-family:'Poppins',sans-serif;font-size:clamp(1.75rem,3.5vw,2.6rem);
+  font-weight:800;line-height:1.15;color:var(--gray-800);margin-bottom:.75rem;
+}
+.section-title span{color:var(--blue)}
+.section-sub{font-size:.97rem;color:var(--gray-600);line-height:1.78;max-width:580px}
+.section-head{margin-bottom:3rem}
+.section-head.center{text-align:center}
+.section-head.center .section-label{justify-content:center}
+.section-head.center .section-sub{margin:0 auto}
+
+/* ═══════════════════════════════════════════
+   TAX PRICING
+═══════════════════════════════════════════ */
+.tax-section{background:var(--off-white)}
+.tax-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+
+.tax-card{
+  background:var(--white);border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow);
+  transition:transform .3s,box-shadow .3s;
+  min-width:0;
+}
+.tax-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.tax-card-header{
+  background:var(--blue);padding:1.5rem 1.75rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.tax-card-header.accent{background:var(--accent)}
+.tax-h-icon{
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;
+}
+.tax-h-title{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.15rem}
+.tax-h-sub{font-size:.78rem;color:rgba(255,255,255,.75)}
+.tax-rows{padding:0}
+.tax-row{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+  padding:1rem 1.75rem;border-bottom:1px solid var(--gray-200);
+}
+.tax-row:last-child{border-bottom:none}
+.tax-row.highlight{background:linear-gradient(90deg,var(--blue-pale),#fff)}
+[data-theme="dark"] .tax-row.highlight{background:rgba(21,101,192,.12)}
+.tr-label{font-size:.9rem;color:var(--gray-800);font-weight:500;line-height:1.4}
+.tax-row>div:first-child{min-width:0}
+.tr-note{font-size:.77rem;color:var(--gray-400);margin-top:.2rem}
+.tr-price{
+  font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;
+  color:var(--blue);white-space:nowrap;flex-shrink:0;
+}
+.tr-price.accent{color:var(--accent)}
+.tr-plus{font-size:.72rem;color:var(--gray-400);display:block;text-align:right}
+
+/* Example box */
+.example-box{
+  margin:0 1.75rem 1.25rem;
+  background:var(--blue-pale);border-left:3px solid var(--blue);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:.85rem 1rem;
+}
+[data-theme="dark"] .example-box{background:rgba(21,101,192,.15)}
+.example-box p{font-size:.83rem;color:var(--blue);font-weight:600;line-height:1.55}
+
+/* Combined big card */
+.tax-featured{
+  background:var(--white);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);overflow:hidden;margin-top:2rem;
+  border:2px solid var(--blue);
+}
+.tax-featured-head{
+  background:linear-gradient(90deg,var(--blue) 0%,#1976d2 100%);
+  padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.tfh-left h3{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:.2rem}
+.tfh-left p{font-size:.83rem;color:rgba(255,255,255,.75)}
+.tfh-price{font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:#ffd54f;line-height:1}
+.tfh-price span{font-size:.9rem;font-weight:500;color:rgba(255,255,255,.7)}
+.tax-feat-body{
+  padding:1.5rem 2rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:.75rem;
+}
+.tf-item{
+  display:flex;align-items:center;gap:.6rem;
+  font-size:.88rem;color:var(--gray-800);font-weight:500;
+}
+.tf-item::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   LLC PACKAGES
+═══════════════════════════════════════════ */
+.llc-section{background:var(--white)}
+.llc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+
+.llc-card{
+  border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow);border:2px solid transparent;
+  background:var(--white);
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+  position:relative;
+  min-width:0;
+}
+.llc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.llc-card.popular{border-color:var(--blue)}
+.popular-badge{
+  position:absolute;top:1.1rem;right:1.1rem;
+  background:var(--accent);color:#fff;
+  font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:.28rem .75rem;border-radius:20px;
+  box-shadow:0 3px 10px rgba(255,111,0,.3);
+}
+.llc-card-top{
+  padding:2rem 2rem 1.5rem;
+  border-bottom:1px solid var(--gray-200);
+}
+.llc-icon-row{display:flex;align-items:center;gap:.85rem;margin-bottom:1.1rem}
+.llc-icon{
+  width:52px;height:52px;border-radius:var(--radius);
+  background:var(--blue-pale);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;
+}
+.llc-card.popular .llc-icon{background:var(--blue);font-size:1.4rem}
+.llc-type{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.25rem}
+.llc-name{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;color:var(--gray-800)}
+.llc-tag{font-size:.85rem;color:var(--gray-600);line-height:1.55;margin-top:.35rem}
+
+.llc-price-row{
+  display:flex;align-items:baseline;gap:.3rem;padding:1.25rem 2rem;
+  border-bottom:1px solid var(--gray-200);
+  background:var(--gray-100);
+}
+[data-theme="dark"] .llc-price-row{background:var(--gray-200)}
+.llc-price-row.blue-bg{background:var(--blue-pale)}
+.lp-dollar{font-size:1.3rem;font-weight:600;color:var(--blue);align-self:flex-start;margin-top:.3rem}
+.lp-amount{font-family:'Poppins',sans-serif;font-size:3rem;font-weight:800;color:var(--blue);line-height:1}
+.lp-note{font-size:.8rem;color:var(--gray-400);margin-left:.4rem}
+
+.llc-feats{padding:1.5rem 2rem}
+.llc-feat-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.llc-feat-list li{
+  display:flex;align-items:flex-start;gap:.65rem;
+  font-size:.9rem;color:var(--gray-800);line-height:1.5;
+}
+.llc-feat-list li .check{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--blue-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;color:var(--blue);font-weight:800;flex-shrink:0;margin-top:.1rem;
+}
+.llc-card.popular .llc-feat-list li .check{background:var(--blue);color:#fff}
+.llc-feat-highlight{color:var(--blue);font-weight:700}
+
+.llc-card-foot{padding:0 2rem 2rem}
+.llc-cta{
+  display:block;text-align:center;padding:.95rem;border-radius:var(--radius-sm);
+  font-size:.88rem;font-weight:700;letter-spacing:.04em;
+  transition:all var(--tr);
+  min-height:46px;
+}
+.llc-cta-blue{background:var(--blue);color:#fff;box-shadow:var(--shadow-sm)}
+.llc-cta-blue:hover{background:#1976d2;transform:translateY(-1px)}
+.llc-cta-outline{border:2px solid var(--blue);color:var(--blue)}
+.llc-cta-outline:hover{background:var(--blue);color:#fff}
+
+/* Add-on bar */
+.addon-bar{
+  margin-top:2rem;padding:1.5rem 2rem;
+  background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);
+  border-left:5px solid var(--blue);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.addon-bar h4{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:var(--gray-800);margin-bottom:.2rem}
+.addon-bar p{font-size:.85rem;color:var(--gray-600)}
+.addon-bar-price{font-family:'Poppins',sans-serif;font-size:1.7rem;font-weight:800;color:var(--blue);white-space:nowrap}
+
+/* ═══════════════════════════════════════════
+   BLUE CTA BANNER
+═══════════════════════════════════════════ */
+.cta-banner{
+  background:linear-gradient(135deg,#0d47a1 0%,#1565c0 100%);
+  padding:4rem 1.5rem;position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:-50%;right:-10%;
+  width:500px;height:500px;border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.cta-banner-inner{
+  max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;
+}
+.cta-banner h2{font-family:'Poppins',sans-serif;font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;color:#fff;margin-bottom:.85rem}
+.cta-banner p{font-size:1rem;color:rgba(255,255,255,.78);margin-bottom:2rem;line-height:1.72}
+.cta-banner-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════════
+   HOW IT WORKS
+═══════════════════════════════════════════ */
+.how-section{background:var(--off-white)}
+.steps-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+  margin-top:3rem;position:relative;
+}
+.steps-grid::before{
+  content:'';position:absolute;top:34px;left:12%;right:12%;height:2px;
+  background:linear-gradient(90deg,var(--blue),#64b5f6);
+  z-index:0;
+}
+.step-card{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:2rem 1.5rem;text-align:center;box-shadow:var(--shadow-sm);
+  position:relative;z-index:1;transition:transform .3s,box-shadow .3s;
+}
+.step-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.step-num{
+  width:68px;height:68px;border-radius:50%;
+  background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;
+  margin:0 auto 1.25rem;
+  box-shadow:0 6px 20px rgba(21,101,192,.35);
+}
+.step-card h4{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:var(--gray-800);margin-bottom:.45rem}
+.step-card p{font-size:.85rem;color:var(--gray-600);line-height:1.62}
+
+/* ═══════════════════════════════════════════
+   CONTACT / FORM
+═══════════════════════════════════════════ */
+.contact-section{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:3.5rem;align-items:start;margin-top:3rem}
+
+.contact-info-block h3{
+  font-family:'Poppins',sans-serif;font-size:1.35rem;font-weight:700;
+  color:var(--gray-800);margin-bottom:.85rem;
+}
+.contact-info-block p{font-size:.93rem;color:var(--gray-600);line-height:1.78;margin-bottom:1.75rem}
+.c-items{display:flex;flex-direction:column;gap:1rem}
+.c-item{
+  display:flex;align-items:flex-start;gap:.9rem;
+  padding:1rem 1.25rem;
+  background:var(--gray-100);border-radius:var(--radius);
+  border-left:3px solid var(--blue);
+}
+.c-item-icon{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;
+}
+.c-item-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.2rem}
+.c-item-val{font-size:.9rem;color:var(--gray-800);font-weight:500}
+
+/* Form */
+.form-wrap{
+  background:var(--off-white);border-radius:var(--radius-lg);
+  padding:2.25rem;box-shadow:var(--shadow);
+  border:1px solid var(--gray-200);
+}
+[data-theme="dark"] .form-wrap{background:#1a2234;border-color:#253348}
+.form-title{
+  font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;
+  color:var(--gray-800);margin-bottom:1.5rem;
+  padding-bottom:.85rem;border-bottom:2px solid var(--blue-pale);
+  display:flex;align-items:center;gap:.6rem;
+}
+.form-title span{color:var(--blue)}
+
+.f-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.85rem}
+.f-group:last-of-type{margin-bottom:0}
+.f-label{font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-600)}
+.f-input,.f-select,.f-textarea{
+  background:var(--white);
+  border:1.5px solid var(--gray-200);
+  border-radius:var(--radius-sm);
+  padding:.75rem 1rem;
+  font-size:.93rem;color:var(--gray-800);
+  transition:border-color var(--tr),box-shadow var(--tr);
+  outline:none;width:100%;
+  min-height:46px;
+}
+[data-theme="dark"] .f-input,[data-theme="dark"] .f-select,[data-theme="dark"] .f-textarea{
+  background:#253348;border-color:#334466;color:var(--gray-800);
+}
+.f-input::placeholder,.f-textarea::placeholder{color:var(--gray-400)}
+.f-input:focus,.f-select:focus,.f-textarea:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(21,101,192,.12);
+}
+.f-select option{background:#fff;color:#1e293b}
+[data-theme="dark"] .f-select option{background:#253348}
+.f-textarea{resize:vertical;min-height:105px;line-height:1.6}
+
+.f-submit{
+  width:100%;background:var(--blue);color:#fff;
+  padding:1rem;border-radius:var(--radius-sm);border:none;cursor:pointer;
+  font-size:.92rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  transition:background var(--tr),transform var(--tr);margin-top:.5rem;
+  box-shadow:0 4px 14px rgba(21,101,192,.3);
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+}
+.f-submit:hover{background:#1976d2;transform:translateY(-1px)}
+.f-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.f-privacy{font-size:.75rem;color:var(--gray-400);text-align:center;margin-top:.65rem;line-height:1.5}
+
+/* Success message */
+.form-success{
+  display:none;padding:2rem;text-align:center;
+  background:var(--blue-pale);border-radius:var(--radius);
+  border:2px solid var(--blue);
+}
+.form-success .fs-icon{font-size:3rem;margin-bottom:.75rem}
+.form-success h4{font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:700;color:var(--blue);margin-bottom:.5rem}
+.form-success p{font-size:.9rem;color:var(--gray-600);line-height:1.65}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{background:#0d1e38;padding:3rem 1.5rem 1.5rem}
+.foot-inner{max-width:1100px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:1.5rem}
+.foot-brand p{font-size:.87rem;color:rgba(255,255,255,.5);line-height:1.7;margin-top:.85rem;max-width:300px}
+.foot-nav h5{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem}
+.foot-nav a{display:block;font-size:.87rem;color:rgba(255,255,255,.6);margin-bottom:.55rem;transition:color var(--tr)}
+.foot-nav a:hover{color:#fff}
+.foot-name{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:.1rem}
+.foot-sub{font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.foot-copy{font-size:.77rem;color:rgba(255,255,255,.3)}
+
+/* ═══════════════════════════════════════════
+   MOBILE BOTTOM BAR
+═══════════════════════════════════════════ */
+.mob-bar{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:#0d1e38;border-top:1px solid rgba(21,101,192,.4);
+  padding:.5rem .5rem;
+  padding-bottom:calc(.5rem + env(safe-area-inset-bottom));
+  gap:.3rem;
+}
+.mob-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:.15rem;
+  padding:.3rem;background:transparent;border:none;
+  font-size:.56rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);text-decoration:none;
+  transition:color var(--tr);border-radius:6px;font-family:'Inter',sans-serif;
+  min-width:0;min-height:48px;justify-content:center;
+}
+.mob-btn:hover{color:#fff}
+.mob-btn.cta-mob{background:var(--accent);color:#fff;border-radius:6px}
+.mob-btn.cta-mob:hover{background:var(--accent-lt)}
+.mob-icon{font-size:1rem}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-left>*{animation:fadeUp .6s ease both}
+.hero-left .hero-badge{animation-delay:.05s}
+.hero-left h1{animation-delay:.15s}
+.hero-left .hero-sub{animation-delay:.25s}
+.hero-left .hero-btns{animation-delay:.35s}
+.hero-card{animation:fadeUp .6s .3s ease both}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-card{max-width:560px}
+  .tax-grid{grid-template-columns:1fr}
+  .llc-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .steps-grid::before{display:none}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .trust-inner{justify-content:flex-start}
+  .tax-feat-body{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  nav{height:auto;min-height:64px;padding:.65rem 1rem;gap:.75rem}
+  .nav-logo-box{width:38px;height:38px;border-radius:8px;font-size:1rem}
+  .nav-name{font-size:.95rem}
+  .nav-name span{font-size:.58rem;letter-spacing:.08em}
+  .nav-cta{padding:.55rem .95rem;font-size:.75rem}
+  .hero-inner{gap:2rem}
+  .trust-inner{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .trust-item{align-items:flex-start}
+}
+@media(max-width:600px){
+  .topbar{padding:.45rem 1rem}
+  .topbar .topbar-left{gap:.75rem;min-width:0}
+  .topbar .topbar-left a:not(:first-child){display:none}
+  .topbar a{font-size:.72rem;max-width:100%;word-break:break-word}
+  nav{position:sticky;top:0}
+  .hero{padding:3rem 1rem 4rem}
+  .hero h1{font-size:2rem}
+  .hero-sub{font-size:.98rem;line-height:1.65}
+  .hero-btns,.cta-banner-btns{flex-direction:column;align-items:stretch}
+  .btn-white,.btn-outline-white{width:100%;padding:.82rem 1rem}
+  .hero-card{padding:1.35rem;border-radius:14px}
+  .qs-item{align-items:flex-start}
+  .qs-name{line-height:1.35}
+  .section{padding:3.5rem 1rem}
+  .f-grid-2{grid-template-columns:1fr}
+  .llc-card-top,.llc-card-foot{padding:1.5rem}
+  .llc-price-row{padding:1rem 1.5rem}
+  .llc-feats{padding:1.25rem 1.5rem}
+  .form-wrap{padding:1.5rem}
+  .contact-grid{gap:2rem;margin-top:2rem}
+  .c-item{padding:.95rem 1rem}
+  .c-item-val{overflow-wrap:anywhere}
+  .tax-row{padding:1rem 1.25rem}
+  .tax-card-header{padding:1.25rem}
+  .tax-feat-body{padding:1.25rem 1.5rem}
+  .tax-featured-head{padding:1.25rem 1.5rem}
+  .tfh-price{font-size:2rem}
+  .mob-bar{display:flex}
+  body{padding-bottom:66px}
+  .foot-top{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;text-align:center}
+  .addon-bar{flex-direction:column;align-items:flex-start}
+  .steps-grid{grid-template-columns:1fr}
+  .cta-banner{padding:3rem 1rem}
+}
+@media(max-width:420px){
+  .nav-cta{display:none}
+  .nav-brand{gap:.55rem}
+  .nav-name{font-size:.88rem}
+  .nav-name span{display:none}
+  .hero h1{font-size:1.85rem}
+  .hero-badge{font-size:.64rem;line-height:1.3}
+  .trust-inner{grid-template-columns:1fr}
+  .tax-row{flex-direction:column;align-items:flex-start;gap:.45rem}
+  .tr-price,.tr-plus{text-align:left}
+  .tax-featured-head{align-items:flex-start}
+  .llc-icon-row{align-items:flex-start}
+  .llc-name{font-size:1.25rem}
+  .lp-amount{font-size:2.45rem}
+  .popular-badge{position:static;display:inline-block;margin:1rem 1rem 0}
+  .mob-btn{font-size:.5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="mailto:founder@impactholdingsllc.com">
+      <span>✉️</span> founder@impactholdingsllc.com
+    </a>
+    <a href="#contact">
+      <span>📍</span> <span data-en="Perth Amboy, NJ" data-es="Perth Amboy, NJ">Perth Amboy, NJ</span>
+    </a>
+  </div>
+  <div class="topbar-right">
+    <button class="t-pill" type="button" onclick="toggleLang()" aria-label="Toggle language">
+      <span id="lang-flag">🇪🇸</span>
+      <span id="lang-label">ES</span>
+    </button>
+    <button class="t-circle" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="theme-btn">☀️</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-box">IH</div>
+    <div class="nav-name">
+      Impact Holdings LLC
+      <span data-en="Tax &amp; Business Services" data-es="Servicios Fiscales y Empresariales">Tax &amp; Business Services</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#tax" data-en="Tax Services" data-es="Servicios Fiscales">Tax Services</a>
+    <a href="#llc" data-en="LLC Formation" data-es="Formación de LLC">LLC Formation</a>
+    <a href="#how" data-en="How It Works" data-es="Cómo Funciona">How It Works</a>
+    <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta" data-en="Get Started" data-es="Empezar">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span>⭐</span>
+        <span data-en="Professional Tax &amp; Business Services" data-es="Servicios Fiscales y Empresariales Profesionales">Professional Tax &amp; Business Services</span>
+      </div>
+      <h1 data-en="Your Taxes. <span>Your LLC.</span> Done Right." data-es="Tus Impuestos. <span>Tu LLC.</span> Hechos Bien.">
+        Your Taxes. <span>Your LLC.</span> Done Right.
+      </h1>
+      <p class="hero-sub" data-en="We prepare your taxes accurately, form your LLC legally, and set up your professional business presence — all with integrity and care." data-es="Preparamos tus impuestos con precisión, formamos tu LLC legalmente y configuramos tu presencia empresarial profesional — todo con integridad y dedicación.">
+        We prepare your taxes accurately, form your LLC legally, and set up your professional business presence — all with integrity and care.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-white" data-en="Get Started Today" data-es="Comienza Hoy">Get Started Today</a>
+        <a href="#tax" class="btn-outline-white" data-en="See Pricing" data-es="Ver Precios">See Pricing</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title" data-en="Quick Price Guide" data-es="Guía Rápida de Precios">Quick Price Guide</div>
+      <div class="quick-services">
+        <div class="qs-item">
+          <div class="qs-name"><span class="qs-icon">🧾</span> <span data-en="W-2 Return (1 person)" data-es="Declaración W-2 (1 persona)">W-2 Return (1 person)</span></div>
+          <div class="qs-price">$100</div>
+        </div>
+        <div class="qs-item">
+          <div class="qs-name"><span class="qs-icon">➕</span> <span data-en="Each extra Social Security" data-es="Cada SS adicional">Each extra Social Security</span></div>
+          <div class="qs-price">+$40</div>
+        </div>
+        <div class="qs-item">
+          <div class="qs-name"><span class="qs-icon">🚗</span> <span data-en="1099 + Mileage" data-es="1099 + Millaje">1099 + Mileage</span></div>
+          <div class="qs-price">$250</div>
+        </div>
+        <div class="qs-item">
+          <div class="qs-name"><span class="qs-icon">🏢</span> <span data-en="1099 + Expenses" data-es="1099 + Gastos">1099 + Expenses</span></div>
+          <div class="qs-price">$300</div>
+        </div>
+        <div class="qs-item" style="background:var(--blue);border-radius:6px">
+          <div class="qs-name" style="color:#fff"><span class="qs-icon">📄</span> <span data-en="1099 + W-2 Combined" data-es="1099 + W-2 Combinados">1099 + W-2 Combined</span></div>
+          <div class="qs-price" style="color:#ffd54f">$400</div>
+        </div>
+        <div class="qs-divider"></div>
+        <div class="qs-item">
+          <div class="qs-name"><span class="qs-icon">🏛️</span> <span data-en="LLC Formation" data-es="Formación de LLC">LLC Formation</span></div>
+          <div class="qs-price">$299+</div>
+        </div>
+      </div>
+      <a href="#contact" class="hero-card-cta" data-en="Book Your Appointment →" data-es="Reserva tu Cita →">Book Your Appointment →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon-box">✅</div>
+      <div>
+        <strong data-en="Accurate Filing" data-es="Declaración Precisa">Accurate Filing</strong>
+        <span data-en="No inflated credits" data-es="Sin créditos inflados">No inflated credits</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-box">🔒</div>
+      <div>
+        <strong data-en="100% Confidential" data-es="100% Confidencial">100% Confidential</strong>
+        <span data-en="Your data is protected" data-es="Tus datos están protegidos">Your data is protected</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-box">⚡</div>
+      <div>
+        <strong data-en="Fast Turnaround" data-es="Entrega Rápida">Fast Turnaround</strong>
+        <span data-en="Filed within days" data-es="Presentado en días">Filed within days</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-box">🌎</div>
+      <div>
+        <strong data-en="EN / ES" data-es="EN / ES">EN / ES</strong>
+        <span data-en="English &amp; Spanish" data-es="Inglés y Español">English &amp; Spanish</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-box">📋</div>
+      <div>
+        <strong data-en="All 50 States" data-es="50 Estados">All 50 States</strong>
+        <span data-en="Remote service available" data-es="Servicio remoto disponible">Remote service available</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAX PRICING -->
+<section class="section tax-section" id="tax">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">🧾 <span data-en="Tax Preparation" data-es="Preparación de Impuestos">Tax Preparation</span></div>
+      <h2 class="section-title" data-en="Clear &amp; Honest <span>Tax Pricing</span>" data-es="Precios de Impuestos <span>Claros y Honestos</span>">Clear &amp; Honest <span>Tax Pricing</span></h2>
+      <p class="section-sub" data-en="No hidden fees. No inflated numbers. What you see is what you pay." data-es="Sin cargos ocultos. Sin números inflados. Lo que ves es lo que pagas.">No hidden fees. No inflated numbers. What you see is what you pay.</p>
+    </div>
+
+    <div class="tax-grid">
+
+      <!-- W-2 CARD -->
+      <div class="tax-card">
+        <div class="tax-card-header">
+          <div class="tax-h-icon">🧾</div>
+          <div>
+            <div class="tax-h-title" data-en="W-2 Tax Returns" data-es="Declaraciones de Impuestos W-2">W-2 Tax Returns</div>
+            <div class="tax-h-sub" data-en="Standard employment income" data-es="Ingreso de empleo estándar">Standard employment income</div>
+          </div>
+        </div>
+        <div class="tax-rows">
+          <div class="tax-row highlight">
+            <div>
+              <div class="tr-label" data-en="1 Person — 1 Social Security (W-2)" data-es="1 Persona — 1 Seguro Social (W-2)">1 Person — 1 Social Security (W-2)</div>
+              <div class="tr-note" data-en="Base price for a single filer" data-es="Precio base para una sola persona">Base price for a single filer</div>
+            </div>
+            <div>
+              <div class="tr-price">$100</div>
+            </div>
+          </div>
+          <div class="tax-row">
+            <div>
+              <div class="tr-label" data-en="Each Additional Social Security" data-es="Cada Seguro Social Adicional">Each Additional Social Security</div>
+              <div class="tr-note" data-en="Added to the base price per extra person" data-es="Se agrega al precio base por persona adicional">Added to the base price per extra person</div>
+            </div>
+            <div>
+              <div class="tr-price">+$40</div>
+              <div class="tr-plus" data-en="per SSN" data-es="por SSN">per SSN</div>
+            </div>
+          </div>
+        </div>
+        <div class="example-box">
+          <p data-en="📌 Example: 1 person = $100 &nbsp;|&nbsp; 2 people = $140 &nbsp;|&nbsp; 3 people = $180" data-es="📌 Ejemplo: 1 persona = $100 &nbsp;|&nbsp; 2 personas = $140 &nbsp;|&nbsp; 3 personas = $180">
+            📌 Example: 1 person = $100 &nbsp;|&nbsp; 2 people = $140 &nbsp;|&nbsp; 3 people = $180
+          </p>
+        </div>
+      </div>
+
+      <!-- 1099 CARD -->
+      <div class="tax-card">
+        <div class="tax-card-header accent">
+          <div class="tax-h-icon">📊</div>
+          <div>
+            <div class="tax-h-title" data-en="1099 &amp; Self-Employed" data-es="1099 y Trabajadores Independientes">1099 &amp; Self-Employed</div>
+            <div class="tax-h-sub" data-en="Freelancers, contractors, gig workers" data-es="Freelancers, contratistas, trabajadores por encargo">Freelancers, contractors, gig workers</div>
+          </div>
+        </div>
+        <div class="tax-rows">
+          <div class="tax-row highlight">
+            <div>
+              <div class="tr-label" data-en="1099 + Mileage Deduction" data-es="1099 + Deducción por Millaje">1099 + Mileage Deduction</div>
+              <div class="tr-note" data-en="Includes vehicle mileage deduction" data-es="Incluye deducción de millaje vehicular">Includes vehicle mileage deduction</div>
+            </div>
+            <div>
+              <div class="tr-price accent">$250</div>
+            </div>
+          </div>
+          <div class="tax-row">
+            <div>
+              <div class="tr-label" data-en="1099 + Business Expenses" data-es="1099 + Gastos del Negocio">1099 + Business Expenses</div>
+              <div class="tr-note" data-en="Includes itemized business expense deductions" data-es="Incluye deducciones de gastos empresariales detallados">Includes itemized business expense deductions</div>
+            </div>
+            <div>
+              <div class="tr-price accent">$300</div>
+            </div>
+          </div>
+        </div>
+        <div class="example-box" style="border-color:var(--accent);background:#fff3e0">
+          <p style="color:var(--accent)" data-en="📌 Have both 1099 income AND a W-2? See the combined package below." data-es="📌 ¿Tienes ingresos 1099 Y también un W-2? Ve el paquete combinado abajo.">
+            📌 Have both 1099 income AND a W-2? See the combined package below.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMBINED FEATURED -->
+    <div class="tax-featured">
+      <div class="tax-featured-head">
+        <div class="tfh-left">
+          <h3 data-en="1099 + W-2 Combined Return" data-es="Declaración Combinada 1099 + W-2">1099 + W-2 Combined Return</h3>
+          <p data-en="You have self-employment income AND regular employment income — we file it all together." data-es="Tienes ingresos de trabajo independiente Y de empleo regular — lo declaramos todo junto.">You have self-employment income AND regular employment income — we file it all together.</p>
+        </div>
+        <div>
+          <div class="tfh-price">$400 <span data-en="flat" data-es="fijo">flat</span></div>
+        </div>
+      </div>
+      <div class="tax-feat-body">
+        <div class="tf-item" data-en="1099 income reported &amp; deducted" data-es="Ingresos 1099 reportados y deducidos">1099 income reported &amp; deducted</div>
+        <div class="tf-item" data-en="W-2 income included" data-es="Ingresos W-2 incluidos">W-2 income included</div>
+        <div class="tf-item" data-en="Business expense deductions" data-es="Deducciones de gastos del negocio">Business expense deductions</div>
+        <div class="tf-item" data-en="Federal + State filing" data-es="Declaración Federal + Estatal">Federal + State filing</div>
+        <div class="tf-item" data-en="Accurate, no inflated credits" data-es="Preciso, sin créditos inflados">Accurate, no inflated credits</div>
+        <div class="tf-item" data-en="English &amp; Spanish service" data-es="Servicio en inglés y español">English &amp; Spanish service</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LLC PACKAGES -->
+<section class="section llc-section" id="llc">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">🏛️ <span data-en="LLC Formation" data-es="Formación de LLC">LLC Formation</span></div>
+      <h2 class="section-title" data-en="Start Your Business <span>The Right Way</span>" data-es="Comienza tu Negocio <span>de la Manera Correcta</span>">Start Your Business <span>The Right Way</span></h2>
+      <p class="section-sub" data-en="We handle every step of your LLC formation — from state filing to professional email and online presence." data-es="Manejamos cada paso de la formación de tu LLC — desde el registro estatal hasta el correo profesional y presencia en línea.">We handle every step of your LLC formation — from state filing to professional email and online presence.</p>
+    </div>
+
+    <div class="llc-grid">
+
+      <!-- REGULAR -->
+      <div class="llc-card">
+        <div class="llc-card-top">
+          <div class="llc-icon-row">
+            <div class="llc-icon">📋</div>
+            <div>
+              <div class="llc-type" data-en="Standard Package" data-es="Paquete Estándar">Standard Package</div>
+              <div class="llc-name" data-en="Regular LLC Kit" data-es="Kit LLC Regular">Regular LLC Kit</div>
+            </div>
+          </div>
+          <p class="llc-tag" data-en="Everything you need to legally form your LLC and start operating your business." data-es="Todo lo que necesitas para formar tu LLC legalmente y comenzar a operar tu negocio.">Everything you need to legally form your LLC and start operating your business.</p>
+        </div>
+        <div class="llc-price-row">
+          <div class="lp-dollar">$</div>
+          <div class="lp-amount">299</div>
+          <div class="lp-note" data-en="one-time" data-es="pago único">one-time</div>
+        </div>
+        <div class="llc-feats">
+          <ul class="llc-feat-list">
+            <li><div class="check">✓</div><span data-en="State LLC filing &amp; formation" data-es="Registro y formación de LLC en el estado">State LLC filing &amp; formation</span></li>
+            <li><div class="check">✓</div><span data-en="Articles of Organization preparation" data-es="Preparación de los Artículos de Organización">Articles of Organization preparation</span></li>
+            <li><div class="check">✓</div><span data-en="Registered Agent (1 year)" data-es="Agente Registrado (1 año)">Registered Agent (1 year)</span></li>
+            <li><div class="check">✓</div><span data-en="EIN / Tax ID assistance" data-es="Asistencia para EIN / ID Fiscal">EIN / Tax ID assistance</span></li>
+            <li><div class="check">✓</div><span data-en="Operating Agreement template" data-es="Plantilla de Acuerdo Operativo">Operating Agreement template</span></li>
+            <li><div class="check">✓</div><span data-en="Digital document delivery" data-es="Entrega digital de documentos">Digital document delivery</span></li>
+            <li><div class="check">✓</div><span data-en="Email support" data-es="Soporte por correo">Email support</span></li>
+          </ul>
+        </div>
+        <div class="llc-card-foot">
+          <a href="#contact" class="llc-cta llc-cta-outline" data-en="Get Regular Kit" data-es="Obtener Kit Regular">Get Regular Kit</a>
+        </div>
+      </div>
+
+      <!-- FULL -->
+      <div class="llc-card popular">
+        <div class="popular-badge" data-en="Most Complete" data-es="Más Completo">Most Complete</div>
+        <div class="llc-card-top">
+          <div class="llc-icon-row">
+            <div class="llc-icon" style="background:var(--blue)">🚀</div>
+            <div>
+              <div class="llc-type" data-en="Premium Package" data-es="Paquete Premium">Premium Package</div>
+              <div class="llc-name" data-en="Full LLC Kit" data-es="Kit LLC Completo">Full LLC Kit</div>
+            </div>
+          </div>
+          <p class="llc-tag" data-en="Full formation plus everything to look professional online and build trust from day one." data-es="Formación completa más todo para lucir profesional en línea y generar confianza desde el primer día.">Full formation plus everything to look professional online and build trust from day one.</p>
+        </div>
+        <div class="llc-price-row blue-bg">
+          <div class="lp-dollar">$</div>
+          <div class="lp-amount">499</div>
+          <div class="lp-note" data-en="one-time" data-es="pago único">one-time</div>
+        </div>
+        <div class="llc-feats">
+          <ul class="llc-feat-list">
+            <li><div class="check">✓</div><span data-en="Everything in Regular Kit" data-es="Todo lo del Kit Regular">Everything in Regular Kit</span></li>
+            <li><div class="check">✓</div><span><span class="llc-feat-highlight" data-en="Custom .com domain" data-es="Dominio .com personalizado">Custom .com domain</span> <span data-en="— 1 year" data-es="— 1 año">— 1 year</span></span></li>
+            <li><div class="check">✓</div><span><span class="llc-feat-highlight" data-en="Professional business email" data-es="Correo empresarial profesional">Professional business email</span></span></li>
+            <li><div class="check">✓</div><span data-en="Business presentation landing page" data-es="Página de presentación del negocio">Business presentation landing page</span></li>
+            <li><div class="check">✓</div><span data-en="Priority processing" data-es="Procesamiento prioritario">Priority processing</span></li>
+            <li><div class="check">✓</div><span data-en="Onboarding call included" data-es="Llamada de incorporación incluida">Onboarding call included</span></li>
+            <li><div class="check">✓</div><span data-en="30-day post-formation support" data-es="30 días de soporte post-formación">30-day post-formation support</span></li>
+          </ul>
+        </div>
+        <div class="llc-card-foot">
+          <a href="#contact" class="llc-cta llc-cta-blue" data-en="Get Full Kit" data-es="Obtener Kit Completo">Get Full Kit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDON BAR -->
+    <div class="addon-bar">
+      <div>
+        <h4 data-en="Already have an LLC? Add Domain + Professional Email" data-es="¿Ya tienes una LLC? Agrega Dominio + Correo Profesional">Already have an LLC? Add Domain + Professional Email</h4>
+        <p data-en="Get a custom .com domain and professional email (you@yourbusiness.com) for your existing business." data-es="Obtén un dominio .com personalizado y correo profesional (tu@tunegocio.com) para tu negocio existente.">Get a custom .com domain and professional email (you@yourbusiness.com) for your existing business.</p>
+      </div>
+      <div class="addon-bar-price">$149<span style="font-size:.85rem;color:var(--gray-400)" data-en="/yr" data-es="/año">/yr</span></div>
+      <a href="#contact" class="btn-white" style="background:var(--blue);color:#fff;box-shadow:none;font-size:.82rem" data-en="Add to My Business" data-es="Agregar a Mi Negocio">Add to My Business</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLUE CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2 data-en="Ready to File Your Taxes or Form Your LLC?" data-es="¿Listo para Declarar tus Impuestos o Formar tu LLC?">Ready to File Your Taxes or Form Your LLC?</h2>
+    <p data-en="Contact us today. We'll walk you through every step in English or Spanish — no confusing jargon, just honest professional service." data-es="Contáctanos hoy. Te guiaremos en cada paso en inglés o español — sin términos confusos, solo servicio profesional y honesto.">Contact us today. We'll walk you through every step in English or Spanish — no confusing jargon, just honest professional service.</p>
+    <div class="cta-banner-btns">
+      <a href="#contact" class="btn-white" data-en="Start Now" data-es="Comenzar Ahora">Start Now</a>
+      <a href="mailto:founder@impactholdingsllc.com" class="btn-outline-white" data-en="Email Us Directly" data-es="Escríbenos Directamente">Email Us Directly</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section" id="how">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">⚡ <span data-en="The Process" data-es="El Proceso">The Process</span></div>
+      <h2 class="section-title" data-en="How It <span>Works</span>" data-es="Cómo <span>Funciona</span>">How It <span>Works</span></h2>
+      <p class="section-sub" data-en="Simple, fast, and stress-free from start to finish." data-es="Simple, rápido y sin estrés de principio a fin.">Simple, fast, and stress-free from start to finish.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4 data-en="Choose Your Service" data-es="Elige tu Servicio">Choose Your Service</h4>
+        <p data-en="Select the tax service or LLC package that fits your needs." data-es="Selecciona el servicio fiscal o paquete de LLC que se ajuste a tus necesidades.">Select the tax service or LLC package that fits your needs.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4 data-en="Submit Your Info" data-es="Envía tu Información">Submit Your Info</h4>
+        <p data-en="Fill out our simple form or email us your documents securely." data-es="Completa nuestro formulario simple o envíanos tus documentos de forma segura.">Fill out our simple form or email us your documents securely.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4 data-en="We Handle It All" data-es="Nos Encargamos de Todo">We Handle It All</h4>
+        <p data-en="We prepare, file, and set up everything on your behalf within days." data-es="Preparamos, presentamos y configuramos todo en tu nombre en días.">We prepare, file, and set up everything on your behalf within days.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4 data-en="You're All Set" data-es="Listo para Operar">You're All Set</h4>
+        <p data-en="Receive your documents and start your next chapter with confidence." data-es="Recibe tus documentos y comienza tu próxima etapa con confianza.">Receive your documents and start your next chapter with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT + FORM -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">📬 <span data-en="Get In Touch" data-es="Contáctenos">Get In Touch</span></div>
+      <h2 class="section-title" data-en="Let's Get <span>Started</span>" data-es="Comencemos <span>Ahora</span>">Let's Get <span>Started</span></h2>
+      <p class="section-sub" data-en="Fill out the form and we'll reach out within 1 business day. Prefer email? Write to us directly." data-es="Completa el formulario y te contactaremos dentro de 1 día hábil. ¿Prefieres correo? Escríbenos directamente.">Fill out the form and we'll reach out within 1 business day. Prefer email? Write to us directly.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info-block">
+        <h3 data-en="We're Here For You" data-es="Estamos Para Ti">We're Here For You</h3>
+        <p data-en="Whether it's tax season or time to launch your business — we're with you every step of the way. Service in English and Spanish." data-es="Ya sea temporada de impuestos o momento de lanzar tu negocio — estamos contigo en cada paso. Servicio en inglés y español.">
+          Whether it's tax season or time to launch your business — we're with you every step of the way. Service in English and Spanish.
+        </p>
+        <div class="c-items">
+          <div class="c-item">
+            <div class="c-item-icon">✉️</div>
+            <div>
+              <div class="c-item-label" data-en="Email" data-es="Correo">Email</div>
+              <div class="c-item-val"><a href="mailto:founder@impactholdingsllc.com" style="color:var(--blue)">founder@impactholdingsllc.com</a></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">📍</div>
+            <div>
+              <div class="c-item-label" data-en="Location" data-es="Ubicación">Location</div>
+              <div class="c-item-val">Perth Amboy, NJ — <span data-en="All 50 states served" data-es="Los 50 estados atendidos">All 50 states served</span></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">⏱️</div>
+            <div>
+              <div class="c-item-label" data-en="Response Time" data-es="Tiempo de Respuesta">Response Time</div>
+              <div class="c-item-val" data-en="Within 1 business day" data-es="Dentro de 1 día hábil">Within 1 business day</div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">🌎</div>
+            <div>
+              <div class="c-item-label" data-en="Languages" data-es="Idiomas">Languages</div>
+              <div class="c-item-val" data-en="English &amp; Spanish" data-es="Inglés y Español">English &amp; Spanish</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- ══════════════════════════════════
+             FORMSUBMIT FORM
+             Replace YOUR_EMAIL below with:
+             founder@impactholdingsllc.com
+             FormSubmit docs: https://formsubmit.co
+        ══════════════════════════════════ -->
+        <form
+          id="contactForm"
+          class="form-wrap"
+          action="https://formsubmit.co/founder@impactholdingsllc.com"
+          method="POST"
+        >
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="New Inquiry — Impact Holdings LLC">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://impactholdingsllc.com?sent=true">
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="form-title">
+            📋 <span data-en="Send Us a Message" data-es="Envíanos un Mensaje">Send Us a Message</span>
+          </div>
+
+          <div class="f-grid-2">
+            <div class="f-group">
+              <label class="f-label" for="fname" data-en="First Name *" data-es="Nombre *">First Name *</label>
+              <input class="f-input" type="text" id="fname" name="First Name" required
+                data-ph-en="John" data-ph-es="Juan" placeholder="John">
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="lname" data-en="Last Name *" data-es="Apellido *">Last Name *</label>
+              <input class="f-input" type="text" id="lname" name="Last Name" required
+                data-ph-en="Smith" data-ph-es="García" placeholder="Smith">
+            </div>
+          </div>
+
+          <div class="f-grid-2">
+            <div class="f-group">
+              <label class="f-label" for="femail" data-en="Email *" data-es="Correo *">Email *</label>
+              <input class="f-input" type="email" id="femail" name="Email" required
+                data-ph-en="john@email.com" data-ph-es="juan@correo.com" placeholder="john@email.com">
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="fphone" data-en="Phone" data-es="Teléfono">Phone</label>
+              <input class="f-input" type="tel" id="fphone" name="Phone"
+                placeholder="(732) 000-0000">
+            </div>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="fservice" data-en="Service Needed *" data-es="Servicio que Necesita *">Service Needed *</label>
+            <select class="f-select" id="fservice" name="Service" required>
+              <option value="" disabled selected data-en="Select a service..." data-es="Selecciona un servicio...">Select a service...</option>
+              <optgroup label="🧾 Tax Preparation / Impuestos">
+                <option value="W-2 Return ($100 base)" data-en="W-2 Return — $100 (1 person)" data-es="Declaración W-2 — $100 (1 persona)">W-2 Return — $100 (1 person)</option>
+                <option value="1099 + Mileage ($250)" data-en="1099 + Mileage — $250" data-es="1099 + Millaje — $250">1099 + Mileage — $250</option>
+                <option value="1099 + Expenses ($300)" data-en="1099 + Expenses — $300" data-es="1099 + Gastos — $300">1099 + Expenses — $300</option>
+                <option value="1099 + W-2 Combined ($400)" data-en="1099 + W-2 Combined — $400" data-es="1099 + W-2 Combinados — $400">1099 + W-2 Combined — $400</option>
+              </optgroup>
+              <optgroup label="🏛️ LLC Formation">
+                <option value="Regular LLC Kit ($299)" data-en="Regular LLC Kit — $299" data-es="Kit LLC Regular — $299">Regular LLC Kit — $299</option>
+                <option value="Full LLC Kit ($499)" data-en="Full LLC Kit — $499" data-es="Kit LLC Completo — $499">Full LLC Kit — $499</option>
+                <option value="Domain + Email Add-On ($149/yr)" data-en="Domain + Email Only — $149/yr" data-es="Solo Dominio + Correo — $149/año">Domain + Email Only — $149/yr</option>
+              </optgroup>
+              <option value="Other / Question" data-en="Other / General Question" data-es="Otro / Pregunta General">Other / General Question</option>
+            </select>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="fbiz" data-en="Business Name (if any)" data-es="Nombre del Negocio (si tiene)">Business Name (if any)</label>
+            <input class="f-input" type="text" id="fbiz" name="Business Name"
+              data-ph-en="My Business LLC" data-ph-es="Mi Negocio LLC" placeholder="My Business LLC">
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="fmsg" data-en="Message" data-es="Mensaje">Message</label>
+            <textarea class="f-textarea" id="fmsg" name="Message"
+              data-ph-en="Tell us about your situation or ask us anything..." data-ph-es="Cuéntanos tu situación o pregúntanos lo que necesites..."
+              placeholder="Tell us about your situation or ask us anything..."></textarea>
+          </div>
+
+          <button type="submit" class="f-submit">
+            <span>📨</span>
+            <span data-en="Send Message" data-es="Enviar Mensaje">Send Message</span>
+          </button>
+          <p class="f-privacy" data-en="🔒 Your information is 100% confidential and never shared." data-es="🔒 Tu información es 100% confidencial y nunca se comparte.">🔒 Your information is 100% confidential and never shared.</p>
+        </form>
+
+        <!-- Success (shown if redirected back with ?sent=true) -->
+        <div class="form-success" id="formSuccess">
+          <div class="fs-icon">✅</div>
+          <h4 data-en="Message Received!" data-es="¡Mensaje Recibido!">Message Received!</h4>
+          <p data-en="Thank you for reaching out. We'll contact you within 1 business day.<br><br><em>Gracias por contactarnos. Te responderemos dentro de 1 día hábil.</em>" data-es="Gracias por contactarnos. Te responderemos dentro de 1 día hábil.<br><br><em>Thank you for reaching out. We'll contact you within 1 business day.</em>">
+            Thank you for reaching out. We'll contact you within 1 business day.<br><br>
+            <em>Gracias por contactarnos. Te responderemos dentro de 1 día hábil.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo-box" style="margin-bottom:.75rem">IH</div>
+        <div class="foot-name">Impact Holdings LLC</div>
+        <div class="foot-sub" data-en="Tax &amp; Business Services" data-es="Servicios Fiscales y Empresariales">Tax &amp; Business Services</div>
+        <p data-en="Professional tax preparation and LLC formation services in English and Spanish. Serving all 50 states from Perth Amboy, NJ." data-es="Preparación profesional de impuestos y formación de LLC en inglés y español. Atendemos los 50 estados desde Perth Amboy, NJ.">
+          Professional tax preparation and LLC formation services in English and Spanish. Serving all 50 states from Perth Amboy, NJ.
+        </p>
+      </div>
+      <div class="foot-nav">
+        <h5 data-en="Services" data-es="Servicios">Services</h5>
+        <a href="#tax" data-en="Tax Preparation" data-es="Preparación de Impuestos">Tax Preparation</a>
+        <a href="#llc" data-en="LLC Formation" data-es="Formación de LLC">LLC Formation</a>
+        <a href="#llc" data-en="Domain + Email" data-es="Dominio + Correo">Domain + Email</a>
+        <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+      </div>
+      <div class="foot-nav">
+        <h5 data-en="Contact" data-es="Contacto">Contact</h5>
+        <a href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a>
+        <a href="#contact">Perth Amboy, NJ</a>
+        <a href="https://impactholdingsllc.com" rel="noopener" data-en="Main Website" data-es="Sitio Principal">impactholdingsllc.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy" data-en="© 2026 Impact Holdings LLC. All rights reserved. Tax preparation and business formation services are not legal or financial advice." data-es="© 2026 Impact Holdings LLC. Todos los derechos reservados. Los servicios de preparación de impuestos y formación empresarial no constituyen asesoramiento legal ni financiero.">
+        © 2026 Impact Holdings LLC. All rights reserved. Tax and business formation services are not legal advice.
+      </div>
+      <div class="foot-copy" style="color:rgba(255,255,255,.2);font-size:.7rem">EFIN registered · PTIN registered</div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE BAR -->
+<div class="mob-bar">
+  <a href="tel:+17323552840" class="mob-btn">
+    <span class="mob-icon">📞</span>
+    <span data-en="Call" data-es="Llamar">Call</span>
+  </a>
+  <a href="mailto:founder@impactholdingsllc.com" class="mob-btn">
+    <span class="mob-icon">✉️</span>
+    <span data-en="Email" data-es="Correo">Email</span>
+  </a>
+  <a href="#contact" class="mob-btn cta-mob">
+    <span class="mob-icon">🚀</span>
+    <span data-en="Start" data-es="Empezar">Start</span>
+  </a>
+  <button class="mob-btn" type="button" onclick="toggleLang()" aria-label="Toggle language">
+    <span class="mob-icon" id="mob-lang-flag">🇪🇸</span>
+    <span id="mob-lang-label">ES</span>
+  </button>
+  <button class="mob-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span class="mob-icon" id="mob-theme-icon">🌙</span>
+    <span id="mob-theme-label" data-en="Dark" data-es="Oscuro">Dark</span>
+  </button>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+/* ── THEME ── */
+(function(){applyTheme(localStorage.getItem('ih-theme')||'light');}());
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light');}
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('ih-theme',t);
+  var d=t==='dark';
+  var lang=document.documentElement.getAttribute('data-lang')||'en';
+  var themeBtn=document.getElementById('theme-btn');
+  if(themeBtn){
+    themeBtn.textContent=d?'☀️':'🌙';
+    themeBtn.setAttribute('aria-label',d?(lang==='es'?'Cambiar a modo claro':'Switch to light mode'):(lang==='es'?'Cambiar a modo oscuro':'Switch to dark mode'));
+  }
+  var mi=document.getElementById('mob-theme-icon');
+  var ml=document.getElementById('mob-theme-label');
+  if(mi)mi.textContent=d?'☀️':'🌙';
+  if(ml)ml.textContent=d?(lang==='es'?'Claro':'Light'):(lang==='es'?'Oscuro':'Dark');
+}
+
+/* ── LANGUAGE ── */
+(function(){applyLang(localStorage.getItem('ih-lang')||'en');}());
+function toggleLang(){applyLang(document.documentElement.getAttribute('data-lang')==='en'?'es':'en');}
+function applyLang(lang){
+  document.documentElement.setAttribute('data-lang',lang);
+  document.documentElement.setAttribute('lang',lang);
+  localStorage.setItem('ih-lang',lang);
+  document.querySelectorAll('[data-en][data-es]').forEach(function(el){
+    var t=el.getAttribute('data-'+lang);
+    if(t)el.innerHTML=t;
+  });
+  document.querySelectorAll('[data-ph-en][data-ph-es]').forEach(function(el){
+    el.placeholder=el.getAttribute('data-ph-'+lang)||el.placeholder;
+  });
+  document.querySelectorAll('select option[data-en][data-es]').forEach(function(o){
+    o.textContent=o.getAttribute('data-'+lang)||o.textContent;
+  });
+  var es=lang==='es';
+  var f=es?'🇺🇸':'🇪🇸',lb=es?'EN':'ES';
+  document.getElementById('lang-flag').textContent=f;
+  document.getElementById('lang-label').textContent=lb;
+  var mf=document.getElementById('mob-lang-flag'),ml=document.getElementById('mob-lang-label');
+  if(mf)mf.textContent=f;
+  if(ml)ml.textContent=lb;
+  applyTheme(document.documentElement.getAttribute('data-theme')||'light');
+}
+
+/* ── SHOW SUCCESS IF REDIRECTED BACK ── */
+(function(){
+  if(window.location.search.indexOf('sent=true')>-1){
+    var f=document.getElementById('contactForm');
+    var s=document.getElementById('formSuccess');
+    if(f)f.style.display='none';
+    if(s)s.style.display='block';
+    window.history.replaceState({},'',window.location.pathname);
+  }
+}());
+</script>
+</body>
+</html>
