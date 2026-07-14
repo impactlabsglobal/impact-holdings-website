@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Portal de clientes de Impact Holdings LLC para taxes, 1099 y formacion de LLC.">
+  <meta name="description" content="Impact Holdings LLC client portal for tax preparation, 1099 filings, and LLC formation.">
   <meta name="theme-color" content="#f8fbff">
-  <title>Impact Holdings LLC | Portal de Clientes</title>
+  <title>Impact Holdings LLC | Client Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -83,7 +83,7 @@
       box-shadow:var(--shadow);
       backdrop-filter:blur(16px);
     }
-    .intro{padding:36px}
+    .intro{padding:30px 36px}
     .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -107,16 +107,10 @@
     }
     .intro h2 span{color:var(--blue)}
     .intro-copy{font-size:1.05rem;color:var(--muted);max-width:620px;margin-bottom:26px}
-    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .quick-item{
-      background:var(--soft);
-      border:1px solid var(--line);
-      border-radius:var(--radius-sm);
-      padding:14px;
-      min-height:92px;
-    }
-    .quick-item strong{display:block;font-size:1.1rem;margin-bottom:4px}
-    .quick-item span{display:block;font-size:.76rem;color:var(--muted);font-weight:700}
+    .headline{max-width:760px}
+    .headline h2{font-size:clamp(2rem,5vw,3.6rem);line-height:1;letter-spacing:-.055em;margin-bottom:14px}
+    .headline h2 span{color:var(--blue)}
+    .headline p{font-size:1rem;color:var(--muted);max-width:650px}
 
     .summary-card{padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
     .summary-top p{font-size:.8rem;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
@@ -142,6 +136,7 @@
     .service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:24px}
     .service-option input,.pay-option input{position:absolute;opacity:0;pointer-events:none}
     .service-card{
+      position:relative;
       display:block;
       border:1px solid var(--line);
       border-radius:16px;
@@ -155,23 +150,16 @@
       border-color:rgba(31,111,235,.72);
       box-shadow:0 0 0 4px rgba(31,111,235,.10),var(--shadow-sm);
     }
+    .selected-mark{position:absolute;right:16px;bottom:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-size:1rem;font-weight:800;opacity:0;transform:scale(.8);transition:opacity .18s ease,transform .18s ease}
+    .service-option input:checked + .service-card .selected-mark{opacity:1;transform:scale(1)}
     .service-meta{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px}
     .service-name{font-weight:800;letter-spacing:-.02em}
     .service-price{font-size:1.7rem;font-weight:800;color:var(--blue);letter-spacing:-.05em;white-space:nowrap}
     .service-card p{font-size:.9rem;color:var(--muted);margin-bottom:12px}
     .pill-row{display:flex;flex-wrap:wrap;gap:7px}
     .pill{font-size:.72rem;font-weight:800;color:#35516d;background:#f0f5fa;border:1px solid #dce8f2;padding:5px 8px;border-radius:999px}
-
-    .extra-option{
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-      padding:14px 16px;margin:-6px 0 24px;
-      border:1px solid var(--line);border-radius:14px;background:var(--soft);
-      color:var(--ink);font-size:.9rem;font-weight:700;
-    }
-    .extra-option.is-hidden{display:none}
-    .extra-label{display:flex;align-items:center;gap:10px}
-    .extra-label select{width:auto;min-width:92px;min-height:42px;padding:8px 34px 8px 12px;font-weight:800}
-    .extra-price{color:var(--blue);white-space:nowrap}
+    .service-extra{display:flex;align-items:center;gap:8px;margin-top:16px;color:var(--muted);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+    .service-extra select{min-height:38px;width:100%;padding:7px 10px;border-radius:10px;font-size:.82rem;font-weight:800;text-transform:none;letter-spacing:0}
     .selection-bar{
       display:flex;align-items:center;justify-content:space-between;gap:16px;
       padding:15px 16px;margin:-6px 0 24px;border:1px solid #d7e6f7;
@@ -257,7 +245,7 @@
       .top-actions{justify-content:flex-start}
       .intro,.portal-card,.summary-card,.info-card{border-radius:16px}
       .intro{padding:24px}
-      .quick-grid,.service-grid,.form-grid{grid-template-columns:1fr}
+      .service-grid,.form-grid{grid-template-columns:1fr}
       .pay-grid{grid-template-columns:repeat(2,1fr)}
       .section-head{display:block}
       .section-head p{margin-top:6px}
@@ -283,41 +271,22 @@
         <div class="mark">IH</div>
         <div>
           <h1>Impact Holdings LLC</h1>
-          <p>Preparacion de taxes y formacion de LLC</p>
+          <p>Tax preparation and LLC formation</p>
         </div>
       </a>
-      <nav class="top-actions" aria-label="Acciones principales">
+      <nav class="top-actions" aria-label="Primary actions">
         <a class="mini-link" href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a>
-        <a class="mini-link primary" href="#portal">Comenzar solicitud</a>
+        <a class="mini-link primary" href="#portal">Start your request</a>
       </nav>
     </header>
 
     <main id="inicio">
       <section class="hero" aria-labelledby="hero-title">
         <div class="intro">
-          <div class="eyebrow">Portal de clientes</div>
-          <h2 id="hero-title">Taxes y LLC en un portal <span>claro.</span></h2>
-          <p class="intro-copy">
-            Selecciona un servicio, confirma el metodo de pago y envia tu informacion.
-            Precios claros y un proceso sencillo para comenzar.
-          </p>
-          <div class="quick-grid" aria-label="Precios principales">
-            <div class="quick-item">
-              <strong>$100</strong>
-              <span>Declaracion W-2</span>
-            </div>
-            <div class="quick-item">
-              <strong>$300</strong>
-              <span>W-2 + 1099 con millas</span>
-            </div>
-            <div class="quick-item">
-              <strong>$400</strong>
-              <span>W-2 + 1099 con gastos</span>
-            </div>
-            <div class="quick-item">
-              <strong>$300</strong>
-              <span>LLC + EIN + kit</span>
-            </div>
+          <div class="headline">
+            <div class="eyebrow">Client portal</div>
+            <h2 id="hero-title">Clear taxes. <span>Confident business.</span></h2>
+            <p>Choose the service that fits your needs, select any additional filing options, and send your information securely for a personal follow-up.</p>
           </div>
         </div>
       </section>
@@ -329,100 +298,94 @@
           action="https://formsubmit.co/founder@impactholdingsllc.com"
           method="POST"
         >
-          <input type="hidden" name="_subject" value="Nueva solicitud de cliente - Impact Holdings LLC">
+          <input type="hidden" name="_subject" value="New client inquiry - Impact Holdings LLC">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://impactlabsglobal.github.io/impact-holdings-website/?sent=true">
           <input type="text" name="_honey" style="display:none">
-          <input type="hidden" id="serviceHidden" name="Servicio seleccionado" value="Declaracion W-2">
-          <input type="hidden" id="priceHidden" name="Precio estimado" value="$100">
-          <input type="hidden" id="extraHidden" name="SSN adicionales" value="0 ($0)">
-          <input type="hidden" id="paymentHidden" name="Metodo de pago" value="Zelle">
+          <input type="hidden" id="serviceHidden" name="Selected Service" value="W-2 Tax Return">
+          <input type="hidden" id="priceHidden" name="Estimated Price" value="$100">
+          <input type="hidden" id="extraHidden" name="Additional Filings" value="0 ($0)">
+          <input type="hidden" id="paymentHidden" name="Payment Method" value="Zelle">
 
           <div class="section-head">
             <div>
-              <h3>Selecciona tu servicio</h3>
-              <p>Elige la opcion que mejor corresponde a tu declaracion.</p>
+              <h3>Choose your service</h3>
+              <p>Select a service below. Each service includes its own additional filing options.</p>
             </div>
           </div>
 
-          <div class="service-grid" role="radiogroup" aria-label="Servicios">
+          <div class="service-grid" role="radiogroup" aria-label="Tax and business services">
             <label class="service-option">
-              <input type="radio" name="serviceChoice" value="Declaracion W-2" data-price="100" checked>
+              <input type="radio" name="serviceChoice" value="W-2 Tax Return" data-price="100" checked>
               <span class="service-card">
                 <span class="service-meta">
-                  <span class="service-name">Declaracion W-2</span>
+                  <span class="service-name">W-2 Tax Return</span>
                   <span class="service-price">$100</span>
                 </span>
-                <p>Declaracion sencilla para empleado con formulario W-2.</p>
-                <span class="pill-row"><span class="pill">Federal</span><span class="pill">Estatal</span></span>
+                <p>Simple filing for employees with a W-2 form.</p>
+                <span class="pill-row"><span class="pill">Federal</span><span class="pill">State</span></span>
+                <span class="service-extra"><span>Additional SSNs</span><select class="service-extra-select" data-extra-label="Additional SSNs" aria-label="Additional SSNs for W-2"><option value="0">None</option><option value="1">1 extra</option><option value="2">2 extra</option><option value="3">3 extra</option><option value="4">4 extra</option></select></span>
+                <span class="selected-mark" aria-hidden="true">✓</span>
               </span>
             </label>
 
             <label class="service-option">
-              <input type="radio" name="serviceChoice" value="W-2 + 1099 con millas" data-price="300">
+              <input type="radio" name="serviceChoice" value="W-2 + 1099 with mileage" data-price="300">
               <span class="service-card">
                 <span class="service-meta">
-                  <span class="service-name">W-2 + 1099 con millas</span>
+                  <span class="service-name">W-2 + 1099 with mileage</span>
                   <span class="service-price">$300</span>
                 </span>
-                <p>Declaracion combinada para empleados y contratistas con millaje.</p>
-                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Millas</span></span>
+                <p>Combined filing for employees and independent contractors with mileage.</p>
+                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Mileage</span></span>
+                <span class="service-extra"><span>Additional W-2 / SSNs</span><select class="service-extra-select" data-extra-label="Additional W-2 / SSNs" aria-label="Additional W-2 or SSNs"><option value="0">None</option><option value="1">1 extra</option><option value="2">2 extra</option><option value="3">3 extra</option><option value="4">4 extra</option></select></span>
+                <span class="selected-mark" aria-hidden="true">✓</span>
               </span>
             </label>
 
             <label class="service-option">
-              <input type="radio" name="serviceChoice" value="W-2 + 1099 con gastos" data-price="400">
+              <input type="radio" name="serviceChoice" value="W-2 + 1099 with expenses" data-price="400">
               <span class="service-card">
                 <span class="service-meta">
-                  <span class="service-name">W-2 + 1099 con gastos</span>
+                  <span class="service-name">W-2 + 1099 with expenses</span>
                   <span class="service-price">$400</span>
                 </span>
-                <p>Declaracion combinada con organizacion de gastos y deducciones aplicables.</p>
-                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Gastos</span></span>
+                <p>Combined filing with business expenses and applicable deductions.</p>
+                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Expenses</span></span>
+                <span class="service-extra"><span>Additional W-2 / SSNs</span><select class="service-extra-select" data-extra-label="Additional W-2 / SSNs" aria-label="Additional W-2 or SSNs"><option value="0">None</option><option value="1">1 extra</option><option value="2">2 extra</option><option value="3">3 extra</option><option value="4">4 extra</option></select></span>
+                <span class="selected-mark" aria-hidden="true">✓</span>
               </span>
             </label>
 
             <label class="service-option">
-              <input type="radio" name="serviceChoice" value="LLC completo" data-price="300">
+              <input type="radio" name="serviceChoice" value="Complete LLC package" data-price="300">
               <span class="service-card">
                 <span class="service-meta">
-                  <span class="service-name">LLC completo</span>
+                  <span class="service-name">Complete LLC package</span>
                   <span class="service-price">$300</span>
                 </span>
-                <p>Incluye formacion de LLC, EIN, correo comercial y kit completo de LLC.</p>
-                <span class="pill-row"><span class="pill">LLC</span><span class="pill">EIN</span><span class="pill">Correo comercial</span></span>
+                <p>Includes LLC formation, EIN assistance, business email, and a complete LLC kit.</p>
+                <span class="pill-row"><span class="pill">LLC</span><span class="pill">EIN</span><span class="pill">Business email</span></span>
+                <span class="service-extra"><span>Included services</span><span>✓ No extra filing fee</span></span>
+                <span class="selected-mark" aria-hidden="true">✓</span>
               </span>
             </label>
           </div>
 
           <div class="selection-bar" aria-live="polite">
-            <div><span>Servicio seleccionado</span><strong id="selectedService">Declaracion W-2</strong></div>
+            <div><span>Selected service</span><strong id="selectedService">W-2 Tax Return</strong></div>
             <strong class="selection-total" id="selectedPrice">$100</strong>
           </div>
 
-          <label class="extra-option" id="extraSsnOption" for="extraSsn">
-            <span class="extra-label">
-              <select id="extraSsn" name="Extra SSN Choice" aria-label="Cantidad de SSN adicionales">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
-              <span>SSN adicionales</span>
-            </span>
-            <span class="extra-price">+$40 cada uno</span>
-          </label>
-
           <div class="section-head">
             <div>
-              <h3>Metodo de pago</h3>
-              <p>Selecciona como prefieres pagar. Confirmaremos los detalles contigo.</p>
+              <h3>Payment method</h3>
+              <p>Select your preferred payment method. We will confirm the details with you.</p>
             </div>
           </div>
 
-          <div class="pay-grid" role="radiogroup" aria-label="Metodos de pago">
+          <div class="pay-grid" role="radiogroup" aria-label="Payment methods">
             <label class="pay-option">
               <input type="radio" name="paymentChoice" value="Zelle" checked>
               <span class="pay-card">Zelle</span>
@@ -443,18 +406,18 @@
 
           <div class="section-head">
             <div>
-              <h3>Informacion del cliente</h3>
-              <p>Completa estos datos para comenzar el proceso.</p>
+              <h3>Client information</h3>
+              <p>Complete these details to begin the process.</p>
             </div>
           </div>
 
           <div class="form-grid">
             <div class="field">
-              <label for="firstName">Nombre</label>
+              <label for="firstName">First name</label>
               <input id="firstName" name="First Name" type="text" autocomplete="given-name" required>
             </div>
             <div class="field">
-              <label for="lastName">Apellido</label>
+              <label for="lastName">Last name</label>
               <input id="lastName" name="Last Name" type="text" autocomplete="family-name" required>
             </div>
             <div class="field">
@@ -462,52 +425,52 @@
               <input id="email" name="Email" type="email" autocomplete="email" required>
             </div>
             <div class="field">
-              <label for="phone">Telefono</label>
+              <label for="phone">Phone</label>
               <input id="phone" name="Phone" type="tel" autocomplete="tel" required>
             </div>
             <div class="field">
-              <label for="preferredLang">Idioma</label>
+              <label for="preferredLang">Preferred language</label>
               <select id="preferredLang" name="Preferred Language">
-                <option value="Espanol">Espanol</option>
-                <option value="Ingles">Ingles</option>
+                <option value="Spanish">Spanish</option>
+                <option value="English">English</option>
               </select>
             </div>
             <div class="field">
-              <label for="businessName">Negocio, si aplica</label>
-              <input id="businessName" name="Nombre del negocio" type="text" placeholder="Nombre del negocio o LLC">
+              <label for="businessName">Business name, if applicable</label>
+              <input id="businessName" name="Business Name" type="text" placeholder="Business or LLC name">
             </div>
             <div class="field full">
-              <label for="notes">Notas o preguntas</label>
-              <textarea id="notes" name="Message" placeholder="Ejemplo: Tengo W-2 y 1099, necesito saber que documentos enviar."></textarea>
+              <label for="notes">Notes or questions</label>
+              <textarea id="notes" name="Message" placeholder="Example: I have a W-2 and 1099 and need to know which documents to send."></textarea>
             </div>
           </div>
 
           <div class="submit-row">
-            <button class="submit-btn" type="submit">Enviar informacion</button>
-            <p class="privacy">Tu informacion es confidencial. Te contactaremos para confirmar documentos, pago y proximos pasos.</p>
+            <button class="submit-btn" type="submit">Send information</button>
+            <p class="privacy">Your information is confidential. We will contact you to confirm documents, payment, and next steps.</p>
           </div>
         </form>
 
-        <aside class="side" aria-label="Informacion adicional">
+        <aside class="side" aria-label="Additional information">
           <div class="info-card">
-            <h4>Que incluye LLC completo</h4>
+            <h4>What is included in the LLC package</h4>
             <ul class="info-list">
-              <li><strong>Formacion de LLC</strong><span>Preparacion y proceso inicial.</span></li>
-              <li><strong>EIN / Tax ID</strong><span>Asistencia para identificacion fiscal.</span></li>
-              <li><strong>Correo comercial</strong><span>Presencia profesional para tu negocio.</span></li>
-              <li><strong>Kit completo</strong><span>Documentos y organizacion basica de la LLC.</span></li>
+              <li><strong>LLC formation</strong><span>Initial preparation and filing process.</span></li>
+              <li><strong>EIN / Tax ID</strong><span>Assistance with your federal tax ID.</span></li>
+              <li><strong>Business email</strong><span>A professional presence for your business.</span></li>
+              <li><strong>Complete LLC kit</strong><span>Basic LLC documents and organization.</span></li>
             </ul>
           </div>
           <div class="info-card">
-            <h4>Contacto</h4>
+            <h4>Contact</h4>
             <ul class="info-list">
               <li><strong>Email</strong><span>founder@impactholdingsllc.com</span></li>
-              <li><strong>Ubicacion</strong><span>Perth Amboy, New Jersey</span></li>
-              <li><strong>Servicio</strong><span>Disponible en los 50 estados.</span></li>
+              <li><strong>Location</strong><span>Perth Amboy, New Jersey</span></li>
+              <li><strong>Service area</strong><span>Available across the United States.</span></li>
             </ul>
           </div>
           <div class="notice">
-            Los precios mostrados son base. Casos complejos, documentos adicionales o situaciones especiales pueden requerir revision antes de confirmar.
+            Listed prices are starting prices. Complex cases, additional documents, or special situations may require review before confirmation.
           </div>
         </aside>
       </section>
@@ -517,28 +480,28 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <strong>Impact Holdings LLC</strong>
-          <span>Preparacion de taxes y formacion de LLC.</span>
+          <span>Tax preparation and LLC formation.</span>
           <span>Perth Amboy, New Jersey</span>
-          <a class="instagram-link" href="https://www.instagram.com/impactholdingsllc/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Impact Holdings LLC en Instagram">
+          <a class="instagram-link" href="https://www.instagram.com/impactholdingsllc/" target="_blank" rel="noopener noreferrer" aria-label="Visit Impact Holdings LLC on Instagram">
             <span class="instagram-icon" aria-hidden="true"></span> Instagram
           </a>
         </div>
         <div class="footer-column">
-          <h4>Empresa</h4>
-          <span><a href="#inicio">Sobre nosotros</a></span>
-          <span><a href="#portal">Servicios</a></span>
-          <span><a href="mailto:founder@impactholdingsllc.com">Contacto</a></span>
+          <h4>Company</h4>
+          <span><a href="#inicio">About us</a></span>
+          <span><a href="#portal">Services</a></span>
+          <span><a href="mailto:founder@impactholdingsllc.com">Contact</a></span>
         </div>
         <div class="footer-column">
-          <h4>Servicios</h4>
-          <span>Declaraciones W-2 y 1099</span>
-          <span>Formacion de LLC</span>
-          <span>EIN y correo comercial</span>
+          <h4>Services</h4>
+          <span>W-2 and 1099 filings</span>
+          <span>LLC formation</span>
+          <span>EIN and business email</span>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Impact Holdings LLC. Todos los derechos reservados.</span>
-        <span>Los servicios no constituyen asesoramiento legal o financiero.</span>
+        <span>© 2026 Impact Holdings LLC. All rights reserved.</span>
+        <span>Services are not legal or financial advice.</span>
       </div>
     </footer>
   </div>
@@ -550,8 +513,6 @@
     var selectedPrice = document.getElementById('selectedPrice');
     var serviceHidden = document.getElementById('serviceHidden');
     var priceHidden = document.getElementById('priceHidden');
-    var extraSsnOption = document.getElementById('extraSsnOption');
-    var extraSsn = document.getElementById('extraSsn');
     var extraHidden = document.getElementById('extraHidden');
     var paymentHidden = document.getElementById('paymentHidden');
 
@@ -562,17 +523,17 @@
     function updateService(){
       var chosen = document.querySelector('input[name="serviceChoice"]:checked');
       if(!chosen) return;
-      var isLlc = chosen.value === 'LLC completo';
-      extraSsnOption.classList.toggle('is-hidden', isLlc);
-      if(isLlc) extraSsn.value = '0';
-      var extraCount = Number(extraSsn.value);
-      var total = Number(chosen.dataset.price) + (isLlc ? 0 : extraCount * 40);
+      var card = chosen.nextElementSibling;
+      var extraSelect = card.querySelector('.service-extra-select');
+      var extraCount = extraSelect ? Number(extraSelect.value) : 0;
+      var extraLabel = extraSelect ? extraSelect.dataset.extraLabel : 'No additional filing';
+      var total = Number(chosen.dataset.price) + (extraCount * 40);
       var price = money(total);
       selectedService.textContent = chosen.value;
       selectedPrice.textContent = price;
       serviceHidden.value = chosen.value;
       priceHidden.value = price;
-      extraHidden.value = extraCount + (extraCount === 1 ? ' (+$40)' : ' (+$' + (extraCount * 40) + ')');
+      extraHidden.value = extraLabel + ': ' + extraCount + (extraCount === 1 ? ' (+$40)' : ' (+$' + (extraCount * 40) + ')');
     }
 
     function updatePayment(){
@@ -583,7 +544,9 @@
     serviceRadios.forEach(function(input){
       input.addEventListener('change', updateService);
     });
-    extraSsn.addEventListener('change', updateService);
+    document.querySelectorAll('.service-extra-select').forEach(function(select){
+      select.addEventListener('change', updateService);
+    });
     paymentRadios.forEach(function(input){
       input.addEventListener('change', updatePayment);
     });
