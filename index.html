@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Impact Holdings LLC client portal for tax preparation, 1099 filings, and LLC formation.">
-  <meta id="themeColor" name="theme-color" content="#f8fbff">
-  <title>Impact Holdings LLC | Client Portal</title>
+  <meta name="description" content="Impact Holdings LLC provides tax preparation and LLC formation services for individuals and small businesses.">
+  <meta id="themeColor" name="theme-color" content="#f7fafc">
+  <title>Impact Holdings LLC | Tax &amp; Business Services</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,636 +13,407 @@
     :root{
       color-scheme:light dark;
       --ink:#102033;
-      --muted:#607086;
-      --line:#dfe8f2;
-      --soft:#f6f9fc;
-      --panel:#ffffff;
-      --blue:#1f6feb;
-      --blue-dark:#164fba;
-      --teal:#0f9f8f;
-      --gold:#b7791f;
-      --shadow:0 18px 45px rgba(16,32,51,.08);
-      --shadow-sm:0 10px 25px rgba(16,32,51,.06);
-      --radius:18px;
-      --radius-sm:12px;
+      --muted:#5e7086;
+      --line:#dce6ef;
+      --paper:#ffffff;
+      --soft:#f4f8fb;
+      --blue:#1769e8;
+      --blue-deep:#0e3f86;
+      --amber:#e9a81f;
+      --shadow:0 18px 40px rgba(16,32,51,.10);
+      --radius:14px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-    body{
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--ink);
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.92),rgba(246,249,252,.98)),
-        radial-gradient(circle at 15% 10%,rgba(31,111,235,.10),transparent 28%),
-        radial-gradient(circle at 85% 0%,rgba(15,159,143,.10),transparent 30%);
-      min-height:100vh;
-      line-height:1.5;
-      overflow-x:hidden;
-    }
+    body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--soft);color:var(--ink);line-height:1.5;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     button,input,select,textarea{font:inherit}
     button{cursor:pointer}
-    :focus-visible{outline:3px solid rgba(31,111,235,.35);outline-offset:3px}
+    :focus-visible{outline:3px solid rgba(23,105,232,.35);outline-offset:3px}
 
-    .shell{max-width:1180px;margin:0 auto;padding:24px}
-    .topbar{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      padding:14px 0 24px;
-    }
-    .brand{display:flex;align-items:center;gap:14px;min-width:0}
-    .mark{
-      width:46px;height:46px;border-radius:14px;
-      background:linear-gradient(135deg,#ffffff,#e9f2ff);
-      border:1px solid rgba(31,111,235,.18);
-      box-shadow:var(--shadow-sm);
-      display:grid;place-items:center;
-      color:var(--blue);
-      font-weight:800;
-      letter-spacing:-.04em;
-    }
-    .brand h1{font-size:1.02rem;font-weight:800;letter-spacing:-.02em}
-    .brand p{font-size:.78rem;color:var(--muted);font-weight:600}
-    .top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .mini-link{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:42px;padding:0 14px;border:1px solid var(--line);
-      border-radius:999px;background:rgba(255,255,255,.8);
-      color:var(--muted);font-weight:700;font-size:.85rem;
-    }
-    .mini-link.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .container{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .site-header{position:absolute;z-index:2;top:0;left:0;right:0;color:#fff}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800}
+    .brand-mark{width:36px;height:36px;display:grid;place-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);border-radius:10px;font-size:.84rem}
+    .brand-copy{display:grid;line-height:1.15}
+    .brand-copy small{font-size:.7rem;font-weight:600;opacity:.8}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:.88rem;font-weight:700}
+    .nav-links a{opacity:.9}
+    .nav-links a:hover{opacity:1}
+    .nav-cta{padding:11px 15px;background:#fff;color:var(--ink);border-radius:8px;font-size:.85rem;font-weight:800}
 
-    .hero{display:block;margin-bottom:26px}
-    .intro,.portal-card,.summary-card,.info-card{
-      background:rgba(255,255,255,.86);
-      border:1px solid rgba(223,232,242,.92);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(16px);
-    }
-    .intro{padding:30px 36px}
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 12px;
-      border-radius:999px;
-      background:#eef6ff;
-      color:var(--blue-dark);
-      font-size:.75rem;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      margin-bottom:18px;
-    }
-    .intro h2{
-      font-size:clamp(2rem,5vw,4.2rem);
-      line-height:.98;
-      letter-spacing:-.055em;
-      max-width:760px;
-      margin-bottom:18px;
-    }
-    .intro h2 span{color:var(--blue)}
-    .intro-copy{font-size:1.05rem;color:var(--muted);max-width:620px;margin-bottom:26px}
-    .headline{max-width:760px}
-    .headline h2{font-size:clamp(2rem,5vw,3.6rem);line-height:1;letter-spacing:-.055em;margin-bottom:14px}
-    .headline h2 span{color:var(--blue)}
-    .headline p{font-size:1rem;color:var(--muted);max-width:650px}
+    .hero{min-height:78vh;display:flex;align-items:flex-end;position:relative;color:#fff;background:#0b1928 url("assets/tax-consultation-hero.jpg") center/cover no-repeat}
+    .hero::before{content:"";position:absolute;inset:0;background:rgba(8,22,38,.56)}
+    .hero-content{position:relative;z-index:1;width:min(1180px,calc(100% - 40px));margin:0 auto;padding:145px 0 76px}
+    .hero-copy{max-width:620px}
+    .eyebrow{display:inline-flex;align-items:center;min-height:30px;padding:0 11px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);border-radius:999px;font-size:.76rem;font-weight:800}
+    h1{font-size:clamp(2.5rem,6vw,5.2rem);line-height:.98;margin:18px 0;max-width:720px}
+    .hero-copy p{max-width:560px;color:rgba(255,255,255,.9);font-size:1.05rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border:0;border-radius:8px;background:var(--blue);color:#fff;font-weight:800}
+    .button:hover{background:#0e55c2}
+    .button.secondary{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4)}
+    .hero-note{margin-top:30px;color:rgba(255,255,255,.82);font-size:.84rem}
 
-    .summary-card{padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
-    .summary-top p{font-size:.8rem;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-    .summary-top h3{font-size:2.35rem;letter-spacing:-.05em;margin-top:6px}
-    .total-box{
-      border-radius:16px;
-      background:linear-gradient(135deg,#112033,#1f3f66);
-      color:#fff;
-      padding:22px;
-    }
-    .total-box span{display:block;color:rgba(255,255,255,.72);font-weight:700;font-size:.82rem}
-    .total-box strong{display:block;font-size:2.5rem;letter-spacing:-.06em;margin-top:4px}
-    .summary-list{list-style:none;display:grid;gap:10px;color:var(--muted);font-size:.92rem}
-    .summary-list li{display:flex;gap:10px}
-    .summary-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);margin-top:.55em;flex:0 0 auto}
+    main{background:var(--paper)}
+    .section{padding:88px 0}
+    .section.soft{background:var(--soft)}
+    .section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:32px}
+    .section-heading h2{font-size:clamp(1.9rem,4vw,3.15rem);line-height:1.05;max-width:650px}
+    .section-heading p{max-width:460px;color:var(--muted)}
 
-    .layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:26px;align-items:start}
-    .portal-card{padding:28px}
-    .portal-brand{display:flex;align-items:center;gap:10px;margin-bottom:24px;color:var(--muted);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
-    .portal-brand::before{content:"IH";display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:#edf5ff;color:var(--blue);font-size:.76rem;letter-spacing:0}
-    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:20px}
-    .section-head h3{font-size:1.55rem;letter-spacing:-.035em}
-    .section-head p{font-size:.92rem;color:var(--muted);max-width:560px}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .service-card{display:flex;flex-direction:column;min-width:0;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 8px 22px rgba(16,32,51,.04)}
+    .service-card h3{font-size:1rem;line-height:1.25;min-height:48px}
+    .service-card .price{font-size:2.25rem;font-weight:800;color:var(--blue);margin:15px 0 10px}
+    .service-card p{color:var(--muted);font-size:.9rem;min-height:78px}
+    .service-card ul{list-style:none;display:grid;gap:8px;margin:18px 0 22px;color:var(--muted);font-size:.84rem}
+    .service-card li{display:flex;gap:8px}
+    .service-card li::before{content:"✓";color:var(--blue);font-weight:800}
+    .service-card a{margin-top:auto;color:var(--blue-deep);font-size:.88rem;font-weight:800}
 
-    .service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:24px}
-    .service-option{min-width:0}
-    .service-option input,.pay-option input{position:absolute;opacity:0;pointer-events:none}
-    .service-card{
-      position:relative;
-      display:block;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:#fff;
-      padding:18px;
-      min-height:0;
-      overflow:hidden;
-      color:var(--ink);
-      font-size:1rem;
-      text-transform:none;
-      letter-spacing:0;
-      transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
-    }
-    .service-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
-    .service-option input:checked + .service-card{
-      border-color:rgba(31,111,235,.72);
-      box-shadow:0 0 0 4px rgba(31,111,235,.10),var(--shadow-sm);
-    }
-    .selected-mark{position:absolute;right:16px;bottom:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-size:1rem;font-weight:800;opacity:0;transform:scale(.8);transition:opacity .18s ease,transform .18s ease}
-    .service-option input:checked + .service-card .selected-mark{opacity:1;transform:scale(1)}
-    .service-meta{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px;min-width:0}
-    .service-name{font-weight:800;letter-spacing:-.02em;overflow-wrap:anywhere}
-    .service-price{font-size:1.7rem;font-weight:800;color:var(--blue);letter-spacing:-.05em;white-space:nowrap}
-    .service-card p{font-size:.9rem;color:var(--muted);margin-bottom:12px}
-    .pill-row{display:flex;flex-wrap:wrap;gap:7px}
-    .pill{font-size:.72rem;font-weight:800;color:#35516d;background:#f0f5fa;border:1px solid #dce8f2;padding:5px 8px;border-radius:999px}
-    .service-extra{display:none;gap:7px;padding:14px 18px 18px;margin-top:-1px;border:1px solid var(--line);border-radius:0 0 16px 16px;background:var(--soft);color:var(--muted);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;min-width:0}
-    .service-option input:checked + .service-card + .service-extra{display:grid;border-color:rgba(31,111,235,.72)}
-    .service-extra label{font-size:.72rem;color:var(--muted)}
-    .extra-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);font-size:.9rem;font-weight:800;text-align:left;text-transform:none;letter-spacing:0}
-    .extra-trigger::after{content:"⌄";font-size:1.25rem;line-height:1;color:var(--blue);transition:transform .18s ease}
-    .service-extra.is-open .extra-trigger::after{transform:rotate(180deg)}
-    .extra-menu{display:none;gap:6px;padding-top:4px}
-    .service-extra.is-open .extra-menu{display:grid}
-    .extra-choice{min-height:40px;padding:8px 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--muted);font-size:.86rem;font-weight:700;text-align:left;text-transform:none;letter-spacing:0}
-    .extra-choice:hover,.extra-choice:focus-visible{background:rgba(31,111,235,.10);color:var(--blue-dark)}
-    .extra-choice.is-selected{background:rgba(31,111,235,.12);border-color:rgba(31,111,235,.35);color:var(--blue-dark)}
-    .selection-bar{
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-      padding:15px 16px;margin:-6px 0 24px;border:1px solid #d7e6f7;
-      border-radius:14px;background:#f4f8fd;color:var(--muted);font-size:.88rem;font-weight:700;
-    }
-    .selection-bar strong{display:block;color:var(--ink);font-size:1rem}
-    .selection-total{color:var(--blue);font-size:1.25rem;white-space:nowrap}
+    .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .step{border-top:2px solid var(--blue);padding-top:16px}
+    .step span{display:block;color:var(--blue);font-size:.82rem;font-weight:800;margin-bottom:10px}
+    .step h3{font-size:1.14rem;margin-bottom:8px}
+    .step p{color:var(--muted);font-size:.92rem}
 
-    .pay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
-    .pay-card{
-      display:flex;align-items:center;justify-content:center;text-align:center;
-      min-height:58px;padding:10px;border:1px solid var(--line);border-radius:14px;background:#fff;
-      color:var(--muted);font-size:.84rem;font-weight:800;
-    }
-    .pay-option input:checked + .pay-card{
-      color:var(--blue-dark);
-      border-color:rgba(31,111,235,.72);
-      box-shadow:0 0 0 4px rgba(31,111,235,.10);
-    }
+    .payment-band{background:#102033;color:#fff}
+    .payment-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.78fr);gap:50px;align-items:center}
+    .payment-band h2{font-size:clamp(1.9rem,4vw,3.1rem);line-height:1.05;margin-bottom:15px}
+    .payment-band p{color:rgba(255,255,255,.78);max-width:580px}
+    .payment-list{display:grid;gap:10px}
+    .payment-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border:1px solid rgba(255,255,255,.18);border-radius:10px}
+    .payment-item strong{font-size:.95rem}
+    .payment-item span{color:#a9c9ff;font-size:.8rem;font-weight:700;text-align:right}
+    .stripe-note{margin-top:20px;color:#b7c9dd;font-size:.82rem}
 
+    .request-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.6fr);gap:28px;align-items:start}
+    .request-form{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
+    .form-title{margin-bottom:24px}
+    .form-title h2{font-size:1.8rem;margin-bottom:6px}
+    .form-title p{color:var(--muted)}
+    .service-select{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:18px}
+    .service-choice{position:relative;display:block}
+    .service-choice input,.payment-choice input{position:absolute;opacity:0;pointer-events:none}
+    .service-choice label{display:flex;flex-direction:column;gap:4px;min-height:96px;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer}
+    .service-choice strong{font-size:.9rem}
+    .service-choice span{color:var(--blue);font-weight:800}
+    .service-choice input:checked + label{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.12)}
+    .extra-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px;border:1px solid var(--line);border-radius:10px;background:var(--soft);margin-bottom:18px}
+    .extra-row div{display:grid;gap:2px}
+    .extra-row strong{font-size:.9rem}
+    .extra-row span{color:var(--muted);font-size:.8rem}
+    .extra-options{display:flex;gap:6px;flex-wrap:wrap}
+    .extra-option{width:38px;height:38px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font-weight:800}
+    .extra-option.is-selected{background:var(--blue);border-color:var(--blue);color:#fff}
+    .order-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 16px;border-radius:10px;background:#eaf3ff;margin-bottom:20px}
+    .order-summary span{display:block;color:var(--muted);font-size:.8rem;font-weight:700}
+    .order-summary strong{font-size:1rem}
+    .order-summary b{font-size:1.6rem;color:var(--blue)}
+    .payment-select{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+    .payment-choice label{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:.82rem;font-weight:800;text-align:center;cursor:pointer}
+    .payment-choice input:checked + label{color:var(--blue-deep);border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.12)}
     .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .field{display:flex;flex-direction:column;gap:7px}
+    .field{display:grid;gap:7px}
     .field.full{grid-column:1/-1}
-    label{font-size:.78rem;font-weight:800;color:#344961;text-transform:uppercase;letter-spacing:.06em}
-    input,select,textarea{
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:#fff;
-      color:var(--ink);
-      padding:13px 14px;
-      min-height:48px;
-      outline:none;
-      transition:border-color .18s ease,box-shadow .18s ease;
-    }
-    textarea{min-height:112px;resize:vertical}
-    input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,111,235,.10)}
-    .submit-row{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap}
-    .submit-btn{
-      border:0;border-radius:14px;background:var(--blue);color:#fff;
-      min-height:52px;padding:0 22px;font-weight:800;
-      box-shadow:0 14px 28px rgba(31,111,235,.22);
-    }
-    .submit-btn:hover{background:var(--blue-dark)}
-    .privacy{color:var(--muted);font-size:.82rem;max-width:420px}
+    .field label{color:#304862;font-size:.76rem;font-weight:800}
+    input,select,textarea{width:100%;min-height:48px;padding:12px 13px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);outline:none}
+    textarea{min-height:106px;resize:vertical}
+    input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.12)}
+    .submit-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+    .fine-print{color:var(--muted);font-size:.78rem;max-width:440px}
+    .request-aside{display:grid;gap:14px}
+    .aside-block{padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--soft)}
+    .aside-block h3{font-size:1rem;margin-bottom:9px}
+    .aside-block p{color:var(--muted);font-size:.9rem}
+    .aside-block a{color:var(--blue-deep);font-weight:800}
+    .stripe-ready{border-left:3px solid var(--amber)}
 
-    .side{display:grid;gap:18px}
-    .info-card{padding:22px}
-    .info-card h4{font-size:1rem;margin-bottom:12px}
-    .info-list{list-style:none;display:grid;gap:12px}
-    .info-list li{padding-bottom:12px;border-bottom:1px solid var(--line)}
-    .info-list li:last-child{border-bottom:0;padding-bottom:0}
-    .info-list strong{display:block;font-size:.88rem}
-    .info-list span{display:block;color:var(--muted);font-size:.85rem;margin-top:2px}
-    .notice{
-      border-left:4px solid var(--gold);
-      background:#fffaf0;
-      color:#725019;
-      padding:14px;
-      border-radius:12px;
-      font-size:.86rem;
-    }
-
-    footer{padding:34px 0 10px;color:var(--muted);font-size:.84rem}
-    .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
-    .footer-brand strong{display:block;color:var(--ink);font-size:1rem;margin-bottom:6px}
-    .footer-brand span,.footer-column span{display:block;margin-top:5px}
-    .footer-column h4{color:var(--ink);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
-    .instagram-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--blue-dark);font-weight:800}
-    .instagram-icon{width:24px;height:24px;display:inline-block;background:currentColor;-webkit-mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat;mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat}
-    .footer-bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem}
+    footer{background:#0c1928;color:#c5d2df;padding:34px 0}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+    .footer-brand{color:#fff;font-weight:800;margin-bottom:9px}
+    .footer-copy{font-size:.84rem;max-width:360px}
+    .footer-column h3{color:#fff;font-size:.82rem;margin-bottom:10px}
+    .footer-column a,.footer-column span{display:block;margin-top:7px;font-size:.83rem}
+    .instagram-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#93bcff;font-size:.88rem;font-weight:800}
+    .instagram-icon{width:22px;height:22px;display:inline-block;background:currentColor;-webkit-mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat;mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat}
+    .footer-bottom{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:.76rem}
 
     @media(max-width:980px){
-      .layout{grid-template-columns:1fr}
-      .quick-grid{grid-template-columns:repeat(2,1fr)}
-      .summary-card{display:grid;grid-template-columns:1fr 1fr}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      .service-card p{min-height:0}
+      .payment-layout,.request-layout{grid-template-columns:1fr}
     }
     @media(max-width:720px){
-      .shell{padding:18px}
-      .topbar{align-items:flex-start;flex-direction:column}
-      .top-actions{justify-content:flex-start}
-      .top-actions,.top-actions .mini-link{width:100%}
-      .intro,.portal-card,.summary-card,.info-card{border-radius:16px}
-      .intro{padding:24px}
-      .service-grid,.form-grid{grid-template-columns:1fr}
-      .pay-grid{grid-template-columns:repeat(2,1fr)}
-      .section-head{display:block}
-      .section-head p{margin-top:6px}
-      .footer-grid{grid-template-columns:1fr 1fr}
-      input,select,textarea,.extra-trigger,.extra-choice{font-size:16px}
-    }
-    @media(max-width:420px){
-      .shell{padding:14px}
-      .intro,.portal-card,.summary-card,.info-card{padding:20px}
-      .intro h2{font-size:2.25rem}
-      .service-meta{display:block}
-      .service-price{margin-top:6px}
-      .pay-grid{grid-template-columns:1fr}
-      .selection-bar{align-items:flex-start;flex-direction:column}
-      .footer-grid{grid-template-columns:1fr}
+      .container{width:min(100% - 28px,1180px)}
+      .nav{min-height:68px}
+      .nav-links{display:none}
+      .hero{min-height:72vh}
+      .hero-content{width:min(100% - 28px,1180px);padding:120px 0 46px}
+      .section{padding:60px 0}
+      .section-heading{display:block;margin-bottom:24px}
+      .section-heading p{margin-top:10px}
+      .service-grid,.process-grid,.footer-grid,.form-grid{grid-template-columns:1fr}
+      .service-select{grid-template-columns:1fr}
+      .service-choice label{min-height:72px}
+      .payment-select{grid-template-columns:1fr}
+      .extra-row{align-items:flex-start;flex-direction:column}
+      input,select,textarea{font-size:16px}
     }
     @media(prefers-color-scheme:dark){
-      :root{
-        --ink:#eef5ff;
-        --muted:#aebed1;
-        --line:#2a3b51;
-        --soft:#142236;
-        --panel:#101c2c;
-        --blue:#70a9ff;
-        --blue-dark:#9bc4ff;
-        --teal:#41c9b6;
-        --gold:#e2af5b;
-        --shadow:0 18px 45px rgba(0,0,0,.28);
-        --shadow-sm:0 10px 25px rgba(0,0,0,.22);
-      }
-      body{background:linear-gradient(180deg,#0b1420,#101d2d)}
-      .intro,.portal-card,.summary-card,.info-card{background:rgba(16,28,44,.94);border-color:var(--line)}
-      .service-card,.pay-card,input,select,textarea,.extra-trigger{background:#101c2c;color:var(--ink);border-color:var(--line)}
-      .service-extra{background:#142236;border-color:var(--line)}
-      .service-option input:checked + .service-card + .service-extra{border-color:var(--blue)}
-      .pill{background:#1a2b40;border-color:#30465f;color:#c9d8ea}
-      .selection-bar{background:#142236;border-color:#2d4f78}
-      .portal-brand::before{background:#182b45}
-      .notice{background:#2a2315;color:#f0c978}
-      .footer-grid,.footer-bottom{border-color:var(--line)}
+      :root{--ink:#ecf4ff;--muted:#a8b9cb;--line:#2a3d52;--paper:#101d2c;--soft:#0b1623;--blue:#75abff;--blue-deep:#a2c7ff;--shadow:0 18px 40px rgba(0,0,0,.28)}
+      body{background:var(--soft)}
+      main{background:var(--paper)}
+      .service-card,.request-form,.service-choice label,input,select,textarea,.extra-option{background:var(--paper)}
+      .order-summary{background:#142a43}
+      .field label{color:#b9cae0}
+      .aside-block,.extra-row{background:#142236}
+      .service-card a,.aside-block a{color:var(--blue-deep)}
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <main id="inicio">
-      <section class="layout" id="portal">
-        <form
-          class="portal-card"
-          id="clientForm"
-          action="https://formsubmit.co/founder@impactholdingsllc.com"
-          method="POST"
-        >
-          <input type="hidden" name="_subject" value="New client inquiry - Impact Holdings LLC">
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Impact Holdings LLC home">
+        <span class="brand-mark">IH</span>
+        <span class="brand-copy">Impact Holdings LLC<small>Tax &amp; business services</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#request">Contact</a>
+      </div>
+      <a class="nav-cta" href="#request">Get started</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow">Professional support for every step</span>
+          <h1 id="hero-title">Taxes made clear. Business built with confidence.</h1>
+          <p>Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.</p>
+          <div class="hero-actions">
+            <a class="button" href="#request">Start your request</a>
+            <a class="button secondary" href="#services">View services</a>
+          </div>
+          <p class="hero-note">Serving clients in the United States from Perth Amboy, New Jersey.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="services-title">Straightforward services and transparent pricing.</h2>
+          <p>Choose the option that matches your situation. Additional W-2 or SSN filings are $40 each and are calculated before you submit.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>W-2 Tax Return</h3>
+            <div class="price">$100</div>
+            <p>A simple tax filing for employees with a W-2 form.</p>
+            <ul><li>Federal filing</li><li>State filing</li><li>Extra SSN available</li></ul>
+            <a href="#request" data-service-link="w2">Choose W-2</a>
+          </article>
+          <article class="service-card">
+            <h3>W-2 + 1099 with mileage</h3>
+            <div class="price">$300</div>
+            <p>Combined filing for employees and independent contractors with mileage.</p>
+            <ul><li>W-2 and 1099</li><li>Mileage review</li><li>Extra filing available</li></ul>
+            <a href="#request" data-service-link="mileage">Choose mileage</a>
+          </article>
+          <article class="service-card">
+            <h3>W-2 + 1099 with expenses</h3>
+            <div class="price">$400</div>
+            <p>Combined filing with business expenses and applicable deductions.</p>
+            <ul><li>W-2 and 1099</li><li>Expense organization</li><li>Extra filing available</li></ul>
+            <a href="#request" data-service-link="expenses">Choose expenses</a>
+          </article>
+          <article class="service-card">
+            <h3>Complete LLC package</h3>
+            <div class="price">$300</div>
+            <p>A focused launch package for a new business.</p>
+            <ul><li>LLC formation</li><li>EIN assistance</li><li>Business email and LLC kit</li></ul>
+            <a href="#request" data-service-link="llc">Choose LLC</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="process-title">A simple process from request to completion.</h2>
+          <p>We review your request before confirming documents, payment details, and next steps.</p>
+        </div>
+        <div class="process-grid">
+          <article class="step"><span>01</span><h3>Select your service</h3><p>Choose a tax or business service and add any extra filings needed.</p></article>
+          <article class="step"><span>02</span><h3>Send your information</h3><p>Your request goes directly to our professional email for review.</p></article>
+          <article class="step"><span>03</span><h3>Confirm and move forward</h3><p>We contact you with the document list, payment instructions, and timeline.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section payment-band" aria-labelledby="payments-title">
+      <div class="container payment-layout">
+        <div>
+          <h2 id="payments-title">Business payment options, ready for your next step.</h2>
+          <p>Cash App Business and Zelle Business are available for payment confirmation. Card checkout will be added through Stripe for secure card, Apple Pay, and Google Pay payments.</p>
+          <p class="stripe-note">Card checkout is intentionally not active until Stripe product and price IDs are added to the secure checkout endpoint.</p>
+        </div>
+        <div class="payment-list" aria-label="Payment methods">
+          <div class="payment-item"><strong>Cash App Business</strong><span>Payment instructions after confirmation</span></div>
+          <div class="payment-item"><strong>Zelle Business</strong><span>Payment instructions after confirmation</span></div>
+          <div class="payment-item"><strong>Stripe checkout</strong><span>Card, Apple Pay, and Google Pay coming soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="request" aria-labelledby="request-title">
+      <div class="container request-layout">
+        <form class="request-form" id="clientForm" action="https://formsubmit.co/founder@impactholdingsllc.com" method="POST">
+          <input type="hidden" name="_subject" value="New client request - Impact Holdings LLC">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://impactlabsglobal.github.io/impact-holdings-website/?sent=true">
           <input type="text" name="_honey" style="display:none">
           <input type="hidden" id="serviceHidden" name="Selected Service" value="W-2 Tax Return">
           <input type="hidden" id="priceHidden" name="Estimated Price" value="$100">
-          <input type="hidden" id="extraHidden" name="Additional Filings" value="0 ($0)">
-          <input type="hidden" id="paymentHidden" name="Payment Method" value="Zelle">
+          <input type="hidden" id="extraHidden" name="Extra Filing Quantity" value="0">
+          <input type="hidden" id="stripeProductKeyHidden" name="Stripe Product Key" value="w2">
+          <input type="hidden" id="stripeProductIdHidden" name="Stripe Product ID" value="prod_REPLACE_W2">
+          <input type="hidden" id="stripePriceIdHidden" name="Stripe Price ID" value="price_REPLACE_W2">
+          <input type="hidden" id="stripeLineItemsHidden" name="Stripe Checkout Items" value="W-2 Tax Return x1">
+          <input type="hidden" id="paymentHidden" name="Preferred Payment Method" value="Cash App Business">
 
-          <div class="portal-brand">Impact Holdings LLC | Client services</div>
-          <div class="section-head">
-            <div>
-              <h3>Tax &amp; business services</h3>
-              <p>Select a service to view pricing and available filing options.</p>
+          <div class="form-title">
+            <h2 id="request-title">Start your request</h2>
+            <p>Select a service, add extras when needed, and send your information securely.</p>
+          </div>
+
+          <div class="service-select" role="radiogroup" aria-label="Select service">
+            <div class="service-choice"><input id="w2" type="radio" name="serviceChoice" value="w2" checked><label for="w2"><strong>W-2 Tax Return</strong><span>$100</span></label></div>
+            <div class="service-choice"><input id="mileage" type="radio" name="serviceChoice" value="mileage"><label for="mileage"><strong>W-2 + 1099 mileage</strong><span>$300</span></label></div>
+            <div class="service-choice"><input id="expenses" type="radio" name="serviceChoice" value="expenses"><label for="expenses"><strong>W-2 + 1099 expenses</strong><span>$400</span></label></div>
+            <div class="service-choice"><input id="llc" type="radio" name="serviceChoice" value="llc"><label for="llc"><strong>Complete LLC package</strong><span>$300</span></label></div>
+          </div>
+
+          <div class="extra-row" id="extraRow">
+            <div><strong id="extraLabel">Extra SSN</strong><span>$40 each, up to four extras</span></div>
+            <div class="extra-options" role="group" aria-label="Extra filing quantity">
+              <button class="extra-option is-selected" type="button" data-extra="0">0</button>
+              <button class="extra-option" type="button" data-extra="1">1</button>
+              <button class="extra-option" type="button" data-extra="2">2</button>
+              <button class="extra-option" type="button" data-extra="3">3</button>
+              <button class="extra-option" type="button" data-extra="4">4</button>
             </div>
           </div>
 
-          <div class="service-grid" role="radiogroup" aria-label="Tax and business services">
-            <div class="service-option">
-              <input id="serviceW2" type="radio" name="serviceChoice" value="W-2 Tax Return" data-price="100" checked>
-              <label class="service-card" for="serviceW2">
-                <span class="service-meta">
-                  <span class="service-name">W-2 Tax Return</span>
-                  <span class="service-price">$100</span>
-                </span>
-                <p>Simple filing for employees with a W-2 form.</p>
-                <span class="pill-row"><span class="pill">Federal</span><span class="pill">State</span></span>
-                <span class="selected-mark" aria-hidden="true">✓</span>
-              </label>
-              <div class="service-extra" data-value="0" data-label="Extra SSN">
-                <label for="w2Extra">Extra SSN: +$40 each</label>
-                <button id="w2Extra" class="extra-trigger" type="button" aria-expanded="false">0</button>
-                <div class="extra-menu" role="listbox" aria-label="Extra SSN">
-                  <button class="extra-choice is-selected" type="button" data-value="0">0</button>
-                  <button class="extra-choice" type="button" data-value="1">1</button>
-                  <button class="extra-choice" type="button" data-value="2">2</button>
-                  <button class="extra-choice" type="button" data-value="3">3</button>
-                  <button class="extra-choice" type="button" data-value="4">4</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-option">
-              <input id="serviceMileage" type="radio" name="serviceChoice" value="W-2 + 1099 with mileage" data-price="300">
-              <label class="service-card" for="serviceMileage">
-                <span class="service-meta">
-                  <span class="service-name">W-2 + 1099 with mileage</span>
-                  <span class="service-price">$300</span>
-                </span>
-                <p>Combined filing for employees and independent contractors with mileage.</p>
-                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Mileage</span></span>
-                <span class="selected-mark" aria-hidden="true">✓</span>
-              </label>
-              <div class="service-extra" data-value="0" data-label="Extra W-2 or SSN">
-                <label for="mileageExtra">Extra W-2 or SSN: +$40 each</label>
-                <button id="mileageExtra" class="extra-trigger" type="button" aria-expanded="false">0</button>
-                <div class="extra-menu" role="listbox" aria-label="Extra W-2 or SSN">
-                  <button class="extra-choice is-selected" type="button" data-value="0">0</button>
-                  <button class="extra-choice" type="button" data-value="1">1</button>
-                  <button class="extra-choice" type="button" data-value="2">2</button>
-                  <button class="extra-choice" type="button" data-value="3">3</button>
-                  <button class="extra-choice" type="button" data-value="4">4</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-option">
-              <input id="serviceExpenses" type="radio" name="serviceChoice" value="W-2 + 1099 with expenses" data-price="400">
-              <label class="service-card" for="serviceExpenses">
-                <span class="service-meta">
-                  <span class="service-name">W-2 + 1099 with expenses</span>
-                  <span class="service-price">$400</span>
-                </span>
-                <p>Combined filing with business expenses and applicable deductions.</p>
-                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Expenses</span></span>
-                <span class="selected-mark" aria-hidden="true">✓</span>
-              </label>
-              <div class="service-extra" data-value="0" data-label="Extra W-2 or SSN">
-                <label for="expensesExtra">Extra W-2 or SSN: +$40 each</label>
-                <button id="expensesExtra" class="extra-trigger" type="button" aria-expanded="false">0</button>
-                <div class="extra-menu" role="listbox" aria-label="Extra W-2 or SSN">
-                  <button class="extra-choice is-selected" type="button" data-value="0">0</button>
-                  <button class="extra-choice" type="button" data-value="1">1</button>
-                  <button class="extra-choice" type="button" data-value="2">2</button>
-                  <button class="extra-choice" type="button" data-value="3">3</button>
-                  <button class="extra-choice" type="button" data-value="4">4</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-option">
-              <input id="serviceLlc" type="radio" name="serviceChoice" value="Complete LLC package" data-price="300">
-              <label class="service-card" for="serviceLlc">
-                <span class="service-meta">
-                  <span class="service-name">Complete LLC package</span>
-                  <span class="service-price">$300</span>
-                </span>
-                <p>Includes LLC formation, EIN assistance, business email, and a complete LLC kit.</p>
-                <span class="pill-row"><span class="pill">LLC</span><span class="pill">EIN</span><span class="pill">Business email</span></span>
-                <span class="selected-mark" aria-hidden="true">✓</span>
-              </label>
-            </div>
+          <div class="order-summary" aria-live="polite">
+            <div><span>Estimated total</span><strong id="summaryService">W-2 Tax Return</strong></div>
+            <b id="summaryPrice">$100</b>
           </div>
 
-          <div class="selection-bar" aria-live="polite">
-            <div><span>Selected service</span><strong id="selectedService">W-2 Tax Return</strong></div>
-            <strong class="selection-total" id="selectedPrice">$100</strong>
-          </div>
-
-          <div class="section-head">
-            <div>
-              <h3>Payment method</h3>
-              <p>Select your preferred payment method. We will confirm the details with you.</p>
-            </div>
-          </div>
-
-          <div class="pay-grid" role="radiogroup" aria-label="Payment methods">
-            <label class="pay-option">
-              <input type="radio" name="paymentChoice" value="Zelle" checked>
-              <span class="pay-card">Zelle</span>
-            </label>
-            <label class="pay-option">
-              <input type="radio" name="paymentChoice" value="Cash App">
-              <span class="pay-card">Cash App</span>
-            </label>
-            <label class="pay-option">
-              <input type="radio" name="paymentChoice" value="Card">
-              <span class="pay-card">Card</span>
-            </label>
-            <label class="pay-option">
-              <input type="radio" name="paymentChoice" value="Cash">
-              <span class="pay-card">Cash</span>
-            </label>
-          </div>
-
-          <div class="section-head">
-            <div>
-              <h3>Client information</h3>
-              <p>Complete these details to begin the process.</p>
-            </div>
+          <div class="payment-select" role="radiogroup" aria-label="Preferred payment method">
+            <div class="payment-choice"><input id="cashApp" type="radio" name="paymentChoice" value="Cash App Business" checked><label for="cashApp">Cash App Business</label></div>
+            <div class="payment-choice"><input id="zelle" type="radio" name="paymentChoice" value="Zelle Business"><label for="zelle">Zelle Business</label></div>
+            <div class="payment-choice"><input id="stripe" type="radio" name="paymentChoice" value="Stripe checkout - coming soon"><label for="stripe">Card checkout</label></div>
           </div>
 
           <div class="form-grid">
-            <div class="field">
-              <label for="firstName">First name</label>
-              <input id="firstName" name="First Name" type="text" autocomplete="given-name" required>
-            </div>
-            <div class="field">
-              <label for="lastName">Last name</label>
-              <input id="lastName" name="Last Name" type="text" autocomplete="family-name" required>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="Email" type="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="Phone" type="tel" autocomplete="tel" required>
-            </div>
-            <div class="field">
-              <label for="preferredLang">Preferred language</label>
-              <select id="preferredLang" name="Preferred Language">
-                <option value="Spanish">Spanish</option>
-                <option value="English">English</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="businessName">Business name, if applicable</label>
-              <input id="businessName" name="Business Name" type="text" placeholder="Business or LLC name">
-            </div>
-            <div class="field full">
-              <label for="notes">Notes or questions</label>
-              <textarea id="notes" name="Message" placeholder="Example: I have a W-2 and 1099 and need to know which documents to send."></textarea>
-            </div>
+            <div class="field"><label for="firstName">First name</label><input id="firstName" name="First Name" autocomplete="given-name" required></div>
+            <div class="field"><label for="lastName">Last name</label><input id="lastName" name="Last Name" autocomplete="family-name" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="Phone" type="tel" autocomplete="tel" required></div>
+            <div class="field"><label for="language">Preferred language</label><select id="language" name="Preferred Language"><option>English</option><option>Spanish</option></select></div>
+            <div class="field"><label for="business">Business name, if applicable</label><input id="business" name="Business Name" placeholder="Business or LLC name"></div>
+            <div class="field full"><label for="notes">Notes or questions</label><textarea id="notes" name="Message" placeholder="Tell us anything that will help us prepare for your request."></textarea></div>
           </div>
-
-          <div class="submit-row">
-            <button class="submit-btn" type="submit">Send information</button>
-            <p class="privacy">Your information is confidential. We will contact you to confirm documents, payment, and next steps.</p>
-          </div>
+          <div class="submit-row"><button class="button" type="submit">Send request</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
         </form>
 
-        <aside class="side" aria-label="Additional information">
-          <div class="info-card">
-            <h4>What is included in the LLC package</h4>
-            <ul class="info-list">
-              <li><strong>LLC formation</strong><span>Initial preparation and filing process.</span></li>
-              <li><strong>EIN / Tax ID</strong><span>Assistance with your federal tax ID.</span></li>
-              <li><strong>Business email</strong><span>A professional presence for your business.</span></li>
-              <li><strong>Complete LLC kit</strong><span>Basic LLC documents and organization.</span></li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h4>Contact</h4>
-            <ul class="info-list">
-              <li><strong>Email</strong><span>founder@impactholdingsllc.com</span></li>
-              <li><strong>Location</strong><span>Perth Amboy, New Jersey</span></li>
-              <li><strong>Service area</strong><span>Available across the United States.</span></li>
-            </ul>
-          </div>
-          <div class="notice">
-            Listed prices are starting prices. Complex cases, additional documents, or special situations may require review before confirmation.
-          </div>
+        <aside class="request-aside" aria-label="Request information">
+          <div class="aside-block"><h3>Professional contact</h3><p><a href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a></p><p>Perth Amboy, New Jersey</p></div>
+          <div class="aside-block"><h3>What happens next</h3><p>We review each request before confirming your service, documents, and preferred payment method.</p></div>
+          <div class="aside-block stripe-ready"><h3>Stripe-ready catalog</h3><p>Each service and the $40 extra filing are already mapped to a unique product key for future Stripe Checkout.</p></div>
         </aside>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
+  <footer>
+    <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <strong>Impact Holdings LLC</strong>
-          <span>Tax preparation and LLC formation.</span>
-          <span>Perth Amboy, New Jersey</span>
-          <a class="instagram-link" href="https://www.instagram.com/impactholdingsllc/" target="_blank" rel="noopener noreferrer" aria-label="Visit Impact Holdings LLC on Instagram">
-            <span class="instagram-icon" aria-hidden="true"></span> Instagram
-          </a>
-        </div>
-        <div class="footer-column">
-          <h4>Company</h4>
-          <span><a href="#inicio">About us</a></span>
-          <span><a href="#portal">Services</a></span>
-          <span><a href="mailto:founder@impactholdingsllc.com">Contact</a></span>
-        </div>
-        <div class="footer-column">
-          <h4>Services</h4>
-          <span>W-2 and 1099 filings</span>
-          <span>LLC formation</span>
-          <span>EIN and business email</span>
-        </div>
+        <div><div class="footer-brand">Impact Holdings LLC</div><p class="footer-copy">Professional tax preparation and LLC formation for individuals and small businesses.</p><a class="instagram-link" href="https://www.instagram.com/impactholdingsllc/" target="_blank" rel="noopener noreferrer"><span class="instagram-icon" aria-hidden="true"></span>Instagram</a></div>
+        <div class="footer-column"><h3>Company</h3><a href="#top">About us</a><a href="#services">Services</a><a href="#request">Contact</a></div>
+        <div class="footer-column"><h3>Service area</h3><span>Perth Amboy, New Jersey</span><span>Available across the United States</span><span>English and Spanish support</span></div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 Impact Holdings LLC. All rights reserved.</span>
-        <span>Services are not legal or financial advice.</span>
-      </div>
-    </footer>
-  </div>
+      <div class="footer-bottom">© 2026 Impact Holdings LLC. Services are not legal or financial advice.</div>
+    </div>
+  </footer>
 
   <script>
+    var STRIPE_CATALOG = Object.freeze({
+      w2:{name:'W-2 Tax Return',amount:10000,productId:'prod_REPLACE_W2',priceId:'price_REPLACE_W2',extraLabel:'Extra SSN'},
+      mileage:{name:'W-2 + 1099 with mileage',amount:30000,productId:'prod_REPLACE_MILEAGE',priceId:'price_REPLACE_MILEAGE',extraLabel:'Extra W-2 or SSN'},
+      expenses:{name:'W-2 + 1099 with expenses',amount:40000,productId:'prod_REPLACE_EXPENSES',priceId:'price_REPLACE_EXPENSES',extraLabel:'Extra W-2 or SSN'},
+      llc:{name:'Complete LLC package',amount:30000,productId:'prod_REPLACE_LLC',priceId:'price_REPLACE_LLC',extraLabel:'No extra filing'}
+    });
+    var STRIPE_EXTRA = Object.freeze({name:'Extra SSN or W-2 filing',amount:4000,productId:'prod_REPLACE_EXTRA',priceId:'price_REPLACE_EXTRA'});
+
+    var selectedServiceKey = 'w2';
+    var extraQuantity = 0;
     var themeColor = document.getElementById('themeColor');
     var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    var serviceRadios = document.querySelectorAll('input[name="serviceChoice"]');
-    var paymentRadios = document.querySelectorAll('input[name="paymentChoice"]');
-    var selectedService = document.getElementById('selectedService');
-    var selectedPrice = document.getElementById('selectedPrice');
     var serviceHidden = document.getElementById('serviceHidden');
     var priceHidden = document.getElementById('priceHidden');
     var extraHidden = document.getElementById('extraHidden');
+    var stripeProductKeyHidden = document.getElementById('stripeProductKeyHidden');
+    var stripeProductIdHidden = document.getElementById('stripeProductIdHidden');
+    var stripePriceIdHidden = document.getElementById('stripePriceIdHidden');
+    var stripeLineItemsHidden = document.getElementById('stripeLineItemsHidden');
     var paymentHidden = document.getElementById('paymentHidden');
-    var extraPanels = document.querySelectorAll('.service-extra');
+    var summaryService = document.getElementById('summaryService');
+    var summaryPrice = document.getElementById('summaryPrice');
+    var extraRow = document.getElementById('extraRow');
+    var extraLabel = document.getElementById('extraLabel');
 
-    function money(value){
-      return '$' + Number(value).toLocaleString('en-US');
+    function money(cents){return '$' + (cents / 100).toLocaleString('en-US',{minimumFractionDigits:0});}
+    function updateThemeColor(){themeColor.setAttribute('content',darkModeQuery.matches ? '#0b1623' : '#f7fafc');}
+    function updateOrder(){
+      var service = STRIPE_CATALOG[selectedServiceKey];
+      var allowExtras = selectedServiceKey !== 'llc';
+      if(!allowExtras) extraQuantity = 0;
+      extraRow.hidden = !allowExtras;
+      extraLabel.textContent = service.extraLabel;
+      var total = service.amount + (extraQuantity * STRIPE_EXTRA.amount);
+      var lineItems = [service.name + ' x1'];
+      if(extraQuantity) lineItems.push(STRIPE_EXTRA.name + ' x' + extraQuantity);
+      summaryService.textContent = service.name;
+      summaryPrice.textContent = money(total);
+      serviceHidden.value = service.name;
+      priceHidden.value = money(total);
+      extraHidden.value = String(extraQuantity);
+      stripeProductKeyHidden.value = selectedServiceKey;
+      stripeProductIdHidden.value = service.productId;
+      stripePriceIdHidden.value = service.priceId;
+      stripeLineItemsHidden.value = lineItems.join(', ');
+      document.querySelectorAll('.extra-option').forEach(function(button){button.classList.toggle('is-selected',Number(button.dataset.extra) === extraQuantity);});
     }
 
-    function updateThemeColor(){
-      themeColor.setAttribute('content', darkModeQuery.matches ? '#0b1420' : '#f8fbff');
-    }
-
-    function closeExtraMenus(exceptPanel){
-      extraPanels.forEach(function(panel){
-        if(panel !== exceptPanel){
-          panel.classList.remove('is-open');
-          panel.querySelector('.extra-trigger').setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-
-    function updateService(){
-      var chosen = document.querySelector('input[name="serviceChoice"]:checked');
-      if(!chosen) return;
-      var serviceOption = chosen.parentElement;
-      var extraPanel = serviceOption.querySelector('.service-extra');
-      var extraCount = extraPanel ? Number(extraPanel.dataset.value) : 0;
-      var extraLabel = extraPanel ? extraPanel.dataset.label : 'No additional filing';
-      var total = Number(chosen.dataset.price) + (extraCount * 40);
-      var price = money(total);
-      selectedService.textContent = chosen.value;
-      selectedPrice.textContent = price;
-      serviceHidden.value = chosen.value;
-      priceHidden.value = price;
-      extraHidden.value = extraLabel + ': ' + extraCount + (extraCount === 1 ? ' (+$40)' : ' (+$' + (extraCount * 40) + ')');
-    }
-
-    function updatePayment(){
-      var chosen = document.querySelector('input[name="paymentChoice"]:checked');
-      if(chosen) paymentHidden.value = chosen.value;
-    }
-
-    serviceRadios.forEach(function(input){
-      input.addEventListener('change', function(){
-        closeExtraMenus();
-        updateService();
-      });
-    });
-    document.querySelectorAll('.extra-trigger').forEach(function(trigger){
-      trigger.addEventListener('click', function(){
-        var panel = trigger.parentElement;
-        var isOpen = panel.classList.contains('is-open');
-        closeExtraMenus(panel);
-        panel.classList.toggle('is-open', !isOpen);
-        trigger.setAttribute('aria-expanded', String(!isOpen));
-      });
-    });
-    document.querySelectorAll('.extra-choice').forEach(function(choice){
-      choice.addEventListener('click', function(){
-        var panel = choice.closest('.service-extra');
-        panel.dataset.value = choice.dataset.value;
-        panel.querySelector('.extra-trigger').textContent = choice.textContent;
-        panel.querySelectorAll('.extra-choice').forEach(function(option){
-          option.classList.toggle('is-selected', option === choice);
-        });
-        panel.classList.remove('is-open');
-        panel.querySelector('.extra-trigger').setAttribute('aria-expanded', 'false');
-        updateService();
-      });
-    });
-    document.addEventListener('click', function(event){
-      if(!event.target.closest('.service-extra')) closeExtraMenus();
-    });
-    paymentRadios.forEach(function(input){
-      input.addEventListener('change', updatePayment);
-    });
-    darkModeQuery.addEventListener('change', updateThemeColor);
+    document.querySelectorAll('input[name="serviceChoice"]').forEach(function(input){input.addEventListener('change',function(){selectedServiceKey = input.value;updateOrder();});});
+    document.querySelectorAll('.extra-option').forEach(function(button){button.addEventListener('click',function(){extraQuantity = Number(button.dataset.extra);updateOrder();});});
+    document.querySelectorAll('input[name="paymentChoice"]').forEach(function(input){input.addEventListener('change',function(){if(input.checked) paymentHidden.value = input.value;});});
+    document.querySelectorAll('[data-service-link]').forEach(function(link){link.addEventListener('click',function(){var serviceInput = document.getElementById(link.dataset.serviceLink);serviceInput.checked = true;selectedServiceKey = link.dataset.serviceLink;updateOrder();});});
+    darkModeQuery.addEventListener('change',updateThemeColor);
     updateThemeColor();
-    updateService();
-    updatePayment();
+    updateOrder();
   </script>
 </body>
 </html>
