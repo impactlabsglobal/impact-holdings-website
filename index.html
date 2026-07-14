@@ -129,11 +129,14 @@
 
     .layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:26px;align-items:start}
     .portal-card{padding:28px}
+    .portal-brand{display:flex;align-items:center;gap:10px;margin-bottom:24px;color:var(--muted);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+    .portal-brand::before{content:"IH";display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:#edf5ff;color:var(--blue);font-size:.76rem;letter-spacing:0}
     .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:20px}
     .section-head h3{font-size:1.55rem;letter-spacing:-.035em}
     .section-head p{font-size:.92rem;color:var(--muted);max-width:560px}
 
     .service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:24px}
+    .service-option{min-width:0}
     .service-option input,.pay-option input{position:absolute;opacity:0;pointer-events:none}
     .service-card{
       position:relative;
@@ -144,6 +147,10 @@
       padding:18px;
       min-height:0;
       overflow:hidden;
+      color:var(--ink);
+      font-size:1rem;
+      text-transform:none;
+      letter-spacing:0;
       transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
     }
     .service-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
@@ -159,8 +166,10 @@
     .service-card p{font-size:.9rem;color:var(--muted);margin-bottom:12px}
     .pill-row{display:flex;flex-wrap:wrap;gap:7px}
     .pill{font-size:.72rem;font-weight:800;color:#35516d;background:#f0f5fa;border:1px solid #dce8f2;padding:5px 8px;border-radius:999px}
-    .service-extra{display:grid;gap:7px;margin-top:16px;color:var(--muted);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;min-width:0}
-    .service-extra select{display:block;min-height:40px;width:100%;max-width:100%;padding:7px 10px;border-radius:10px;font-size:.82rem;font-weight:800;text-transform:none;letter-spacing:0}
+    .service-extra{display:none;gap:7px;padding:14px 18px 18px;margin-top:-1px;border:1px solid var(--line);border-radius:0 0 16px 16px;background:var(--soft);color:var(--muted);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;min-width:0}
+    .service-option input:checked + .service-card + .service-extra{display:grid;border-color:rgba(31,111,235,.72)}
+    .service-extra label{font-size:.72rem;color:var(--muted)}
+    .service-extra select{display:block;min-height:42px;width:100%;max-width:100%;padding:8px 10px;border-radius:10px;font-size:.86rem;font-weight:800;text-transform:none;letter-spacing:0}
     .selection-bar{
       display:flex;align-items:center;justify-content:space-between;gap:16px;
       padding:15px 16px;margin:-6px 0 24px;border:1px solid #d7e6f7;
@@ -267,31 +276,7 @@
 </head>
 <body>
   <div class="shell">
-    <header class="topbar">
-      <a class="brand" href="#inicio" aria-label="Impact Holdings LLC">
-        <div class="mark">IH</div>
-        <div>
-          <h1>Impact Holdings LLC</h1>
-          <p>Tax preparation and LLC formation</p>
-        </div>
-      </a>
-      <nav class="top-actions" aria-label="Primary actions">
-        <a class="mini-link" href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a>
-        <a class="mini-link primary" href="#portal">Start your request</a>
-      </nav>
-    </header>
-
     <main id="inicio">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="intro">
-          <div class="headline">
-            <div class="eyebrow">Client portal</div>
-            <h2 id="hero-title">Clear taxes. <span>Confident business.</span></h2>
-            <p>Choose the service that fits your needs, select any additional filing options, and send your information securely for a personal follow-up.</p>
-          </div>
-        </div>
-      </section>
-
       <section class="layout" id="portal">
         <form
           class="portal-card"
@@ -309,69 +294,78 @@
           <input type="hidden" id="extraHidden" name="Additional Filings" value="0 ($0)">
           <input type="hidden" id="paymentHidden" name="Payment Method" value="Zelle">
 
+          <div class="portal-brand">Impact Holdings LLC | Client services</div>
           <div class="section-head">
             <div>
-              <h3>Choose your service</h3>
-              <p>Select a service below. Each service includes its own additional filing options.</p>
+              <h3>Tax &amp; business services</h3>
+              <p>Select a service to view pricing and available filing options.</p>
             </div>
           </div>
 
           <div class="service-grid" role="radiogroup" aria-label="Tax and business services">
-            <label class="service-option">
-              <input type="radio" name="serviceChoice" value="W-2 Tax Return" data-price="100" checked>
-              <span class="service-card">
+            <div class="service-option">
+              <input id="serviceW2" type="radio" name="serviceChoice" value="W-2 Tax Return" data-price="100" checked>
+              <label class="service-card" for="serviceW2">
                 <span class="service-meta">
                   <span class="service-name">W-2 Tax Return</span>
                   <span class="service-price">$100</span>
                 </span>
                 <p>Simple filing for employees with a W-2 form.</p>
                 <span class="pill-row"><span class="pill">Federal</span><span class="pill">State</span></span>
-                <span class="service-extra"><span>Additional SSNs</span><select class="service-extra-select" data-extra-label="Additional SSNs" aria-label="Additional SSNs for W-2"><option value="0">None</option><option value="1">1 extra</option><option value="2">2 extra</option><option value="3">3 extra</option><option value="4">4 extra</option></select></span>
                 <span class="selected-mark" aria-hidden="true">✓</span>
-              </span>
-            </label>
+              </label>
+              <div class="service-extra">
+                <label for="w2Extra">Additional SSNs: +$40 each</label>
+                <select id="w2Extra" class="service-extra-select" data-extra-label="Additional SSNs"><option value="0">No additional SSNs</option><option value="1">1 additional SSN</option><option value="2">2 additional SSNs</option><option value="3">3 additional SSNs</option><option value="4">4 additional SSNs</option></select>
+              </div>
+            </div>
 
-            <label class="service-option">
-              <input type="radio" name="serviceChoice" value="W-2 + 1099 with mileage" data-price="300">
-              <span class="service-card">
+            <div class="service-option">
+              <input id="serviceMileage" type="radio" name="serviceChoice" value="W-2 + 1099 with mileage" data-price="300">
+              <label class="service-card" for="serviceMileage">
                 <span class="service-meta">
                   <span class="service-name">W-2 + 1099 with mileage</span>
                   <span class="service-price">$300</span>
                 </span>
                 <p>Combined filing for employees and independent contractors with mileage.</p>
                 <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Mileage</span></span>
-                <span class="service-extra"><span>Additional W-2 / SSNs</span><select class="service-extra-select" data-extra-label="Additional W-2 / SSNs" aria-label="Additional W-2 or SSNs"><option value="0">None</option><option value="1">1 extra</option><option value="2">2 extra</option><option value="3">3 extra</option><option value="4">4 extra</option></select></span>
                 <span class="selected-mark" aria-hidden="true">✓</span>
-              </span>
-            </label>
+              </label>
+              <div class="service-extra">
+                <label for="mileageExtra">Additional W-2 / SSNs: +$40 each</label>
+                <select id="mileageExtra" class="service-extra-select" data-extra-label="Additional W-2 / SSNs"><option value="0">No additional filings</option><option value="1">1 additional filing</option><option value="2">2 additional filings</option><option value="3">3 additional filings</option><option value="4">4 additional filings</option></select>
+              </div>
+            </div>
 
-            <label class="service-option">
-              <input type="radio" name="serviceChoice" value="W-2 + 1099 with expenses" data-price="400">
-              <span class="service-card">
+            <div class="service-option">
+              <input id="serviceExpenses" type="radio" name="serviceChoice" value="W-2 + 1099 with expenses" data-price="400">
+              <label class="service-card" for="serviceExpenses">
                 <span class="service-meta">
                   <span class="service-name">W-2 + 1099 with expenses</span>
                   <span class="service-price">$400</span>
                 </span>
                 <p>Combined filing with business expenses and applicable deductions.</p>
                 <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Expenses</span></span>
-                <span class="service-extra"><span>Additional W-2 / SSNs</span><select class="service-extra-select" data-extra-label="Additional W-2 / SSNs" aria-label="Additional W-2 or SSNs"><option value="0">None</option><option value="1">1 extra</option><option value="2">2 extra</option><option value="3">3 extra</option><option value="4">4 extra</option></select></span>
                 <span class="selected-mark" aria-hidden="true">✓</span>
-              </span>
-            </label>
+              </label>
+              <div class="service-extra">
+                <label for="expensesExtra">Additional W-2 / SSNs: +$40 each</label>
+                <select id="expensesExtra" class="service-extra-select" data-extra-label="Additional W-2 / SSNs"><option value="0">No additional filings</option><option value="1">1 additional filing</option><option value="2">2 additional filings</option><option value="3">3 additional filings</option><option value="4">4 additional filings</option></select>
+              </div>
+            </div>
 
-            <label class="service-option">
-              <input type="radio" name="serviceChoice" value="Complete LLC package" data-price="300">
-              <span class="service-card">
+            <div class="service-option">
+              <input id="serviceLlc" type="radio" name="serviceChoice" value="Complete LLC package" data-price="300">
+              <label class="service-card" for="serviceLlc">
                 <span class="service-meta">
                   <span class="service-name">Complete LLC package</span>
                   <span class="service-price">$300</span>
                 </span>
                 <p>Includes LLC formation, EIN assistance, business email, and a complete LLC kit.</p>
                 <span class="pill-row"><span class="pill">LLC</span><span class="pill">EIN</span><span class="pill">Business email</span></span>
-                <span class="service-extra"><span>Included services</span><span>✓ No extra filing fee</span></span>
                 <span class="selected-mark" aria-hidden="true">✓</span>
-              </span>
-            </label>
+              </label>
+            </div>
           </div>
 
           <div class="selection-bar" aria-live="polite">
@@ -524,8 +518,8 @@
     function updateService(){
       var chosen = document.querySelector('input[name="serviceChoice"]:checked');
       if(!chosen) return;
-      var card = chosen.nextElementSibling;
-      var extraSelect = card.querySelector('.service-extra-select');
+      var serviceOption = chosen.parentElement;
+      var extraSelect = serviceOption.querySelector('.service-extra-select');
       var extraCount = extraSelect ? Number(extraSelect.value) : 0;
       var extraLabel = extraSelect ? extraSelect.dataset.extraLabel : 'No additional filing';
       var total = Number(chosen.dataset.price) + (extraCount * 40);
