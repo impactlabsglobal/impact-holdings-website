@@ -170,7 +170,14 @@
     .service-extra{display:none;gap:7px;padding:14px 18px 18px;margin-top:-1px;border:1px solid var(--line);border-radius:0 0 16px 16px;background:var(--soft);color:var(--muted);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;min-width:0}
     .service-option input:checked + .service-card + .service-extra{display:grid;border-color:rgba(31,111,235,.72)}
     .service-extra label{font-size:.72rem;color:var(--muted)}
-    .service-extra select{display:block;min-height:42px;width:100%;max-width:100%;padding:8px 10px;border-radius:10px;font-size:.86rem;font-weight:800;text-transform:none;letter-spacing:0}
+    .extra-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);font-size:.9rem;font-weight:800;text-align:left;text-transform:none;letter-spacing:0}
+    .extra-trigger::after{content:"⌄";font-size:1.25rem;line-height:1;color:var(--blue);transition:transform .18s ease}
+    .service-extra.is-open .extra-trigger::after{transform:rotate(180deg)}
+    .extra-menu{display:none;gap:6px;padding-top:4px}
+    .service-extra.is-open .extra-menu{display:grid}
+    .extra-choice{min-height:40px;padding:8px 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--muted);font-size:.86rem;font-weight:700;text-align:left;text-transform:none;letter-spacing:0}
+    .extra-choice:hover,.extra-choice:focus-visible{background:rgba(31,111,235,.10);color:var(--blue-dark)}
+    .extra-choice.is-selected{background:rgba(31,111,235,.12);border-color:rgba(31,111,235,.35);color:var(--blue-dark)}
     .selection-bar{
       display:flex;align-items:center;justify-content:space-between;gap:16px;
       padding:15px 16px;margin:-6px 0 24px;border:1px solid #d7e6f7;
@@ -240,9 +247,7 @@
     .footer-brand span,.footer-column span{display:block;margin-top:5px}
     .footer-column h4{color:var(--ink);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
     .instagram-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--blue-dark);font-weight:800}
-    .instagram-icon{width:20px;height:20px;border:2px solid currentColor;border-radius:6px;display:inline-grid;place-items:center;position:relative}
-    .instagram-icon::before{content:"";width:6px;height:6px;border:2px solid currentColor;border-radius:50%}
-    .instagram-icon::after{content:"";width:3px;height:3px;border-radius:50%;background:currentColor;position:absolute;right:3px;top:3px}
+    .instagram-icon{width:24px;height:24px;display:inline-block;background:currentColor;-webkit-mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat;mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat}
     .footer-bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem}
 
     @media(max-width:980px){
@@ -262,7 +267,7 @@
       .section-head{display:block}
       .section-head p{margin-top:6px}
       .footer-grid{grid-template-columns:1fr 1fr}
-      input,select,textarea,.service-extra select{font-size:16px}
+      input,select,textarea,.extra-trigger,.extra-choice{font-size:16px}
     }
     @media(max-width:420px){
       .shell{padding:14px}
@@ -290,7 +295,7 @@
       }
       body{background:linear-gradient(180deg,#0b1420,#101d2d)}
       .intro,.portal-card,.summary-card,.info-card{background:rgba(16,28,44,.94);border-color:var(--line)}
-      .service-card,.pay-card,input,select,textarea{background:#101c2c;color:var(--ink);border-color:var(--line)}
+      .service-card,.pay-card,input,select,textarea,.extra-trigger{background:#101c2c;color:var(--ink);border-color:var(--line)}
       .service-extra{background:#142236;border-color:var(--line)}
       .service-option input:checked + .service-card + .service-extra{border-color:var(--blue)}
       .pill{background:#1a2b40;border-color:#30465f;color:#c9d8ea}
@@ -341,9 +346,16 @@
                 <span class="pill-row"><span class="pill">Federal</span><span class="pill">State</span></span>
                 <span class="selected-mark" aria-hidden="true">✓</span>
               </label>
-              <div class="service-extra">
+              <div class="service-extra" data-value="0" data-label="Additional SSNs">
                 <label for="w2Extra">Additional SSNs: +$40 each</label>
-                <select id="w2Extra" class="service-extra-select" data-extra-label="Additional SSNs"><option value="0">No additional SSNs</option><option value="1">1 additional SSN</option><option value="2">2 additional SSNs</option><option value="3">3 additional SSNs</option><option value="4">4 additional SSNs</option></select>
+                <button id="w2Extra" class="extra-trigger" type="button" aria-expanded="false">No additional SSNs</button>
+                <div class="extra-menu" role="listbox" aria-label="Additional SSNs">
+                  <button class="extra-choice is-selected" type="button" data-value="0">No additional SSNs</button>
+                  <button class="extra-choice" type="button" data-value="1">1 additional SSN</button>
+                  <button class="extra-choice" type="button" data-value="2">2 additional SSNs</button>
+                  <button class="extra-choice" type="button" data-value="3">3 additional SSNs</button>
+                  <button class="extra-choice" type="button" data-value="4">4 additional SSNs</button>
+                </div>
               </div>
             </div>
 
@@ -358,9 +370,16 @@
                 <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Mileage</span></span>
                 <span class="selected-mark" aria-hidden="true">✓</span>
               </label>
-              <div class="service-extra">
-                <label for="mileageExtra">Additional W-2 / SSNs: +$40 each</label>
-                <select id="mileageExtra" class="service-extra-select" data-extra-label="Additional W-2 / SSNs"><option value="0">No additional filings</option><option value="1">1 additional filing</option><option value="2">2 additional filings</option><option value="3">3 additional filings</option><option value="4">4 additional filings</option></select>
+              <div class="service-extra" data-value="0" data-label="Additional W-2s or SSNs">
+                <label for="mileageExtra">Additional W-2s or SSNs: +$40 each</label>
+                <button id="mileageExtra" class="extra-trigger" type="button" aria-expanded="false">No additional filings</button>
+                <div class="extra-menu" role="listbox" aria-label="Additional W-2s or SSNs">
+                  <button class="extra-choice is-selected" type="button" data-value="0">No additional filings</button>
+                  <button class="extra-choice" type="button" data-value="1">1 additional filing</button>
+                  <button class="extra-choice" type="button" data-value="2">2 additional filings</button>
+                  <button class="extra-choice" type="button" data-value="3">3 additional filings</button>
+                  <button class="extra-choice" type="button" data-value="4">4 additional filings</button>
+                </div>
               </div>
             </div>
 
@@ -375,9 +394,16 @@
                 <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Expenses</span></span>
                 <span class="selected-mark" aria-hidden="true">✓</span>
               </label>
-              <div class="service-extra">
-                <label for="expensesExtra">Additional W-2 / SSNs: +$40 each</label>
-                <select id="expensesExtra" class="service-extra-select" data-extra-label="Additional W-2 / SSNs"><option value="0">No additional filings</option><option value="1">1 additional filing</option><option value="2">2 additional filings</option><option value="3">3 additional filings</option><option value="4">4 additional filings</option></select>
+              <div class="service-extra" data-value="0" data-label="Additional W-2s or SSNs">
+                <label for="expensesExtra">Additional W-2s or SSNs: +$40 each</label>
+                <button id="expensesExtra" class="extra-trigger" type="button" aria-expanded="false">No additional filings</button>
+                <div class="extra-menu" role="listbox" aria-label="Additional W-2s or SSNs">
+                  <button class="extra-choice is-selected" type="button" data-value="0">No additional filings</button>
+                  <button class="extra-choice" type="button" data-value="1">1 additional filing</button>
+                  <button class="extra-choice" type="button" data-value="2">2 additional filings</button>
+                  <button class="extra-choice" type="button" data-value="3">3 additional filings</button>
+                  <button class="extra-choice" type="button" data-value="4">4 additional filings</button>
+                </div>
               </div>
             </div>
 
@@ -539,6 +565,7 @@
     var priceHidden = document.getElementById('priceHidden');
     var extraHidden = document.getElementById('extraHidden');
     var paymentHidden = document.getElementById('paymentHidden');
+    var extraPanels = document.querySelectorAll('.service-extra');
 
     function money(value){
       return '$' + Number(value).toLocaleString('en-US');
@@ -548,13 +575,22 @@
       themeColor.setAttribute('content', darkModeQuery.matches ? '#0b1420' : '#f8fbff');
     }
 
+    function closeExtraMenus(exceptPanel){
+      extraPanels.forEach(function(panel){
+        if(panel !== exceptPanel){
+          panel.classList.remove('is-open');
+          panel.querySelector('.extra-trigger').setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
     function updateService(){
       var chosen = document.querySelector('input[name="serviceChoice"]:checked');
       if(!chosen) return;
       var serviceOption = chosen.parentElement;
-      var extraSelect = serviceOption.querySelector('.service-extra-select');
-      var extraCount = extraSelect ? Number(extraSelect.value) : 0;
-      var extraLabel = extraSelect ? extraSelect.dataset.extraLabel : 'No additional filing';
+      var extraPanel = serviceOption.querySelector('.service-extra');
+      var extraCount = extraPanel ? Number(extraPanel.dataset.value) : 0;
+      var extraLabel = extraPanel ? extraPanel.dataset.label : 'No additional filing';
       var total = Number(chosen.dataset.price) + (extraCount * 40);
       var price = money(total);
       selectedService.textContent = chosen.value;
@@ -570,10 +606,35 @@
     }
 
     serviceRadios.forEach(function(input){
-      input.addEventListener('change', updateService);
+      input.addEventListener('change', function(){
+        closeExtraMenus();
+        updateService();
+      });
     });
-    document.querySelectorAll('.service-extra-select').forEach(function(select){
-      select.addEventListener('change', updateService);
+    document.querySelectorAll('.extra-trigger').forEach(function(trigger){
+      trigger.addEventListener('click', function(){
+        var panel = trigger.parentElement;
+        var isOpen = panel.classList.contains('is-open');
+        closeExtraMenus(panel);
+        panel.classList.toggle('is-open', !isOpen);
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+    document.querySelectorAll('.extra-choice').forEach(function(choice){
+      choice.addEventListener('click', function(){
+        var panel = choice.closest('.service-extra');
+        panel.dataset.value = choice.dataset.value;
+        panel.querySelector('.extra-trigger').textContent = choice.textContent;
+        panel.querySelectorAll('.extra-choice').forEach(function(option){
+          option.classList.toggle('is-selected', option === choice);
+        });
+        panel.classList.remove('is-open');
+        panel.querySelector('.extra-trigger').setAttribute('aria-expanded', 'false');
+        updateService();
+      });
+    });
+    document.addEventListener('click', function(event){
+      if(!event.target.closest('.service-extra')) closeExtraMenus();
     });
     paymentRadios.forEach(function(input){
       input.addEventListener('change', updatePayment);
