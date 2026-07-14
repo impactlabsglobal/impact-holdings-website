@@ -142,7 +142,8 @@
       border-radius:16px;
       background:#fff;
       padding:18px;
-      min-height:164px;
+      min-height:0;
+      overflow:hidden;
       transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
     }
     .service-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
@@ -152,14 +153,14 @@
     }
     .selected-mark{position:absolute;right:16px;bottom:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-size:1rem;font-weight:800;opacity:0;transform:scale(.8);transition:opacity .18s ease,transform .18s ease}
     .service-option input:checked + .service-card .selected-mark{opacity:1;transform:scale(1)}
-    .service-meta{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px}
-    .service-name{font-weight:800;letter-spacing:-.02em}
+    .service-meta{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px;min-width:0}
+    .service-name{font-weight:800;letter-spacing:-.02em;overflow-wrap:anywhere}
     .service-price{font-size:1.7rem;font-weight:800;color:var(--blue);letter-spacing:-.05em;white-space:nowrap}
     .service-card p{font-size:.9rem;color:var(--muted);margin-bottom:12px}
     .pill-row{display:flex;flex-wrap:wrap;gap:7px}
     .pill{font-size:.72rem;font-weight:800;color:#35516d;background:#f0f5fa;border:1px solid #dce8f2;padding:5px 8px;border-radius:999px}
-    .service-extra{display:flex;align-items:center;gap:8px;margin-top:16px;color:var(--muted);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
-    .service-extra select{min-height:38px;width:100%;padding:7px 10px;border-radius:10px;font-size:.82rem;font-weight:800;text-transform:none;letter-spacing:0}
+    .service-extra{display:grid;gap:7px;margin-top:16px;color:var(--muted);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;min-width:0}
+    .service-extra select{display:block;min-height:40px;width:100%;max-width:100%;padding:7px 10px;border-radius:10px;font-size:.82rem;font-weight:800;text-transform:none;letter-spacing:0}
     .selection-bar{
       display:flex;align-items:center;justify-content:space-between;gap:16px;
       padding:15px 16px;margin:-6px 0 24px;border:1px solid #d7e6f7;
@@ -243,6 +244,7 @@
       .shell{padding:18px}
       .topbar{align-items:flex-start;flex-direction:column}
       .top-actions{justify-content:flex-start}
+      .top-actions,.top-actions .mini-link{width:100%}
       .intro,.portal-card,.summary-card,.info-card{border-radius:16px}
       .intro{padding:24px}
       .service-grid,.form-grid{grid-template-columns:1fr}
@@ -258,7 +260,6 @@
       .service-meta{display:block}
       .service-price{margin-top:6px}
       .pay-grid{grid-template-columns:1fr}
-      .mini-link{width:100%}
       .selection-bar{align-items:flex-start;flex-direction:column}
       .footer-grid{grid-template-columns:1fr}
     }
