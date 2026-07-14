@@ -168,6 +168,17 @@
     .pill-row{display:flex;flex-wrap:wrap;gap:7px}
     .pill{font-size:.72rem;font-weight:800;color:#35516d;background:#f0f5fa;border:1px solid #dce8f2;padding:5px 8px;border-radius:999px}
 
+    .extra-option{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:14px 16px;margin:-6px 0 24px;
+      border:1px solid var(--line);border-radius:14px;background:var(--soft);
+      color:var(--ink);font-size:.9rem;font-weight:700;
+    }
+    .extra-option.is-hidden{display:none}
+    .extra-label{display:flex;align-items:center;gap:10px}
+    .extra-label input{width:20px;height:20px;min-height:20px;accent-color:var(--blue)}
+    .extra-price{color:var(--blue);white-space:nowrap}
+
     .pay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
     .pay-card{
       display:flex;align-items:center;justify-content:center;text-align:center;
@@ -291,12 +302,12 @@
               <span>W-2 Tax Return</span>
             </div>
             <div class="quick-item">
-              <strong>$200</strong>
-              <span>1099 con millas</span>
+              <strong>$300</strong>
+              <span>W-2 + 1099 con millas</span>
             </div>
             <div class="quick-item">
-              <strong>$300</strong>
-              <span>1099 con gastos</span>
+              <strong>$400</strong>
+              <span>W-2 + 1099 con gastos</span>
             </div>
             <div class="quick-item">
               <strong>$300</strong>
@@ -336,6 +347,7 @@
           <input type="text" name="_honey" style="display:none">
           <input type="hidden" id="serviceHidden" name="Selected Service" value="W-2 Tax Return">
           <input type="hidden" id="priceHidden" name="Estimated Price" value="$100">
+          <input type="hidden" id="extraHidden" name="Extra SSN" value="No">
           <input type="hidden" id="paymentHidden" name="Payment Method" value="Zelle">
 
           <div class="section-head">
@@ -359,26 +371,26 @@
             </label>
 
             <label class="service-option">
-              <input type="radio" name="serviceChoice" value="1099 con millas" data-price="200">
+              <input type="radio" name="serviceChoice" value="W-2 + 1099 con millas" data-price="300">
               <span class="service-card">
                 <span class="service-meta">
-                  <span class="service-name">1099 con millas</span>
-                  <span class="service-price">$200</span>
+                  <span class="service-name">W-2 + 1099 con millas</span>
+                  <span class="service-price">$300</span>
                 </span>
-                <p>Para contratistas, delivery, rideshare o trabajo independiente con millaje.</p>
-                <span class="pill-row"><span class="pill">1099</span><span class="pill">Mileage</span></span>
+                <p>Declaracion combinada para empleados y contratistas con millaje.</p>
+                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Mileage</span></span>
               </span>
             </label>
 
             <label class="service-option">
-              <input type="radio" name="serviceChoice" value="1099 con gastos" data-price="300">
+              <input type="radio" name="serviceChoice" value="W-2 + 1099 con gastos" data-price="400">
               <span class="service-card">
                 <span class="service-meta">
-                  <span class="service-name">1099 con gastos</span>
-                  <span class="service-price">$300</span>
+                  <span class="service-name">W-2 + 1099 con gastos</span>
+                  <span class="service-price">$400</span>
                 </span>
-                <p>Incluye organizacion de gastos del negocio y deducciones aplicables.</p>
-                <span class="pill-row"><span class="pill">Expenses</span><span class="pill">Self-employed</span></span>
+                <p>Declaracion combinada con organizacion de gastos y deducciones aplicables.</p>
+                <span class="pill-row"><span class="pill">W-2</span><span class="pill">1099</span><span class="pill">Expenses</span></span>
               </span>
             </label>
 
@@ -394,6 +406,14 @@
               </span>
             </label>
           </div>
+
+          <label class="extra-option" id="extraSsnOption">
+            <span class="extra-label">
+              <input id="extraSsn" type="checkbox" name="Extra SSN Choice" value="SSN adicional">
+              <span>SSN adicional para otra persona</span>
+            </span>
+            <span class="extra-price">+$40</span>
+          </label>
 
           <div class="section-head">
             <div>
@@ -506,6 +526,9 @@
     var selectedPrice = document.getElementById('selectedPrice');
     var serviceHidden = document.getElementById('serviceHidden');
     var priceHidden = document.getElementById('priceHidden');
+    var extraSsnOption = document.getElementById('extraSsnOption');
+    var extraSsn = document.getElementById('extraSsn');
+    var extraHidden = document.getElementById('extraHidden');
     var paymentHidden = document.getElementById('paymentHidden');
 
     function money(value){
@@ -515,11 +538,16 @@
     function updateService(){
       var chosen = document.querySelector('input[name="serviceChoice"]:checked');
       if(!chosen) return;
-      var price = money(chosen.dataset.price);
+      var isLlc = chosen.value === 'LLC completo';
+      extraSsnOption.classList.toggle('is-hidden', isLlc);
+      if(isLlc) extraSsn.checked = false;
+      var total = Number(chosen.dataset.price) + (extraSsn.checked ? 40 : 0);
+      var price = money(total);
       selectedService.textContent = chosen.value;
       selectedPrice.textContent = price;
       serviceHidden.value = chosen.value;
       priceHidden.value = price;
+      extraHidden.value = extraSsn.checked ? 'Si, +$40' : 'No';
     }
 
     function updatePayment(){
@@ -530,6 +558,7 @@
     serviceRadios.forEach(function(input){
       input.addEventListener('change', updateService);
     });
+    extraSsn.addEventListener('change', updateService);
     paymentRadios.forEach(function(input){
       input.addEventListener('change', updatePayment);
     });
