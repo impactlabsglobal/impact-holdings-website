@@ -10,7 +10,7 @@ The website is prepared for Stripe but does not accept card payments yet. Do not
 | `mileage` | W-2 + 1099 with mileage | $300.00 |
 | `expenses` | W-2 + 1099 with expenses | $400.00 |
 | `llc` | Complete LLC package | $300.00 |
-| `extra` | Extra SSN or W-2 filing | $40.00 |
+| `extra` | Extra SSN or W-2 filing | $30.00 |
 
 After creating them, replace each `prod_REPLACE_*` and `price_REPLACE_*` value in `index.html` with the actual Stripe Product ID and Price ID.
 
