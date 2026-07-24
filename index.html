@@ -412,7 +412,7 @@
         ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','W-2 + 1099 with mileage'],['.service-card:nth-child(3) h3','W-2 + 1099 with expenses'],['.service-card:nth-child(4) h3','Complete LLC package'],
         ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Combined filing with business expenses and applicable deductions.'],['.service-card:nth-child(4) p','A focused launch package for a new business.'],
         ['#process-title','A simple process from request to completion.'],['#process .section-heading p','We review your request before confirming documents, payment details, and next steps.'],
-        ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],
+        ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','W-2 + 1099 mileage'],['.service-choice:nth-child(3) strong','W-2 + 1099 expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
         ['.submit-row .button','Send request'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
         ['.aside-block:nth-child(1) h3','Professional contact'],['.aside-block:nth-child(2) h3','What happens next'],['.aside-block:nth-child(3) h3','Stripe-ready catalog'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
@@ -428,7 +428,7 @@
         ['.service-card:nth-child(1) h3','Declaración de impuestos W-2'],['.service-card:nth-child(2) h3','W-2 + 1099 con millaje'],['.service-card:nth-child(3) h3','W-2 + 1099 con gastos'],['.service-card:nth-child(4) h3','Paquete completo de LLC'],
         ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Declaración combinada con gastos del negocio y deducciones aplicables.'],['.service-card:nth-child(4) p','Paquete práctico para comenzar un nuevo negocio.'],
         ['#process-title','Un proceso sencillo de solicitud a finalización.'],['#process .section-heading p','Revisamos tu solicitud antes de confirmar documentos, pagos y próximos pasos.'],
-        ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],
+        ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','W-2 + 1099 con millaje'],['.service-choice:nth-child(3) strong','W-2 + 1099 con gastos'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
         ['.submit-row .button','Enviar solicitud'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
         ['.aside-block:nth-child(1) h3','Contacto profesional'],['.aside-block:nth-child(2) h3','Qué sucede después'],['.aside-block:nth-child(3) h3','Catálogo listo para Stripe'],
         ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.footer-column:nth-child(2) h3','Compañía'],['.footer-column:nth-child(3) h3','Área de servicio']
@@ -437,6 +437,11 @@
     function applyLanguage(nextLanguage){
       var entries = languageSets[nextLanguage];
       entries.forEach(function(entry){var node=document.querySelector(entry[0]);if(node) node.textContent=entry[1];});
+      var extraOptions = document.querySelectorAll('#extraQuantity option');
+      var extraOptionLabels = nextLanguage === 'es'
+        ? ['0 — Sin SSN adicional','1 — +$30','2 — +$60','3 — +$90','4 — +$120']
+        : ['0 — No extra SSN','1 — +$30','2 — +$60','3 — +$90','4 — +$120'];
+      extraOptions.forEach(function(option,index){option.textContent = extraOptionLabels[index];});
       document.documentElement.lang = nextLanguage === 'es' ? 'es' : 'en';
       languageToggle.textContent = nextLanguage === 'es' ? 'English' : 'Español';
       languageToggle.setAttribute('aria-label',nextLanguage === 'es' ? 'Switch website language to English' : 'Cambiar el idioma del sitio a español');
