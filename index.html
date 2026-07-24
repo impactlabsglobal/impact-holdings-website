@@ -171,10 +171,19 @@
     .language-toggle{min-height:38px;padding:0 11px;border:1px solid rgba(255,255,255,.55);border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:.78rem;font-weight:800}
     .language-toggle:hover{background:#fff;color:var(--ink)}
     .quick-actions{display:none}
+    @media(max-width:1024px){
+      .container,.hero-content{width:min(100% - 40px,1180px)}
+      .section{padding:56px 0}
+      .request-layout{gap:34px}
+      .request-form{padding:30px}
+      .payment-modal{padding:24px}
+    }
     @media(max-width:980px){
       .service-grid{grid-template-columns:repeat(2,1fr)}
       .service-card p{min-height:0}
       .payment-layout,.request-layout{grid-template-columns:1fr}
+      .request-aside{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+      .request-aside > *{min-width:0}
     }
     @media(max-width:720px){
       .container{width:min(100% - 28px,1180px)}
@@ -185,7 +194,8 @@
       .quick-actions{position:fixed;z-index:10;right:14px;bottom:14px;left:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px;border:1px solid var(--line);border-radius:12px;background:rgba(16,32,51,.94);box-shadow:0 12px 30px rgba(0,0,0,.22)}
       .quick-actions a{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:8px;color:#fff;font-size:.78rem;font-weight:800;text-align:center}
       .quick-actions a:last-child{background:var(--blue)}
-      .hero{min-height:72vh}
+      body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+      .hero{min-height:72svh;min-height:72dvh}
       .hero-content{width:min(100% - 28px,1180px);padding:120px 0 46px}
       .section{padding:60px 0}
       .section-heading{display:block;margin-bottom:24px}
@@ -195,7 +205,33 @@
       .service-choice label{min-height:72px}
       .payment-select{grid-template-columns:1fr}
       .extra-row{align-items:flex-start;flex-direction:column}
+      .request-form{padding:22px 16px;border-radius:12px}
+      .request-aside{grid-template-columns:1fr;gap:24px}
+      .form-title h2{font-size:1.55rem}
+      .order-summary{align-items:flex-start;padding:14px}
+      .order-summary b{font-size:1.45rem}
+      .submit-row{align-items:stretch;display:grid;gap:12px}
+      .submit-row .button{width:100%;min-height:52px}
+      .fine-print{max-width:none}
+      .payment-modal{padding:12px;padding-top:calc(12px + env(safe-area-inset-top));padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+      .payment-modal-panel{width:min(100%,390px);max-height:calc(100dvh - 24px);padding:22px 16px 16px;border-radius:16px}
+      .payment-modal-panel h3{font-size:1.15rem}
+      .payment-modal-panel p{font-size:.82rem;margin-bottom:14px}
+      .payment-modal-image{width:min(100%,330px);max-height:62dvh}
+      .payment-modal-close{top:8px;right:8px;width:40px;height:40px}
       input,select,textarea{font-size:16px}
+    }
+    @media(max-width:720px) and (orientation:landscape){
+      .hero{min-height:92svh;min-height:92dvh}
+      .hero-content{padding-top:94px;padding-bottom:30px}
+      .payment-modal-image{max-height:52dvh;width:min(100%,260px)}
+    }
+    @media(min-width:721px) and (max-width:1024px){
+      .nav-links{gap:14px}
+      .nav{gap:14px}
+      .request-form{padding:26px}
+      .request-aside{grid-template-columns:1fr 1fr}
+      .request-aside .live-order{grid-column:1/-1}
     }
     @media(prefers-color-scheme:dark){
       :root{--ink:#ecf4ff;--muted:#a8b9cb;--line:#2a3d52;--paper:#101d2c;--soft:#0b1623;--blue:#75abff;--blue-deep:#a2c7ff;--shadow:0 18px 40px rgba(0,0,0,.28)}
