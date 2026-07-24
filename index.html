@@ -125,12 +125,18 @@
     input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.12)}
     .submit-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
     .fine-print{color:var(--muted);font-size:.78rem;max-width:440px}
-    .request-aside{display:grid;gap:14px}
-    .aside-block{padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--soft)}
-    .aside-block h3{font-size:1rem;margin-bottom:9px}
-    .aside-block p{color:var(--muted);font-size:.9rem}
-    .aside-block a{color:var(--blue-deep);font-weight:800}
-    .stripe-ready{border-left:3px solid var(--amber)}
+    .request-aside{display:grid;gap:30px;align-content:start}
+    .live-order{padding:0 0 24px;border-bottom:2px solid var(--line)}
+    .live-order h3,.aside-copy h3{font-size:1rem;margin-bottom:12px}
+    .live-product{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+    .live-product span{color:var(--ink);font-size:1.05rem;font-weight:800}
+    .live-product strong{color:var(--blue);font-size:2rem;line-height:1}
+    .live-total-label{margin-top:8px;color:var(--muted);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+    .live-note,.aside-copy p{color:var(--muted);font-size:.9rem}
+    .live-note{margin-top:14px}
+    .aside-copy{padding:0}
+    .aside-copy a{color:var(--blue-deep);font-size:1rem;font-weight:800}
+    .aside-copy p + p{margin-top:4px}
 
     footer{background:#0c1928;color:#c5d2df;padding:34px 0}
     .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
@@ -288,9 +294,21 @@
         </form>
 
         <aside class="request-aside" aria-label="Request information">
-          <div class="aside-block"><h3>Professional contact</h3><p><a href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a></p><p>Perth Amboy, New Jersey</p></div>
-          <div class="aside-block"><h3>What happens next</h3><p>We review each request before confirming your service, documents, and preferred payment method.</p></div>
-          <div class="aside-block stripe-ready"><h3>Stripe-ready catalog</h3><p>Each service and the $30 extra filing are already mapped to a unique product key for future Stripe Checkout.</p></div>
+          <div class="live-order" aria-live="polite">
+            <h3 id="liveOrderTitle">Your selection</h3>
+            <div class="live-product"><span id="liveProduct">W-2 Tax Return</span><strong id="liveTotal">$100</strong></div>
+            <div class="live-total-label" id="liveTotalLabel">Estimated total</div>
+            <p class="live-note" id="liveNote">Updates in real time as you change the service or extra SSN quantity.</p>
+          </div>
+          <div class="aside-copy">
+            <h3 id="contactTitle">Professional contact</h3>
+            <p><a href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a></p>
+            <p>Perth Amboy, New Jersey</p>
+          </div>
+          <div class="aside-copy">
+            <h3 id="nextTitle">What happens next</h3>
+            <p id="nextCopy">We review your request before confirming documents, payment details, and the next steps.</p>
+          </div>
         </aside>
       </div>
     </section>
@@ -368,6 +386,8 @@
     var paymentHidden = document.getElementById('paymentHidden');
     var summaryService = document.getElementById('summaryService');
     var summaryPrice = document.getElementById('summaryPrice');
+    var liveProduct = document.getElementById('liveProduct');
+    var liveTotal = document.getElementById('liveTotal');
     var extraRow = document.getElementById('extraRow');
     var extraLabel = document.getElementById('extraLabel');
     var extraQuantitySelect = document.getElementById('extraQuantity');
@@ -385,6 +405,8 @@
       if(extraQuantity) lineItems.push(STRIPE_EXTRA.name + ' x' + extraQuantity);
       summaryService.textContent = service.name;
       summaryPrice.textContent = money(total);
+      liveProduct.textContent = service.name;
+      liveTotal.textContent = money(total);
       serviceHidden.value = service.name;
       priceHidden.value = money(total);
       extraHidden.value = String(extraQuantity);
@@ -414,7 +436,7 @@
         ['#process-title','A simple process from request to completion.'],['#process .section-heading p','We review your request before confirming documents, payment details, and next steps.'],
         ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','W-2 + 1099 mileage'],['.service-choice:nth-child(3) strong','W-2 + 1099 expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
         ['.submit-row .button','Send request'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
-        ['.aside-block:nth-child(1) h3','Professional contact'],['.aside-block:nth-child(2) h3','What happens next'],['.aside-block:nth-child(3) h3','Stripe-ready catalog'],
+        ['#liveOrderTitle','Your selection'],['#liveTotalLabel','Estimated total'],['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#liveNote','Updates in real time as you change the service or extra SSN quantity.'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
@@ -430,7 +452,7 @@
         ['#process-title','Un proceso sencillo de solicitud a finalización.'],['#process .section-heading p','Revisamos tu solicitud antes de confirmar documentos, pagos y próximos pasos.'],
         ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','W-2 + 1099 con millaje'],['.service-choice:nth-child(3) strong','W-2 + 1099 con gastos'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
         ['.submit-row .button','Enviar solicitud'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
-        ['.aside-block:nth-child(1) h3','Contacto profesional'],['.aside-block:nth-child(2) h3','Qué sucede después'],['.aside-block:nth-child(3) h3','Catálogo listo para Stripe'],
+        ['#liveOrderTitle','Tu selección'],['#liveTotalLabel','Total estimado'],['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#liveNote','Se actualiza en tiempo real cuando cambias el servicio o la cantidad de SSN adicionales.'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
         ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.footer-column:nth-child(2) h3','Compañía'],['.footer-column:nth-child(3) h3','Área de servicio']
       ]
     };
