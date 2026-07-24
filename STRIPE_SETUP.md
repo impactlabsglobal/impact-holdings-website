@@ -7,7 +7,7 @@ The website is prepared for Stripe but does not accept card payments yet. Do not
 | Website key | Product | Price |
 | --- | --- | --- |
 | `w2` | W-2 Tax Return | $100.00 |
-| `mileage` | W-2 + 1099 with mileage | $300.00 |
+| `mileage` | W-2 + 1099 with mileage | $250.00 |
 | `expenses` | W-2 + 1099 with expenses | $400.00 |
 | `llc` | Complete LLC package | $300.00 |
 | `extra` | Extra SSN or W-2 filing | $30.00 |

@@ -79,15 +79,6 @@
     .step h3{font-size:1.14rem;margin-bottom:8px}
     .step p{color:var(--muted);font-size:.92rem}
 
-    .payment-band{background:#102033;color:#fff}
-    .payment-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.78fr);gap:50px;align-items:center}
-    .payment-band h2{font-size:clamp(1.9rem,4vw,3.1rem);line-height:1.05;margin-bottom:15px}
-    .payment-band p{color:rgba(255,255,255,.78);max-width:580px}
-    .payment-list{display:grid;gap:10px}
-    .payment-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border:1px solid rgba(255,255,255,.18);border-radius:10px}
-    .payment-item strong{font-size:.95rem}
-    .payment-item span{color:#a9c9ff;font-size:.8rem;font-weight:700;text-align:right}
-    .stripe-note{margin-top:20px;color:#b7c9dd;font-size:.82rem}
 
     .request-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(360px,.65fr);gap:56px;align-items:start}
     .request-form{padding:38px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
@@ -179,7 +170,7 @@
     @media(max-width:980px){
       .service-grid{grid-template-columns:repeat(2,1fr)}
       .service-card p{min-height:0}
-      .payment-layout,.request-layout{grid-template-columns:1fr}
+      .request-layout{grid-template-columns:1fr}
       .request-aside{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
       .request-aside > *{min-width:0}
     }
@@ -296,8 +287,8 @@
 
           <div class="service-select" role="radiogroup" aria-label="Select service">
             <div class="service-choice"><input id="w2" type="radio" name="serviceChoice" value="w2" checked><label for="w2"><strong>W-2 Tax Return</strong><span>$100</span></label></div>
-            <div class="service-choice"><input id="mileage" type="radio" name="serviceChoice" value="mileage"><label for="mileage"><strong>W-2 + 1099 mileage</strong><span>$300</span></label></div>
-            <div class="service-choice"><input id="expenses" type="radio" name="serviceChoice" value="expenses"><label for="expenses"><strong>W-2 + 1099 expenses</strong><span>$300</span></label></div>
+            <div class="service-choice"><input id="mileage" type="radio" name="serviceChoice" value="mileage"><label for="mileage"><strong>W-2 + 1099 mileage</strong><span>$250</span></label></div>
+            <div class="service-choice"><input id="expenses" type="radio" name="serviceChoice" value="expenses"><label for="expenses"><strong>W-2 + 1099 expenses</strong><span>$400</span></label></div>
             <div class="service-choice"><input id="llc" type="radio" name="serviceChoice" value="llc"><label for="llc"><strong>Complete LLC package</strong><span>$300</span></label></div>
           </div>
 
@@ -386,22 +377,6 @@
       </div>
     </section>
 
-    <section class="section payment-band" aria-labelledby="payments-title">
-      <div class="container payment-layout">
-        <div>
-          <h2 id="payments-title">Business payment options, ready for your next step.</h2>
-          <p>Cash App Business and Zelle Business are available for payment confirmation. Card checkout will be added through Stripe for secure card, Apple Pay, and Google Pay payments.</p>
-          <p class="stripe-note">Card checkout is intentionally not active until Stripe product and price IDs are added to the secure checkout endpoint.</p>
-        </div>
-        <div class="payment-list" aria-label="Payment methods">
-          <div class="payment-item"><strong>Cash App Business</strong><span>Payment instructions after confirmation</span></div>
-          <div class="payment-item"><strong>Zelle Business</strong><span>Payment instructions after confirmation</span></div>
-          <div class="payment-item"><strong>Stripe checkout</strong><span>Card, Apple Pay, and Google Pay coming soon</span></div>
-        </div>
-      </div>
-    </section>
-
-    
   </main>
 
   <footer>
@@ -418,8 +393,8 @@
   <script>
     var STRIPE_CATALOG = Object.freeze({
       w2:{name:'W-2 Tax Return',amount:10000,productId:'prod_REPLACE_W2',priceId:'price_REPLACE_W2',extraLabel:'Extra SSN'},
-      mileage:{name:'W-2 + 1099 with mileage',amount:30000,productId:'prod_REPLACE_MILEAGE',priceId:'price_REPLACE_MILEAGE',extraLabel:'Extra W-2 or SSN'},
-      expenses:{name:'W-2 + 1099 with expenses',amount:30000,productId:'prod_REPLACE_EXPENSES',priceId:'price_REPLACE_EXPENSES',extraLabel:'Extra W-2 or SSN'},
+      mileage:{name:'W-2 + 1099 with mileage',amount:25000,productId:'prod_REPLACE_MILEAGE',priceId:'price_REPLACE_MILEAGE',extraLabel:'Extra W-2 or SSN'},
+      expenses:{name:'W-2 + 1099 with expenses',amount:40000,productId:'prod_REPLACE_EXPENSES',priceId:'price_REPLACE_EXPENSES',extraLabel:'Extra W-2 or SSN'},
       llc:{name:'Complete LLC package',amount:30000,productId:'prod_REPLACE_LLC',priceId:'price_REPLACE_LLC',extraLabel:'No extra filing'}
     });
     var STRIPE_EXTRA = Object.freeze({name:'Extra SSN or W-2 filing',amount:3000,productId:'prod_REPLACE_EXTRA',priceId:'price_REPLACE_EXTRA'});
