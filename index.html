@@ -135,6 +135,14 @@
     .live-note,.aside-copy p{color:var(--muted);font-size:.9rem}
     .live-note{margin-top:14px}
     .aside-copy{padding:0}
+    .aside-payments{padding:0 0 24px;border-bottom:2px solid var(--line)}
+    .aside-payments h3{font-size:1rem;margin-bottom:8px}
+    .aside-payments p{color:var(--muted);font-size:.86rem;margin-bottom:14px}
+    .payment-options{display:grid;gap:8px}
+    .payment-option{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:9px;background:transparent;color:var(--ink);text-align:left}
+    .payment-option:hover,.payment-option.is-selected{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.1)}
+    .payment-option span{font-weight:800;font-size:.86rem}
+    .payment-option small{color:var(--muted);font-size:.72rem;font-weight:700;text-align:right}
     .aside-copy a{color:var(--blue-deep);font-size:1rem;font-weight:800}
     .aside-copy p + p{margin-top:4px}
 
@@ -275,12 +283,6 @@
             <b id="summaryPrice">$100</b>
           </div>
 
-          <div class="payment-select" role="radiogroup" aria-label="Preferred payment method">
-            <div class="payment-choice"><input id="cashApp" type="radio" name="paymentChoice" value="Cash App Business" checked><label for="cashApp">Cash App Business</label></div>
-            <div class="payment-choice"><input id="zelle" type="radio" name="paymentChoice" value="Zelle Business"><label for="zelle">Zelle Business</label></div>
-            <div class="payment-choice"><input id="stripe" type="radio" name="paymentChoice" value="Stripe checkout - coming soon"><label for="stripe">Card checkout</label></div>
-          </div>
-
           <div class="form-grid">
             <div class="field"><label for="firstName">First name</label><input id="firstName" name="First Name" autocomplete="given-name" required></div>
             <div class="field"><label for="lastName">Last name</label><input id="lastName" name="Last Name" autocomplete="family-name" required></div>
@@ -299,6 +301,15 @@
             <div class="live-product"><span id="liveProduct">W-2 Tax Return</span><strong id="liveTotal">$100</strong></div>
             <div class="live-total-label" id="liveTotalLabel">Estimated total</div>
             <p class="live-note" id="liveNote">Updates in real time as you change the service or extra SSN quantity.</p>
+          </div>
+          <div class="aside-payments" aria-label="Payment options">
+            <h3 id="paymentTitle">Payment options</h3>
+            <p id="paymentNote">Choose how you prefer to pay. Zelle and Cash App codes will open here when added.</p>
+            <div class="payment-options">
+              <button class="payment-option is-selected" type="button" data-payment="Cash App Business" data-payment-code="cashapp"><span>Cash App Business</span><small>Open payment code</small></button>
+              <button class="payment-option" type="button" data-payment="Zelle Business" data-payment-code="zelle"><span>Zelle Business</span><small>Open payment code</small></button>
+              <button class="payment-option" type="button" data-payment="Stripe checkout - coming soon" data-payment-code="card"><span>Card checkout</span><small>Coming soon</small></button>
+            </div>
           </div>
           <div class="aside-copy">
             <h3 id="contactTitle">Professional contact</h3>
@@ -419,7 +430,10 @@
 
     document.querySelectorAll('input[name="serviceChoice"]').forEach(function(input){input.addEventListener('change',function(){selectedServiceKey = input.value;updateOrder();});});
     extraQuantitySelect.addEventListener('change',function(){extraQuantity = Number(extraQuantitySelect.value);updateOrder();});
-    document.querySelectorAll('input[name="paymentChoice"]').forEach(function(input){input.addEventListener('change',function(){if(input.checked) paymentHidden.value = input.value;});});
+    document.querySelectorAll('.payment-option').forEach(function(button){button.addEventListener('click',function(){
+      document.querySelectorAll('.payment-option').forEach(function(option){option.classList.toggle('is-selected',option === button);});
+      paymentHidden.value = button.dataset.payment;
+    });});
     document.querySelectorAll('[data-service-link]').forEach(function(link){link.addEventListener('click',function(){var serviceInput = document.getElementById(link.dataset.serviceLink);serviceInput.checked = true;selectedServiceKey = link.dataset.serviceLink;updateOrder();});});
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
@@ -436,7 +450,7 @@
         ['#process-title','A simple process from request to completion.'],['#process .section-heading p','We review your request before confirming documents, payment details, and next steps.'],
         ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','W-2 + 1099 mileage'],['.service-choice:nth-child(3) strong','W-2 + 1099 expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
         ['.submit-row .button','Send request'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
-        ['#liveOrderTitle','Your selection'],['#liveTotalLabel','Estimated total'],['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#liveNote','Updates in real time as you change the service or extra SSN quantity.'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
+        ['#liveOrderTitle','Your selection'],['#liveTotalLabel','Estimated total'],['#paymentTitle','Payment options'],['#paymentNote','Choose how you prefer to pay. Zelle and Cash App codes will open here when added.'],['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#liveNote','Updates in real time as you change the service or extra SSN quantity.'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
@@ -452,7 +466,7 @@
         ['#process-title','Un proceso sencillo de solicitud a finalización.'],['#process .section-heading p','Revisamos tu solicitud antes de confirmar documentos, pagos y próximos pasos.'],
         ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','W-2 + 1099 con millaje'],['.service-choice:nth-child(3) strong','W-2 + 1099 con gastos'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
         ['.submit-row .button','Enviar solicitud'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
-        ['#liveOrderTitle','Tu selección'],['#liveTotalLabel','Total estimado'],['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#liveNote','Se actualiza en tiempo real cuando cambias el servicio o la cantidad de SSN adicionales.'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
+        ['#liveOrderTitle','Tu selección'],['#liveTotalLabel','Total estimado'],['#paymentTitle','Opciones de pago'],['#paymentNote','Elige cómo prefieres pagar. Los códigos de Zelle y Cash App se abrirán aquí cuando los agreguemos.'],['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#liveNote','Se actualiza en tiempo real cuando cambias el servicio o la cantidad de SSN adicionales.'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
         ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.footer-column:nth-child(2) h3','Compañía'],['.footer-column:nth-child(3) h3','Área de servicio']
       ]
     };
