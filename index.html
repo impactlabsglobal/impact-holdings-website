@@ -42,7 +42,6 @@
     .nav-links{display:flex;align-items:center;gap:22px;font-size:.88rem;font-weight:700}
     .nav-links a{opacity:.9}
     .nav-links a:hover{opacity:1}
-    .nav-cta{padding:11px 15px;background:#fff;color:var(--ink);border-radius:8px;font-size:.85rem;font-weight:800}
 
     .hero{min-height:78vh;display:flex;align-items:flex-end;position:relative;color:#fff;background:#0b1928 url("assets/tax-consultation-hero.jpg") center/cover no-repeat}
     .hero::before{content:"";position:absolute;inset:0;background:rgba(8,22,38,.56)}
@@ -170,7 +169,6 @@
     .nav-price{color:#fff;font-size:.85rem;font-weight:800;opacity:.92}
     .language-toggle{min-height:38px;padding:0 11px;border:1px solid rgba(255,255,255,.55);border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:.78rem;font-weight:800}
     .language-toggle:hover{background:#fff;color:var(--ink)}
-    .quick-actions{display:none}
     @media(max-width:1024px){
       .container,.hero-content{width:min(100% - 40px,1180px)}
       .section{padding:56px 0}
@@ -191,10 +189,6 @@
       .nav-links{display:none}
       .nav-price{display:none}
       .language-toggle{margin-left:auto}
-      .quick-actions{position:fixed;z-index:10;right:14px;bottom:14px;left:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px;border:1px solid var(--line);border-radius:12px;background:rgba(16,32,51,.94);box-shadow:0 12px 30px rgba(0,0,0,.22)}
-      .quick-actions a{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:8px;color:#fff;font-size:.78rem;font-weight:800;text-align:center}
-      .quick-actions a:last-child{background:var(--blue)}
-      body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
       .hero{min-height:72svh;min-height:72dvh}
       .hero-content{width:min(100% - 28px,1180px);padding:120px 0 46px}
       .section{padding:60px 0}
@@ -258,7 +252,6 @@
         <a href="#request">Contact</a>
       </div>
       <a class="nav-price" href="#request">Prices</a>
-      <a class="nav-cta" href="#request">Get started</a>
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch website language">Español</button>
     </nav>
   </header>
@@ -410,11 +403,6 @@
 
     
   </main>
-
-  <div class="quick-actions" aria-label="Quick actions">
-    <a href="#request">Services &amp; prices</a>
-    <a href="#request">Start request</a>
-  </div>
 
   <footer>
     <div class="container">
