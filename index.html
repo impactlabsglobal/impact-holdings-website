@@ -114,6 +114,8 @@
     textarea{min-height:106px;resize:vertical}
     input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.12)}
     .submit-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+    .receipt-button{background:transparent;color:var(--blue-deep);border:1px solid var(--blue)}
+    .receipt-button:hover{background:rgba(23,105,232,.08)}
     .fine-print{color:var(--muted);font-size:.78rem;max-width:440px}
     .request-aside{display:grid;gap:30px;align-content:start}
     .live-order{padding:0 0 24px;border-bottom:2px solid var(--line)}
@@ -320,7 +322,7 @@
             <div class="field"><label for="business">Business name, if applicable</label><input id="business" name="Business Name" placeholder="Business or LLC name"></div>
             <div class="field full"><label for="notes">Notes or questions</label><textarea id="notes" name="Message" placeholder="Tell us anything that will help us prepare for your request."></textarea></div>
           </div>
-          <div class="submit-row"><button class="button" type="submit">Send request</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
+          <div class="submit-row"><button class="button" type="submit">Send request</button><button class="button receipt-button" id="downloadReceipt" type="button">Download order receipt</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
         </form>
 
         <aside class="request-aside" aria-label="Request information">
@@ -411,6 +413,7 @@
     var stripePriceIdHidden = document.getElementById('stripePriceIdHidden');
     var stripeLineItemsHidden = document.getElementById('stripeLineItemsHidden');
     var paymentHidden = document.getElementById('paymentHidden');
+    var downloadReceiptButton = document.getElementById('downloadReceipt');
     var summaryService = document.getElementById('summaryService');
     var summaryPrice = document.getElementById('summaryPrice');
     var liveProduct = document.getElementById('liveProduct');
@@ -448,8 +451,38 @@
       extraQuantitySelect.value = String(extraQuantity);
     }
 
+    function escapeReceipt(value){return String(value || '').replace(/[&<>\"']/g,function(character){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[character];});}
+    function downloadReceipt(){
+      var service = STRIPE_CATALOG[selectedServiceKey];
+      var total = service.amount + (extraQuantity * STRIPE_EXTRA.amount);
+      var isSpanish = document.documentElement.lang === 'es';
+      var customerName = [document.getElementById('firstName').value,document.getElementById('lastName').value].filter(Boolean).join(' ') || (isSpanish ? 'No indicado' : 'Not provided');
+      var customerEmail = document.getElementById('email').value || (isSpanish ? 'No indicado' : 'Not provided');
+      var customerPhone = document.getElementById('phone').value || (isSpanish ? 'No indicado' : 'Not provided');
+      var businessName = document.getElementById('business').value || (isSpanish ? 'No indicado' : 'Not provided');
+      var now = new Date();
+      var receiptNumber = 'IH-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getTime()).slice(-5);
+      var labels = isSpanish ? {
+        title:'Recibo de solicitud',status:'Pendiente de confirmación de pago',date:'Fecha',number:'Número',customer:'Cliente',email:'Correo electrónico',phone:'Teléfono',business:'Empresa',service:'Servicio',extras:'SSN adicionales',payment:'Método de pago preferido',subtotal:'Subtotal',extraTotal:'Extras',total:'Total estimado',note:'Este documento resume la solicitud y no confirma que el pago haya sido recibido.'
+      } : {
+        title:'Order receipt',status:'Pending payment confirmation',date:'Date',number:'Number',customer:'Customer',email:'Email',phone:'Phone',business:'Business',service:'Service',extras:'Extra SSN',payment:'Preferred payment method',subtotal:'Subtotal',extraTotal:'Extras',total:'Estimated total',note:'This document summarizes the request and does not confirm that payment has been received.'
+      };
+      var extraTotal = extraQuantity * STRIPE_EXTRA.amount;
+      var receiptHtml = '<!doctype html><html lang="' + (isSpanish ? 'es' : 'en') + '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + labels.title + ' - Impact Holdings LLC</title><style>body{font-family:Arial,sans-serif;color:#102033;max-width:760px;margin:0 auto;padding:32px;line-height:1.5}h1{margin-bottom:4px}h2{margin-top:30px;border-bottom:2px solid #1769e8;padding-bottom:8px}.muted{color:#5e7086}.status{display:inline-block;padding:7px 10px;border-radius:6px;background:#eaf3ff;color:#0e3f86;font-weight:700}.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:22px 0}.row{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid #dce6ef}.total{font-size:1.35rem;font-weight:800;color:#1769e8;border-top:2px solid #102033;border-bottom:0;margin-top:8px}@media(max-width:560px){body{padding:20px}.meta{grid-template-columns:1fr}}</style></head><body><h1>Impact Holdings LLC</h1><p class="muted">Tax &amp; business services<br>Perth Amboy, New Jersey<br>founder@impactholdingsllc.com</p><p class="status">' + labels.status + '</p><div class="meta"><div><strong>' + labels.number + ':</strong><br>' + escapeReceipt(receiptNumber) + '</div><div><strong>' + labels.date + ':</strong><br>' + escapeReceipt(now.toLocaleString(isSpanish ? 'es-US' : 'en-US')) + '</div></div><h2>' + labels.customer + '</h2><p><strong>' + escapeReceipt(customerName) + '</strong><br>' + labels.email + ': ' + escapeReceipt(customerEmail) + '<br>' + labels.phone + ': ' + escapeReceipt(customerPhone) + '<br>' + labels.business + ': ' + escapeReceipt(businessName) + '</p><h2>' + labels.service + '</h2><div class="row"><span>' + escapeReceipt(service.name) + '</span><strong>' + money(service.amount) + '</strong></div><div class="row"><span>' + labels.extras + ' (' + extraQuantity + ' × ' + money(STRIPE_EXTRA.amount) + ')</span><strong>' + money(extraTotal) + '</strong></div><div class="row"><span>' + labels.payment + '</span><strong>' + escapeReceipt(paymentHidden.value) + '</strong></div><div class="row total"><span>' + labels.total + '</span><strong>' + money(total) + '</strong></div><p class="muted">' + labels.note + '</p></body></html>';
+      var blob = new Blob([receiptHtml],{type:'text/html;charset=utf-8'});
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = 'impact-holdings-receipt-' + now.toISOString().slice(0,10) + '.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    }
+
     document.querySelectorAll('input[name="serviceChoice"]').forEach(function(input){input.addEventListener('change',function(){selectedServiceKey = input.value;updateOrder();});});
     extraQuantitySelect.addEventListener('change',function(){extraQuantity = Number(extraQuantitySelect.value);updateOrder();});
+    downloadReceiptButton.addEventListener('click',downloadReceipt);
     document.querySelectorAll('.payment-option').forEach(function(button){button.addEventListener('click',function(){
       document.querySelectorAll('.payment-option').forEach(function(option){option.classList.toggle('is-selected',option === button);});
       paymentHidden.value = button.dataset.payment;
@@ -488,7 +521,7 @@
         ['#process-title','A simple process from request to completion.'],['#process .section-heading p','We review your request before confirming documents, payment details, and next steps.'],
         ['#process .step:nth-child(1) h3','Select your service'],['#process .step:nth-child(1) p','Choose a tax or business service and add any extra filings needed.'],['#process .step:nth-child(2) h3','Send your information'],['#process .step:nth-child(2) p','Your request goes directly to our professional email for review.'],['#process .step:nth-child(3) h3','Confirm and move forward'],['#process .step:nth-child(3) p','We contact you with the document list, payment instructions, and timeline.'],
         ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','W-2 + 1099 mileage'],['.service-choice:nth-child(3) strong','W-2 + 1099 expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
-        ['.submit-row .button','Send request'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
+        ['.submit-row .button','Send request'],['.receipt-button','Download order receipt'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
         ['#liveOrderTitle','Your selection'],['#liveTotalLabel','Estimated total'],['#paymentTitle','Payment options'],['#paymentNote','Choose how you prefer to pay. Click Zelle or Cash App to open its payment code.'],['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#liveNote','Updates in real time as you change the service or extra SSN quantity.'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
@@ -505,7 +538,7 @@
         ['#process-title','Un proceso sencillo de solicitud a finalización.'],['#process .section-heading p','Revisamos tu solicitud antes de confirmar documentos, pagos y próximos pasos.'],
         ['#process .step:nth-child(1) h3','Selecciona tu servicio'],['#process .step:nth-child(1) p','Elige un servicio de impuestos o negocio y agrega las declaraciones adicionales que necesites.'],['#process .step:nth-child(2) h3','Envía tu información'],['#process .step:nth-child(2) p','Tu solicitud llega directamente a nuestro correo profesional para revisión.'],['#process .step:nth-child(3) h3','Confirma y continúa'],['#process .step:nth-child(3) p','Te contactaremos con la lista de documentos, instrucciones de pago y el tiempo estimado.'],
         ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','W-2 + 1099 con millaje'],['.service-choice:nth-child(3) strong','W-2 + 1099 con gastos'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
-        ['.submit-row .button','Enviar solicitud'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
+        ['.submit-row .button','Enviar solicitud'],['.receipt-button','Descargar recibo de la orden'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
         ['#liveOrderTitle','Tu selección'],['#liveTotalLabel','Total estimado'],['#paymentTitle','Opciones de pago'],['#paymentNote','Elige cómo prefieres pagar. Toca Zelle o Cash App para abrir su código de pago.'],['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#liveNote','Se actualiza en tiempo real cuando cambias el servicio o la cantidad de SSN adicionales.'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
         ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.footer-column:nth-child(2) h3','Compañía'],['.footer-column:nth-child(3) h3','Área de servicio']
       ]
