@@ -327,6 +327,17 @@
             <div class="field"><label for="phone">Phone</label><input id="phone" name="Phone" type="tel" autocomplete="tel" required></div>
             <div class="field"><label for="language">Preferred language</label><select id="language" name="Preferred Language"><option>English</option><option>Spanish</option></select></div>
             <div class="field"><label for="business">Business name, if applicable</label><input id="business" name="Business Name" placeholder="Business or LLC name"></div>
+            <fieldset class="document-upload full">
+              <legend id="documentsTitle">Secure document upload</legend>
+              <p class="document-upload-note" id="documentsNote">Upload clear PDF, JPG, or PNG files. Do not email passwords or payment information. Documents are confidential and will be reviewed for your request.</p>
+              <div class="document-grid">
+                <div class="field"><label for="ssnDocument" id="ssnDocumentLabel">SSN document</label><input id="ssnDocument" name="SSN Document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></div>
+                <div class="field"><label for="w2Document" id="w2DocumentLabel">W-2 document</label><input id="w2Document" name="W-2 Document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></div>
+                <div class="field"><label for="1099Document" id="1099DocumentLabel">1099 document</label><input id="1099Document" name="1099 Document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></div>
+                <div class="field"><label for="insuranceDocument" id="insuranceDocumentLabel">Government insurance document</label><input id="insuranceDocument" name="Government Insurance Document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></div>
+                <div class="field full"><label for="licenseDocument" id="licenseDocumentLabel">Driver license or government ID</label><input id="licenseDocument" name="License or Government ID" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></div>
+              </div>
+            </fieldset>
             <div class="field full"><label for="notes">Notes or questions</label><textarea id="notes" name="Message" placeholder="Tell us anything that will help us prepare for your request."></textarea></div>
           </div>
           <div class="submit-row"><button class="button" type="submit">Send request</button><button class="button receipt-button" id="downloadReceipt" type="button">Download order receipt</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
