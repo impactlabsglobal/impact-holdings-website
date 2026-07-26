@@ -192,7 +192,7 @@
     @media(max-width:720px){
       .container{width:min(100% - 28px,1180px)}
       .nav{min-height:68px}
-      .nav{min-height:82px;align-items:center;gap:10px}
+      .nav{min-height:76px;align-items:center;gap:10px;padding-top:10px;padding-bottom:10px}
       .brand{gap:9px}
       .brand-mark{width:42px;height:42px;border-radius:11px;font-size:.85rem}
       .brand-copy{font-size:.84rem}
@@ -201,8 +201,12 @@
       .nav-actions{gap:4px}
       .nav-cta{min-height:38px;padding:0 10px;font-size:.72rem}
       .language-toggle{padding:0 7px;font-size:.68rem}
-      .hero{min-height:72svh;min-height:72dvh}
-      .hero-content{width:min(100% - 28px,1180px);padding:120px 0 46px}
+      .hero{min-height:auto;align-items:flex-start}
+      .hero-content{width:min(100% - 28px,1180px);padding:42px 0 34px}
+      h1{font-size:clamp(2.05rem,9vw,3.1rem);line-height:1.02;margin:14px 0}
+      .hero-copy p{font-size:.96rem;line-height:1.45}
+      .hero-actions{gap:10px;margin-top:22px}
+      .hero-note{margin-top:22px;font-size:.82rem}
       .section{padding:60px 0}
       .section-heading{display:block;margin-bottom:24px}
       .section-heading p{margin-top:10px}
@@ -235,7 +239,15 @@
     }
     @media(min-width:721px) and (max-width:1024px){
       .nav-links{gap:14px}
-      .nav{gap:14px}
+      .nav{gap:14px;min-height:92px}
+      .brand-mark{width:48px;height:48px;border-radius:12px;font-size:1rem}
+      .brand-copy{font-size:1rem}
+      .brand-copy small{font-size:.68rem}
+      .nav-actions{gap:6px}
+      .nav-cta{min-height:42px;padding:0 13px}
+      .hero{min-height:68svh;min-height:68dvh}
+      .hero-content{padding-top:92px;padding-bottom:42px}
+      h1{font-size:clamp(2.4rem,6vw,4rem)}
       .request-form{padding:26px}
       .request-aside{grid-template-columns:1fr 1fr}
       .request-aside .live-order{grid-column:1/-1}
