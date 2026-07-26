@@ -33,16 +33,20 @@
     :focus-visible{outline:3px solid rgba(23,105,232,.35);outline-offset:3px}
 
     .container{width:min(1460px,calc(100% - 48px));margin:0 auto}
-    .site-header{position:absolute;z-index:2;top:0;left:0;right:0;color:#fff}
-    .nav{min-height:76px;display:flex;align-items:flex-start;justify-content:space-between;gap:22px;padding-top:18px}
-    .brand-block{display:grid;gap:10px}
-    .brand{display:flex;align-items:center;gap:20px;font-weight:800}
-    .brand-mark{width:72px;height:72px;display:grid;place-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);border-radius:18px;font-size:1.35rem;letter-spacing:.02em}
-    .brand-copy{display:grid;line-height:1.08;font-size:1.5rem;letter-spacing:-.02em}
-    .brand-copy small{font-size:1rem;font-weight:600;opacity:.82;letter-spacing:0}
-    .nav-links{display:flex;align-items:center;justify-content:flex-start;gap:36px;padding-left:92px;font-size:1rem;font-weight:800;letter-spacing:-.015em}
-    .nav-links a{opacity:.88;transition:opacity .2s ease,color .2s ease}
-    .nav-links a:hover{opacity:1;color:#fff}
+    .site-header{position:relative;z-index:5;color:#102033;background:linear-gradient(108deg,#fff 0%,#fff 30%,#e7f0ff 45%,#ff9b00 63%,#ff3fae 86%,#fff 100%);border-bottom:1px solid rgba(16,32,51,.12)}
+    .nav{min-height:122px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:14px;flex:0 0 auto;font-weight:800}
+    .brand-mark{width:54px;height:54px;display:grid;place-items:center;background:#102033;color:#fff;border:1px solid #102033;border-radius:14px;font-size:1.05rem;letter-spacing:.02em}
+    .brand-copy{display:grid;line-height:1.08;font-size:1.18rem;letter-spacing:-.025em}
+    .brand-copy small{font-size:.76rem;font-weight:600;opacity:.72;letter-spacing:0}
+    .nav-links{display:flex;align-items:center;justify-content:center;gap:30px;margin-left:auto;font-size:.92rem;font-weight:700;letter-spacing:-.01em}
+    .nav-links a{opacity:.9;transition:opacity .2s ease,color .2s ease}
+    .nav-links a:hover{opacity:1;color:#1769e8}
+    .nav-actions{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+    .nav-signin,.nav-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:8px;font-size:.88rem;font-weight:800}
+    .nav-signin{background:rgba(255,255,255,.86);border:1px solid rgba(16,32,51,.12);color:#a24c57}
+    .nav-cta{background:#5538ee;color:#fff;box-shadow:0 8px 18px rgba(85,56,238,.2)}
+    .nav-cta:hover{background:#4124d1}
     .nav-links a:hover{opacity:1}
 
     .hero{min-height:78vh;display:flex;align-items:flex-end;position:relative;color:#fff;background:#0b1928 url("assets/tax-consultation-hero.jpg") center/cover no-repeat}
@@ -169,8 +173,8 @@
     .extra-dropdown{display:block;min-width:210px}
     .extra-dropdown select{min-height:48px;background:var(--paper);font-weight:800}
     .nav-price{color:#fff;font-size:.85rem;font-weight:800;opacity:.92}
-    .language-toggle{min-height:44px;padding:0 16px;border:1px solid rgba(255,255,255,.58);border-radius:10px;background:rgba(255,255,255,.14);color:#fff;font-size:.82rem;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.08)}
-    .language-toggle:hover{background:#fff;color:var(--ink)}
+    .language-toggle{min-height:38px;padding:0 10px;border:0;border-radius:8px;background:transparent;color:#102033;font-size:.78rem;font-weight:800}
+    .language-toggle:hover{background:rgba(255,255,255,.75)}
     @media(max-width:1024px){
       .container,.hero-content{width:min(100% - 40px,1180px)}
       .section{padding:56px 0}
@@ -188,13 +192,16 @@
     @media(max-width:720px){
       .container{width:min(100% - 28px,1180px)}
       .nav{min-height:68px}
-      .brand{gap:12px}
-      .brand-mark{width:48px;height:48px;border-radius:14px;font-size:1rem}
-      .brand-copy{font-size:1rem}
-      .brand-copy small{font-size:.7rem}
-      .nav-links{display:flex;gap:18px;padding-left:60px;font-size:.78rem}
-      .nav-price{display:none}
-      .language-toggle{margin-left:auto;margin-top:2px;padding:0 11px}
+      .nav{min-height:82px;align-items:center;gap:10px}
+      .brand{gap:9px}
+      .brand-mark{width:42px;height:42px;border-radius:11px;font-size:.85rem}
+      .brand-copy{font-size:.84rem}
+      .brand-copy small{font-size:.58rem}
+      .nav-links{display:none}
+      .nav-actions{gap:4px}
+      .nav-signin{display:none}
+      .nav-cta{min-height:38px;padding:0 10px;font-size:.72rem}
+      .language-toggle{padding:0 7px;font-size:.68rem}
       .hero{min-height:72svh;min-height:72dvh}
       .hero-content{width:min(100% - 28px,1180px);padding:120px 0 46px}
       .section{padding:60px 0}
@@ -249,18 +256,20 @@
 <body>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <div class="brand-block">
-        <a class="brand" href="#top" aria-label="Impact Holdings LLC home">
-          <span class="brand-mark">IH</span>
-          <span class="brand-copy">Impact Holdings LLC<small>Tax &amp; business services</small></span>
-        </a>
-        <div class="nav-links">
-          <a href="#request">Services</a>
-          <a href="#process">How it works</a>
-          <a href="#request">Contact</a>
-        </div>
+      <a class="brand" href="#top" aria-label="Impact Holdings LLC home">
+        <span class="brand-mark">IH</span>
+        <span class="brand-copy">Impact Holdings LLC<small>Tax &amp; business services</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#request">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#request">Contact</a>
       </div>
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch website language">Español</button>
+      <div class="nav-actions">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch website language">Español</button>
+        <a class="nav-signin" href="#request">Client portal</a>
+        <a class="nav-cta" href="#request">Contact us <span aria-hidden="true">→</span></a>
+      </div>
     </nav>
   </header>
 
