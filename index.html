@@ -36,11 +36,11 @@
     .site-header{position:absolute;z-index:2;top:0;left:0;right:0;color:#fff}
     .nav{min-height:76px;display:flex;align-items:flex-start;justify-content:space-between;gap:22px;padding-top:18px}
     .brand-block{display:grid;gap:10px}
-    .brand{display:flex;align-items:center;gap:11px;font-weight:800}
-    .brand-mark{width:36px;height:36px;display:grid;place-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);border-radius:10px;font-size:.84rem}
-    .brand-copy{display:grid;line-height:1.15}
-    .brand-copy small{font-size:.7rem;font-weight:600;opacity:.8}
-    .nav-links{display:flex;align-items:center;justify-content:flex-start;gap:18px;padding-left:47px;font-size:.76rem;font-weight:800}
+    .brand{display:flex;align-items:center;gap:20px;font-weight:800}
+    .brand-mark{width:72px;height:72px;display:grid;place-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);border-radius:18px;font-size:1.35rem;letter-spacing:.02em}
+    .brand-copy{display:grid;line-height:1.08;font-size:1.5rem;letter-spacing:-.02em}
+    .brand-copy small{font-size:1rem;font-weight:600;opacity:.82;letter-spacing:0}
+    .nav-links{display:flex;align-items:center;justify-content:flex-start;gap:36px;padding-left:92px;font-size:1rem;font-weight:800;letter-spacing:-.015em}
     .nav-links a{opacity:.88;transition:opacity .2s ease,color .2s ease}
     .nav-links a:hover{opacity:1;color:#fff}
     .nav-links a:hover{opacity:1}
@@ -169,7 +169,7 @@
     .extra-dropdown{display:block;min-width:210px}
     .extra-dropdown select{min-height:48px;background:var(--paper);font-weight:800}
     .nav-price{color:#fff;font-size:.85rem;font-weight:800;opacity:.92}
-    .language-toggle{min-height:38px;padding:0 11px;border:1px solid rgba(255,255,255,.55);border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:.78rem;font-weight:800}
+    .language-toggle{min-height:44px;padding:0 16px;border:1px solid rgba(255,255,255,.58);border-radius:10px;background:rgba(255,255,255,.14);color:#fff;font-size:.82rem;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.08)}
     .language-toggle:hover{background:#fff;color:var(--ink)}
     @media(max-width:1024px){
       .container,.hero-content{width:min(100% - 40px,1180px)}
@@ -188,9 +188,13 @@
     @media(max-width:720px){
       .container{width:min(100% - 28px,1180px)}
       .nav{min-height:68px}
-      .nav-links{display:flex;gap:14px;padding-left:44px;font-size:.7rem}
+      .brand{gap:12px}
+      .brand-mark{width:48px;height:48px;border-radius:14px;font-size:1rem}
+      .brand-copy{font-size:1rem}
+      .brand-copy small{font-size:.7rem}
+      .nav-links{display:flex;gap:18px;padding-left:60px;font-size:.78rem}
       .nav-price{display:none}
-      .language-toggle{margin-left:auto;margin-top:2px}
+      .language-toggle{margin-left:auto;margin-top:2px;padding:0 11px}
       .hero{min-height:72svh;min-height:72dvh}
       .hero-content{width:min(100% - 28px,1180px);padding:120px 0 46px}
       .section{padding:60px 0}
