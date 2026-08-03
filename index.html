@@ -48,6 +48,19 @@
     .nav-cta{background:#1769e8;color:#fff;box-shadow:0 8px 18px rgba(23,105,232,.2)}
     .nav-cta:hover{background:#0e55c2}
     .nav-links a:hover{opacity:1}
+    .llc-section{background:linear-gradient(135deg,#0c1928 0%,#142a43 58%,#1b3552 100%);color:#fff}
+    .llc-section .section-heading p,.llc-section .llc-intro{color:#cbd8e6}
+    .llc-kicker{color:#f2b72b;font-size:.78rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .llc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .llc-card{padding:28px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.06)}
+    .llc-card h3{color:#fff;margin-bottom:12px;font-size:1.25rem}
+    .llc-card p{color:#cbd8e6}
+    .llc-list{display:grid;gap:14px;margin:20px 0 0;padding:0;list-style:none}
+    .llc-list li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;color:#dce7f1}
+    .llc-list li::before{content:'✓';display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#6d9f18;color:#fff;font-weight:900}
+    .llc-list.consider li::before{content:'!';background:#b4232c}
+    .llc-callout{margin-top:22px;padding:18px 20px;border-left:4px solid #f2b72b;border-radius:10px;background:rgba(242,183,43,.12);color:#fff;font-weight:700}
+    .llc-note{margin-top:22px;color:#b9cae0;font-size:.85rem}
 
     .hero{min-height:78vh;display:flex;align-items:flex-end;position:relative;color:#fff;background:#0b1928 url("assets/tax-consultation-hero.jpg") center/cover no-repeat}
     .hero::before{content:"";position:absolute;inset:0;background:rgba(8,22,38,.56)}
@@ -210,7 +223,7 @@
       .section{padding:60px 0}
       .section-heading{display:block;margin-bottom:24px}
       .section-heading p{margin-top:10px}
-      .service-grid,.process-grid,.footer-grid,.form-grid{grid-template-columns:1fr}
+      .service-grid,.process-grid,.footer-grid,.form-grid,.llc-grid{grid-template-columns:1fr}
       .service-select{grid-template-columns:1fr}
       .service-choice label{min-height:72px}
       .payment-select{grid-template-columns:1fr}
@@ -274,6 +287,7 @@
       <div class="nav-links">
         <a href="#request">Services</a>
         <a href="#process">How it works</a>
+        <a href="#llc">LLC</a>
         <a href="#request">Contact</a>
       </div>
       <div class="nav-actions">
@@ -296,6 +310,33 @@
           </div>
           <p class="hero-note">Serving clients in the United States from Perth Amboy, New Jersey.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="section llc-section" id="llc" aria-labelledby="llc-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="llc-kicker">Business structure education</span><h2 id="llc-title">Why an LLC can matter for your business.</h2></div>
+          <p class="llc-intro" id="llc-intro">An LLC is not a magic tax shortcut. It is a legal and organizational structure that can help separate your business activity from your personal life when it is maintained correctly.</p>
+        </div>
+        <div class="llc-grid">
+          <article class="llc-card"><h3 id="llc-benefits-title">Potential advantages</h3><ul class="llc-list">
+            <li id="llc-benefit-1">Helps separate business assets and personal assets.</li>
+            <li id="llc-benefit-2">Creates a more professional structure for clients, vendors and banks.</li>
+            <li id="llc-benefit-3">Makes it easier to organize business income, expenses and records.</li>
+            <li id="llc-benefit-4">Can support legitimate business deductions when expenses are ordinary, necessary and documented.</li>
+            <li id="llc-benefit-5">Provides a foundation to grow, open business accounts or add services.</li>
+          </ul></article>
+          <article class="llc-card"><h3 id="llc-consider-title">Responsibilities to consider</h3><ul class="llc-list consider">
+            <li id="llc-consider-1">Formation and annual state fees may apply.</li>
+            <li id="llc-consider-2">You must keep records, reports and registrations current.</li>
+            <li id="llc-consider-3">Business and personal finances should remain separate.</li>
+            <li id="llc-consider-4">An LLC does not eliminate taxes or guarantee deductions.</li>
+            <li id="llc-consider-5">Your structure should match your state, activity and professional advice.</li>
+          </ul></article>
+        </div>
+        <div class="llc-callout" id="llc-callout">Single-member LLC note: the IRS may treat a single-member LLC as a “disregarded entity” for federal income-tax reporting unless another election is made. That does not mean the LLC has no value; legal protection, banking, organization and compliance still depend on how the business is operated.</div>
+        <p class="llc-note" id="llc-note">Educational information only. It is not legal, tax or financial advice. Speak with a qualified professional before forming or changing a business entity.</p>
       </div>
     </section>
 
@@ -554,11 +595,11 @@
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','How it works'],['.nav-links a:nth-child(3)','Contact'],
+        ['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','How it works'],['.nav-links a:nth-child(3)','LLC'],['.nav-links a:nth-child(4)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
-        ['.hero-note','Serving clients in the United States from Perth Amboy, New Jersey.'],
+['.hero-note','Serving clients in the United States from Perth Amboy, New Jersey.'],['#llc-title','Why an LLC can matter for your business.'],['#llc-intro','An LLC is not a magic tax shortcut. It is a legal and organizational structure that can help separate your business activity from your personal life when it is maintained correctly.'],['#llc-benefits-title','Potential advantages'],['#llc-benefit-1','Helps separate business assets and personal assets.'],['#llc-benefit-2','Creates a more professional structure for clients, vendors and banks.'],['#llc-benefit-3','Makes it easier to organize business income, expenses and records.'],['#llc-benefit-4','Can support legitimate business deductions when expenses are ordinary, necessary and documented.'],['#llc-benefit-5','Provides a foundation to grow, open business accounts or add services.'],['#llc-consider-title','Responsibilities to consider'],['#llc-consider-1','Formation and annual state fees may apply.'],['#llc-consider-2','You must keep records, reports and registrations current.'],['#llc-consider-3','Business and personal finances should remain separate.'],['#llc-consider-4','An LLC does not eliminate taxes or guarantee deductions.'],['#llc-consider-5','Your structure should match your state, activity and professional advice.'],['#llc-callout','Single-member LLC note: the IRS may treat a single-member LLC as a “disregarded entity” for federal income-tax reporting unless another election is made. That does not mean the LLC has no value; legal protection, banking, organization and compliance still depend on how the business is operated.'],['#llc-note','Educational information only. It is not legal, tax or financial advice. Speak with a qualified professional before forming or changing a business entity.'],
         ['#services-title','Straightforward services and transparent pricing.'],
         ['#services .section-heading p','Choose the option that matches your situation. Additional W-2 or SSN filings are $30 each and are calculated before you submit.'],
         ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','W-2 + 1099 with mileage'],['.service-card:nth-child(3) h3','W-2 + 1099 with expenses'],['.service-card:nth-child(4) h3','Complete LLC package'],
@@ -571,11 +612,11 @@
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.pdf-download','Download Uber expense guide PDF'],['.xlsx-download','Download expense tracker Excel'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
-        ['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','Cómo funciona'],['.nav-links a:nth-child(3)','Contacto'],
+        ['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','Cómo funciona'],['.nav-links a:nth-child(3)','LLC'],['.nav-links a:nth-child(4)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
-        ['.hero-note','Atendemos clientes en todo Estados Unidos desde Perth Amboy, New Jersey.'],
+['.hero-note','Atendemos clientes en todo Estados Unidos desde Perth Amboy, New Jersey.'],['#llc-title','Por qué una LLC puede ser importante para tu negocio.'],['#llc-intro','Una LLC no es un atajo mágico para pagar menos impuestos. Es una estructura legal y organizativa que puede ayudar a separar la actividad del negocio de tu vida personal cuando se mantiene correctamente.'],['#llc-benefits-title','Posibles ventajas'],['#llc-benefit-1','Ayuda a separar los bienes del negocio de los bienes personales.'],['#llc-benefit-2','Crea una estructura más profesional para clientes, proveedores y bancos.'],['#llc-benefit-3','Facilita organizar los ingresos, gastos y documentos del negocio.'],['#llc-benefit-4','Puede apoyar deducciones legítimas cuando los gastos son ordinarios, necesarios y están documentados.'],['#llc-benefit-5','Ofrece una base para crecer, abrir cuentas comerciales o agregar servicios.'],['#llc-consider-title','Responsabilidades importantes'],['#llc-consider-1','Pueden aplicar costos de formación y tarifas anuales del estado.'],['#llc-consider-2','Debes mantener al día los registros, reportes y permisos.'],['#llc-consider-3','Las finanzas personales y del negocio deben mantenerse separadas.'],['#llc-consider-4','Una LLC no elimina los impuestos ni garantiza deducciones.'],['#llc-consider-5','La estructura debe corresponder a tu estado, actividad y asesoría profesional.'],['#llc-callout','Nota sobre una LLC de un solo miembro: el IRS puede tratarla como una “disregarded entity” para reportes federales de impuestos sobre ingresos, salvo que se haga otra elección. Eso no significa que la LLC no tenga valor; la protección legal, las cuentas bancarias, la organización y el cumplimiento dependen de cómo se opere el negocio.'],['#llc-note','Información educativa solamente. No es asesoría legal, tributaria ni financiera. Consulta a un profesional calificado antes de formar o cambiar una entidad comercial.'],
         ['#services-title','Servicios directos y precios transparentes.'],
         ['#services .section-heading p','Elige la opción que corresponde a tu situación. Cada W-2 o SSN adicional cuesta $30 y se calcula antes de enviar la solicitud.'],
         ['.service-card:nth-child(1) h3','Declaración de impuestos W-2'],['.service-card:nth-child(2) h3','W-2 + 1099 con millaje'],['.service-card:nth-child(3) h3','W-2 + 1099 con gastos'],['.service-card:nth-child(4) h3','Paquete completo de LLC'],
