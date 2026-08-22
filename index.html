@@ -281,35 +281,74 @@
     .menu-backdrop{position:fixed;inset:0;z-index:9998;background:rgba(8,22,38,.48);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:1}.menu-backdrop[hidden]{display:none}
     .site-menu{position:fixed;left:0;top:0;bottom:0;z-index:9999;width:min(360px,88vw);padding:25px 22px;background:#fff;color:var(--ink);box-shadow:18px 0 50px rgba(8,22,38,.18);transform:translate3d(-105%,0,0);visibility:hidden;pointer-events:none;transition:transform .25s ease,visibility 0s linear .25s;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain}.site-menu.is-open{transform:translate3d(0,0,0);visibility:visible;pointer-events:auto;transition:transform .25s ease,visibility 0s linear 0s}.site-menu-head{display:flex;align-items:center;justify-content:space-between;font-size:1.15rem}.menu-close{width:36px;height:36px;border:0;border-radius:50%;background:#eef4fa;color:var(--ink);font-size:1.5rem;line-height:1}.menu-close:focus-visible{outline:3px solid rgba(23,105,232,.25);outline-offset:2px}.menu-subtitle{color:var(--muted);font-size:.85rem;margin:8px 0 22px}.site-menu-links{display:grid;gap:5px}.site-menu-links a{display:block;padding:14px 13px;border-radius:10px;font-weight:800}.site-menu-links a:hover,.site-menu-links a:focus-visible{background:#eaf3ff;color:var(--blue);outline:0}.site-menu-divider{height:1px;background:var(--line);margin:22px 0}.menu-language{width:100%;min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-weight:800;text-align:left;padding:0 13px}.menu-language:hover,.menu-language:focus-visible{border-color:var(--blue);color:var(--blue);outline:3px solid rgba(23,105,232,.12);outline-offset:2px}.menu-cta{margin-top:12px;width:100%}.menu-footer{margin-top:auto;padding-top:22px;color:var(--muted);font-size:.78rem;white-space:pre-line}.menu-open{overflow:hidden}
     @media(prefers-reduced-motion:reduce){.site-menu{transition:none}.site-menu.is-open{transition:none}}
+
+
+    /* Clean gradient navigation inspired by the supplied reference */
+    .site-header{position:sticky!important;top:0;z-index:1000!important;isolation:isolate;overflow:visible;background:#fff!important;border-bottom:1px solid #dce6ef;box-shadow:0 6px 22px rgba(16,32,51,.08)}
+    .site-header:before{content:"";position:absolute;z-index:-2;inset:0 0 0 24%;background:linear-gradient(112deg,rgba(213,229,255,.82) 0%,rgba(208,226,255,.72) 26%,rgba(255,207,93,.78) 51%,rgba(255,111,126,.78) 73%,rgba(226,169,255,.68) 100%);clip-path:polygon(9% 0,100% 0,100% 100%,0 100%);pointer-events:none}
+    .site-header:after{content:"";position:absolute;z-index:-1;right:0;top:0;width:60%;height:100%;background:repeating-linear-gradient(112deg,transparent 0 42px,rgba(255,255,255,.28) 44px 49px,transparent 51px 82px);opacity:.55;pointer-events:none}
+    .site-header .nav{position:relative;z-index:1;min-height:82px;display:flex;align-items:center;gap:24px}
+    .site-header .brand{display:flex;align-items:center;min-width:max-content;flex:0 0 auto}
+    .site-header .brand-copy{display:grid;line-height:1.08;font-size:1.1rem;letter-spacing:-.025em;font-weight:900;color:#102033}
+    .site-header .brand-copy small{display:block;color:#526980;font-size:.72rem;font-weight:700;letter-spacing:0}
+    .site-header .desktop-nav{display:flex;align-items:center;justify-content:center;gap:26px;margin-left:auto;font-size:.86rem;font-weight:800;color:#102033}
+    .site-header .desktop-nav a{opacity:.9;transition:color .18s ease,opacity .18s ease}
+    .site-header .desktop-nav a:hover,.site-header .desktop-nav a:focus-visible{color:#1769e8;opacity:1}
+    .site-header .nav-actions{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+    .site-header .header-language{border:0;background:transparent;color:#102033;font-weight:800;padding:10px 8px;white-space:nowrap}
+    .site-header .header-language:hover{color:#1769e8}
+    .site-header .nav-cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 17px;border-radius:8px;background:#1769e8;color:#fff;font-size:.84rem;font-weight:900;box-shadow:0 8px 18px rgba(23,105,232,.2);white-space:nowrap}
+    .site-header .nav-cta:hover{background:#0e55c2}
+    .mobile-menu{display:none;position:relative}
+    .mobile-menu>summary{list-style:none}
+    .mobile-menu>summary::-webkit-details-marker{display:none}
+    .menu-trigger{position:relative;z-index:2;width:44px;height:44px;display:grid;place-content:center;gap:5px;border:1px solid #cbd8e4;border-radius:10px;background:rgba(255,255,255,.78);color:#102033;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    .menu-trigger span{display:block;width:18px;height:2px;border-radius:3px;background:currentColor}
+    .menu-trigger:hover,.mobile-menu[open] .menu-trigger{border-color:#1769e8;color:#1769e8;box-shadow:0 0 0 3px rgba(23,105,232,.12)}
+    .mobile-menu-panel{position:fixed;right:14px;top:78px;width:min(360px,calc(100vw - 28px));max-height:calc(100vh - 94px);overflow:auto;padding:22px;background:#fff;color:#102033;border:1px solid #dce6ef;border-radius:16px;box-shadow:0 22px 58px rgba(16,32,51,.22)}
+    .mobile-menu-panel .site-menu-head{display:flex;align-items:center;justify-content:space-between;font-size:1.1rem}.mobile-menu-panel .menu-close{width:34px;height:34px;border:0;border-radius:50%;background:#eef4fa;color:#102033;font-size:1.4rem;line-height:1}
+    .mobile-menu-panel .menu-subtitle{color:#60748a;font-size:.84rem;margin:7px 0 17px}.mobile-menu-panel .site-menu-links{display:grid;gap:4px}.mobile-menu-panel .site-menu-links a{display:block;padding:13px 12px;border-radius:9px;font-weight:800}.mobile-menu-panel .site-menu-links a:hover,.mobile-menu-panel .site-menu-links a:focus-visible{background:#eaf3ff;color:#1769e8;outline:0}
+    .mobile-menu-panel .site-menu-divider{height:1px;background:#dce6ef;margin:18px 0}.mobile-menu-panel .menu-cta{width:100%;margin-top:16px}.mobile-menu-panel .menu-footer{margin-top:22px;color:#60748a;font-size:.76rem;line-height:1.6}
+    @media(max-width:900px){.site-header .desktop-nav{gap:16px;font-size:.8rem}.site-header .nav{gap:14px}}
+    @media(max-width:760px){.site-header:before{inset:0 0 0 10%;opacity:.9}.site-header .nav{min-height:70px;gap:10px}.site-header .brand-copy{font-size:.95rem}.site-header .brand-copy small{font-size:.63rem}.site-header .desktop-nav{display:none}.site-header .nav-actions{margin-left:auto}.site-header .nav-cta{display:none}.mobile-menu{display:block}.mobile-menu-panel{top:68px}}
+    @media(max-width:420px){.site-header .brand-copy{font-size:.82rem}.site-header .brand-copy small{font-size:.57rem}.site-header .header-language{font-size:.78rem;padding:8px 4px}.mobile-menu-panel{right:10px;width:calc(100vw - 20px)}}
+    @media(prefers-reduced-motion:reduce){.site-header *{transition:none!important}}
+
 </style>
 </head>
 <body>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <button class="menu-trigger" id="menuTrigger" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <a class="brand" href="#top" aria-label="Impact Holdings LLC home">
-        <span class="mark brand-mark">IH</span>
         <span class="brand-copy">Impact Holdings LLC<small>Tax &amp; business services</small></span>
       </a>
-      <div class="nav-actions">
+      <div class="desktop-nav nav-links" aria-label="Main navigation links">
+        <a href="#request">Tax</a>
+        <a href="llc.html">LLC</a>
+        <a href="#process">How it works</a>
+        <a href="#request">Contact</a>
+      </div>
+      <div class="nav-actions actions">
+        <button class="language-toggle header-language" id="languageToggle" type="button" aria-label="Switch website language">Español</button>
         <a class="nav-cta" href="#request">Get started <span aria-hidden="true">→</span></a>
+        <details class="mobile-menu" id="mobileMenu">
+          <summary class="menu-trigger" id="menuTrigger" aria-label="Open menu"><span></span><span></span><span></span></summary>
+          <div class="mobile-menu-panel">
+            <div class="site-menu-head"><strong id="menuTitle">Menu</strong><button class="menu-close" id="menuClose" type="button" aria-label="Close menu">×</button></div>
+            <p class="menu-subtitle" id="menuSubtitle">Choose a section</p>
+            <nav class="site-menu-links" aria-label="Mobile navigation">
+              <a id="menuTax" href="#request">Tax</a>
+              <a id="menuLlc" href="llc.html">LLC</a>
+              <a id="menuHow" href="#process">How it works</a>
+              <a id="menuContact" href="#request">Contact</a>
+            </nav>
+            <div class="site-menu-divider"></div>
+            <a class="button menu-cta" id="menuCta" href="#request">Start your request →</a>
+            <p class="menu-footer">Impact Holdings LLC<br>Perth Amboy, New Jersey</p>
+          </div>
+        </details>
       </div>
     </nav>
-    <div class="menu-backdrop" id="menuBackdrop" hidden></div>
-    <aside class="site-menu" id="siteMenu" aria-label="Website menu" aria-hidden="true">
-      <div class="site-menu-head"><strong id="menuTitle">Menu</strong><button class="menu-close" id="menuClose" type="button" aria-label="Close menu">×</button></div>
-      <p class="menu-subtitle" id="menuSubtitle">Choose a section</p>
-      <nav class="site-menu-links">
-        <a id="menuTax" href="index.html">Tax</a>
-        <a id="menuLlc" href="llc.html">LLC</a>
-        <a id="menuHow" href="#process">How it works</a>
-        <a id="menuContact" href="#request">Contact</a>
-      </nav>
-      <div class="site-menu-divider"></div>
-      <button class="language-toggle menu-language" id="languageToggle" type="button" aria-label="Switch website language">Español</button>
-      <a class="button menu-cta" id="menuCta" href="#request">Start your request →</a>
-      <p class="menu-footer">Impact Holdings LLC<br>Perth Amboy, New Jersey</p>
-    </aside>
   </header>
 
   <main id="top">
@@ -650,7 +689,7 @@
     updateThemeColor();
     updateOrder();
   
-    (function(){var trigger=document.getElementById('menuTrigger'),menu=document.getElementById('siteMenu'),backdrop=document.getElementById('menuBackdrop'),close=document.getElementById('menuClose');if(!trigger||!menu||!backdrop)return;function setOpen(open){menu.classList.toggle('is-open',open);menu.setAttribute('aria-hidden',String(!open));trigger.setAttribute('aria-expanded',String(open));trigger.setAttribute('aria-label',open?'Close menu':'Open menu');backdrop.hidden=!open;document.body.classList.toggle('menu-open',open)}setOpen(false);trigger.addEventListener('click',function(){setOpen(!menu.classList.contains('is-open'))});if(close)close.addEventListener('click',function(){setOpen(false)});backdrop.addEventListener('click',function(){setOpen(false)});document.addEventListener('keydown',function(event){if(event.key==='Escape')setOpen(false)});document.querySelectorAll('.site-menu a').forEach(function(link){link.addEventListener('click',function(){setOpen(false)})})}());
+    (function(){var menu=document.getElementById('mobileMenu'),close=document.getElementById('menuClose');if(!menu)return;if(close)close.addEventListener('click',function(){menu.open=false});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){menu.open=false})});document.addEventListener('keydown',function(event){if(event.key==='Escape')menu.open=false});document.addEventListener('click',function(event){if(menu.open&&!menu.contains(event.target))menu.open=false})}());
 </script>
 </body>
 </html>
