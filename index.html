@@ -684,9 +684,7 @@
       try{localStorage.setItem('impact-language',nextLanguage);}catch(error){}
     }
     languageToggle.addEventListener('click',function(){applyLanguage(languageToggle.dataset.language === 'es' ? 'en' : 'es');});
-    var savedLanguage='en';
-    try{savedLanguage=localStorage.getItem('impact-language') === 'es' ? 'es' : 'en';}catch(error){}
-    applyLanguage(savedLanguage);
+    applyLanguage('en');
     try{
       var requestedService = new URLSearchParams(window.location.search).get('service');
       if(requestedService && document.getElementById(requestedService)){
