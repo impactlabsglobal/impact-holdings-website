@@ -304,7 +304,7 @@
       </nav>
       <div class="site-menu-divider"></div>
       <button class="language-toggle menu-language" id="languageToggle" type="button" aria-label="Switch website language">Español</button>
-      <a class="button menu-cta" href="#request">Start your request →</a>
+      <a class="button menu-cta" id="menuCta" href="#request">Start your request →</a>
       <p class="menu-footer">Impact Holdings LLC<br>Perth Amboy, New Jersey</p>
     </aside>
   </header>
@@ -580,7 +580,7 @@
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuTax','Tax'],['#menuLlc','LLC'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
+        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Tax'],['#menuLlc','LLC'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
@@ -597,7 +597,7 @@
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.pdf-download','Download Uber expense guide PDF'],['.xlsx-download','Download expense tracker Excel'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
-        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
+        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
