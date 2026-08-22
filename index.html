@@ -466,7 +466,7 @@
             </fieldset>
             <div class="field full"><label for="notes">Notes or questions</label><textarea id="notes" name="Message" placeholder="Tell us anything that will help us prepare for your request."></textarea></div>
           </div>
-          <div class="submit-row"><button class="button" type="submit">Send request</button><button class="button receipt-button" id="downloadReceipt" type="button">Download order receipt</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
+          <div class="submit-row"><button class="button" type="submit">Send request</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
         </form>
 
         <aside class="request-aside" aria-label="Request information">
@@ -475,15 +475,6 @@
             <div class="live-product"><span id="liveProduct">W-2 Tax Return</span><strong id="liveTotal">$100</strong></div>
             <div class="live-total-label" id="liveTotalLabel">Estimated total</div>
             <p class="live-note" id="liveNote">Updates in real time as you change the service or extra SSN quantity.</p>
-          </div>
-          <div class="aside-payments" aria-label="Payment options">
-            <h3 id="paymentTitle">Payment options</h3>
-            <p id="paymentNote">Choose how you prefer to pay. Zelle and Cash App codes will open here when added.</p>
-            <div class="payment-options">
-              <button class="payment-option is-selected" type="button" data-payment="Cash App Business" data-payment-code="cashapp"><span>Cash App Business</span><small>Open payment code</small></button>
-              <button class="payment-option" type="button" data-payment="Zelle Business" data-payment-code="zelle"><span>Zelle Business</span><small>Open payment code</small></button>
-              <button class="payment-option" type="button" data-payment="Stripe checkout - coming soon" data-payment-code="card"><span>Card checkout</span><small>Coming soon</small></button>
-            </div>
           </div>
           <div class="aside-copy">
             <h3 id="contactTitle">Professional contact</h3>
@@ -528,7 +519,7 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div><div class="footer-brand">Impact Holdings LLC</div><p class="footer-copy">Professional tax preparation and LLC formation for individuals and small businesses.</p><a class="instagram-link" href="https://www.instagram.com/mrbatistaj/" target="_blank" rel="noopener noreferrer"><span class="instagram-icon" aria-hidden="true"></span >Instagram @mrbatistaj</a><br><a class="pdf-download" href="output/pdf/uber-expense-guide.pdf" target="_blank" rel="noopener noreferrer">Download Uber expense guide PDF</a><br><a class="xlsx-download" href="output/xlsx/uber-1099-expense-tracker.xlsx" download>Download expense tracker Excel</a></div>
+        <div><div class="footer-brand">Impact Holdings LLC</div><p class="footer-copy">Professional tax preparation and LLC formation for individuals and small businesses.</p><a class="instagram-link" href="https://www.instagram.com/mrbatistaj/" target="_blank" rel="noopener noreferrer"><span class="instagram-icon" aria-hidden="true"></span >Instagram @mrbatistaj</a><br><a class="pdf-download" href="output/pdf/uber-expense-guide.pdf" target="_blank" rel="noopener noreferrer">Download Uber expense guide PDF</a></div>
         <div class="footer-column"><h3>Company</h3><a href="#top">About us</a><a href="#request">Services</a><a href="#request">Contact</a></div>
         <div class="footer-column"><h3>Service area</h3><span>Perth Amboy, New Jersey</span><span>Available across the United States</span><span>English and Spanish support</span></div>
       </div>
@@ -626,7 +617,7 @@
 
     document.querySelectorAll('input[name="serviceChoice"]').forEach(function(input){input.addEventListener('change',function(){selectedServiceKey = input.value;updateOrder();});});
     extraQuantitySelect.addEventListener('change',function(){extraQuantity = Number(extraQuantitySelect.value);updateOrder();});
-    downloadReceiptButton.addEventListener('click',downloadReceipt);
+    if(downloadReceiptButton) downloadReceiptButton.addEventListener('click',downloadReceipt);
     document.querySelectorAll('.payment-option').forEach(function(button){button.addEventListener('click',function(){
       document.querySelectorAll('.payment-option').forEach(function(option){option.classList.toggle('is-selected',option === button);});
       paymentHidden.value = button.dataset.payment;
