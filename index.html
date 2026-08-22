@@ -33,8 +33,8 @@
     :focus-visible{outline:3px solid rgba(23,105,232,.35);outline-offset:3px}
 
     .container{width:min(1460px,calc(100% - 48px));margin:0 auto}
-    .site-header{position:relative;z-index:5;color:#102033;background:linear-gradient(108deg,#ffffff 0%,#f7fafc 38%,#e5efff 62%,#c8ddff 82%,#eef5ff 100%);border-bottom:1px solid rgba(16,32,51,.12)}
-    .nav{min-height:122px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .site-header{position:relative;z-index:5;color:#102033;background:#ffffff;border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(16,32,51,.05)}
+    .nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:28px}
     .brand{display:flex;align-items:center;gap:14px;flex:0 0 auto;font-weight:800}
     .brand-mark{width:54px;height:54px;display:grid;place-items:center;background:#102033;color:#fff;border:1px solid #102033;border-radius:14px;font-size:1.05rem;letter-spacing:.02em}
     .brand-copy{display:grid;line-height:1.08;font-size:1.18rem;letter-spacing:-.025em}
@@ -285,9 +285,9 @@
         <span class="brand-copy">Impact Holdings LLC<small>Tax &amp; business services</small></span>
       </a>
       <div class="nav-links">
-        <a href="#request">Services</a>
+        <a href="index.html">Tax</a>
+        <a href="llc.html">LLC</a>
         <a href="#process">How it works</a>
-        <a href="#llc">LLC</a>
         <a href="#request">Contact</a>
       </div>
       <div class="nav-actions">
@@ -313,34 +313,7 @@
       </div>
     </section>
 
-    <section class="section llc-section" id="llc" aria-labelledby="llc-title">
-      <div class="container">
-        <div class="section-heading">
-          <div><span class="llc-kicker">Business structure education</span><h2 id="llc-title">Why an LLC can matter for your business.</h2></div>
-          <p class="llc-intro" id="llc-intro">An LLC is not a magic tax shortcut. It is a legal and organizational structure that can help separate your business activity from your personal life when it is maintained correctly.</p>
-        </div>
-        <div class="llc-grid">
-          <article class="llc-card"><h3 id="llc-benefits-title">Potential advantages</h3><ul class="llc-list">
-            <li id="llc-benefit-1">Helps separate business assets and personal assets.</li>
-            <li id="llc-benefit-2">Creates a more professional structure for clients, vendors and banks.</li>
-            <li id="llc-benefit-3">Makes it easier to organize business income, expenses and records.</li>
-            <li id="llc-benefit-4">Can support legitimate business deductions when expenses are ordinary, necessary and documented.</li>
-            <li id="llc-benefit-5">Provides a foundation to grow, open business accounts or add services.</li>
-          </ul></article>
-          <article class="llc-card"><h3 id="llc-consider-title">Responsibilities to consider</h3><ul class="llc-list consider">
-            <li id="llc-consider-1">Formation and annual state fees may apply.</li>
-            <li id="llc-consider-2">You must keep records, reports and registrations current.</li>
-            <li id="llc-consider-3">Business and personal finances should remain separate.</li>
-            <li id="llc-consider-4">An LLC does not eliminate taxes or guarantee deductions.</li>
-            <li id="llc-consider-5">Your structure should match your state, activity and professional advice.</li>
-          </ul></article>
-        </div>
-        <div class="llc-callout" id="llc-callout">Single-member LLC note: the IRS may treat a single-member LLC as a “disregarded entity” for federal income-tax reporting unless another election is made. That does not mean the LLC has no value; legal protection, banking, organization and compliance still depend on how the business is operated.</div>
-        <p class="llc-note" id="llc-note">Educational information only. It is not legal, tax or financial advice. Speak with a qualified professional before forming or changing a business entity.</p>
-      </div>
-    </section>
-
-<section class="section" id="request" aria-labelledby="request-title">
+    <section class="section" id="request" aria-labelledby="request-title">
       <div class="container request-layout">
         <form class="request-form" id="clientForm" action="https://formsubmit.co/founder@impactholdingsllc.com" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New client request - Impact Holdings LLC">
@@ -595,7 +568,7 @@
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','How it works'],['.nav-links a:nth-child(3)','LLC'],['.nav-links a:nth-child(4)','Contact'],
+        ['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
@@ -612,7 +585,7 @@
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.pdf-download','Download Uber expense guide PDF'],['.xlsx-download','Download expense tracker Excel'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
-        ['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','Cómo funciona'],['.nav-links a:nth-child(3)','LLC'],['.nav-links a:nth-child(4)','Contacto'],
+        ['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
