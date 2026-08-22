@@ -622,6 +622,14 @@
     var savedLanguage='en';
     try{savedLanguage=localStorage.getItem('impact-language') === 'es' ? 'es' : 'en';}catch(error){}
     applyLanguage(savedLanguage);
+    try{
+      var requestedService = new URLSearchParams(window.location.search).get('service');
+      if(requestedService && document.getElementById(requestedService)){
+        document.getElementById(requestedService).checked = true;
+        selectedServiceKey = requestedService;
+        updateOrder();
+      }
+    }catch(error){}
 
     darkModeQuery.addEventListener('change',updateThemeColor);
     updateThemeColor();
