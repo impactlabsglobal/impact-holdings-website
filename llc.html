@@ -240,7 +240,7 @@
     (function(){
       var language='es',toggle=document.getElementById('languageToggle');
       function apply(next){language=next;document.documentElement.lang=next;document.querySelectorAll('[data-en]').forEach(function(node){node.textContent=node.dataset[next];});toggle.textContent=next==='es'?'English':'Español';toggle.setAttribute('aria-label',next==='es'?'Switch to English':'Cambiar a español');window.llcLanguage=next;if(window.renderStateOptions)window.renderStateOptions(next);}
-      toggle.addEventListener('click',function(){apply(language==='es'?'en':'es');}); apply('es');
+      toggle.addEventListener('click',function(){apply(language==='es'?'en':'es');}); apply('en');
     }());
   
     (function(){var menu=document.getElementById('mobileMenu'),close=document.getElementById('menuClose');if(!menu)return;if(close)close.addEventListener('click',function(){menu.open=false});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){menu.open=false})});document.addEventListener('keydown',function(event){if(event.key==='Escape')menu.open=false});document.addEventListener('click',function(event){if(menu.open&&!menu.contains(event.target))menu.open=false})}());
