@@ -98,6 +98,27 @@
     .step h3{font-size:1.14rem;margin-bottom:8px}
     .step p{color:var(--muted);font-size:.92rem}
 
+    .milestones{background:#0d1d30;color:#fff}
+    .milestones .section-heading{align-items:flex-start}
+    .milestones .section-heading p{color:#b9c9da}
+    .milestone-kicker{display:block;margin-bottom:10px;color:#7fb0ff;font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .milestone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .milestone-card{padding:24px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.06)}
+    .milestone-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:20px}
+    .milestone-card h3{font-size:1.08rem;line-height:1.3}
+    .milestone-card p{margin-top:5px;color:#b9c9da;font-size:.84rem}
+    .milestone-count{text-align:right;white-space:nowrap}
+    .milestone-count strong{display:block;font-size:1.75rem;line-height:1;color:#fff}
+    .milestone-count span{color:#94a9be;font-size:.76rem}
+    .progress-track{height:10px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.12)}
+    .progress-fill{width:0;height:100%;border-radius:inherit;background:#4e8df5;transition:width .7s ease}
+    .milestone-meta{display:flex;justify-content:space-between;gap:16px;margin-top:10px;color:#aebfd0;font-size:.76rem}
+    .reward-note{display:grid;grid-template-columns:auto 1fr;gap:15px;align-items:start;margin-top:20px;padding:20px;border:1px solid rgba(127,176,255,.28);border-radius:14px;background:rgba(78,141,245,.10)}
+    .reward-note strong{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#4e8df5;color:#fff;font-size:1.15rem}
+    .reward-note h3{margin-bottom:4px;font-size:1rem}
+    .reward-note p{color:#b9c9da;font-size:.84rem}
+    .progress-updated{margin-top:16px;color:#8fa4b9;font-size:.75rem}
+
 
     .request-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(360px,.65fr);gap:56px;align-items:start}
     .request-form{padding:38px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
@@ -224,6 +245,7 @@
       .section-heading{display:block;margin-bottom:24px}
       .section-heading p{margin-top:10px}
       .service-grid,.process-grid,.footer-grid,.form-grid,.llc-grid{grid-template-columns:1fr}
+      .milestone-grid{grid-template-columns:1fr}
       .service-select{grid-template-columns:1fr}
       .service-choice label{min-height:72px}
       .payment-select{grid-template-columns:1fr}
@@ -356,6 +378,7 @@
       <div class="desktop-nav nav-links" aria-label="Main navigation links">
         <a href="#request">Tax</a>
         <a href="llc.html?v=20260822-llc200">LLC</a>
+        <a href="#milestones">Progress</a>
         <a href="#process">How it works</a>
         <a href="#request">Contact</a>
       </div>
@@ -370,6 +393,7 @@
             <nav class="site-menu-links" aria-label="Mobile navigation">
               <a id="menuTax" href="#request">Tax</a>
               <a id="menuLlc" href="llc.html?v=20260822-llc200">LLC</a>
+              <a id="menuProgress" href="#milestones">Progress</a>
               <a id="menuHow" href="#process">How it works</a>
               <a id="menuContact" href="#request">Contact</a>
             </nav>
@@ -422,8 +446,8 @@
 
           <div class="service-select" role="radiogroup" aria-label="Select service">
             <div class="service-choice"><input id="w2" type="radio" name="serviceChoice" value="w2" checked><label for="w2"><strong>W-2 Tax Return</strong><span>$100</span></label></div>
-            <div class="service-choice"><input id="mileage" type="radio" name="serviceChoice" value="mileage"><label for="mileage"><strong>W-2 + 1099 mileage</strong><span>$250</span></label></div>
-            <div class="service-choice"><input id="expenses" type="radio" name="serviceChoice" value="expenses"><label for="expenses"><strong>W-2 + 1099 expenses</strong><span>$400</span></label></div>
+            <div class="service-choice"><input id="mileage" type="radio" name="serviceChoice" value="mileage"><label for="mileage"><strong>Uber/Lyft 1099 + organized mileage</strong><span>$250</span></label></div>
+            <div class="service-choice"><input id="expenses" type="radio" name="serviceChoice" value="expenses"><label for="expenses"><strong>Uber/Lyft 1099 + organized expenses</strong><span>$400</span></label></div>
           </div>
 
           <div class="extra-row" id="extraRow">
@@ -489,6 +513,45 @@
 
     
 
+    <section class="section milestones" id="milestones" aria-labelledby="milestones-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="milestone-kicker">Verified service milestones</span>
+            <h2 id="milestones-title">Every completed service moves the community forward.</h2>
+          </div>
+          <p>Only paid and completed work verified in our internal records is counted. Sending a request does not increase these totals.</p>
+        </div>
+        <div class="milestone-grid" id="milestoneGrid" aria-live="polite">
+          <article class="milestone-card" data-progress-key="w2">
+            <div class="milestone-card-head"><div><h3>W-2 tax returns</h3><p>Completed employee tax-return services.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 1,000</span></div></div>
+            <div class="progress-track" role="progressbar" aria-label="W-2 tax return progress" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"><div class="progress-fill"></div></div>
+            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>1,000 remaining</span></div>
+          </article>
+          <article class="milestone-card" data-progress-key="rideshareMileage">
+            <div class="milestone-card-head"><div><h3>Uber/Lyft · mileage</h3><p>Driver-provided mileage organized before preparation.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 1,000</span></div></div>
+            <div class="progress-track" role="progressbar" aria-label="Uber and Lyft mileage service progress" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"><div class="progress-fill"></div></div>
+            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>1,000 remaining</span></div>
+          </article>
+          <article class="milestone-card" data-progress-key="rideshareExpenses">
+            <div class="milestone-card-head"><div><h3>Uber/Lyft · expenses</h3><p>Driver-provided expenses organized before preparation.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 1,000</span></div></div>
+            <div class="progress-track" role="progressbar" aria-label="Uber and Lyft expense service progress" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"><div class="progress-fill"></div></div>
+            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>1,000 remaining</span></div>
+          </article>
+          <article class="milestone-card" data-progress-key="llc">
+            <div class="milestone-card-head"><div><h3>LLC formation packages</h3><p>Completed LLC, EIN, document kit and business-bank kit services.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 700</span></div></div>
+            <div class="progress-track" role="progressbar" aria-label="LLC service progress" aria-valuemin="0" aria-valuemax="700" aria-valuenow="0"><div class="progress-fill"></div></div>
+            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>700 remaining</span></div>
+          </article>
+        </div>
+        <div class="reward-note">
+          <strong aria-hidden="true">★</strong>
+          <div><h3>Milestone reward</h3><p>When a published service goal is reached, eligible clients may participate in a promotional drawing. The promotion is not active until Impact Holdings LLC publishes the official prize, dates, eligibility requirements, restrictions and complete rules. No purchase or request is represented here as an automatic entry.</p></div>
+        </div>
+        <p class="progress-updated" id="progressUpdated">Counts are updated from verified completed-service records.</p>
+      </div>
+    </section>
+
     <section class="section soft" id="process" aria-labelledby="process-title">
       <div class="container">
         <div class="section-heading">
@@ -519,8 +582,8 @@
   <script>
     var STRIPE_CATALOG = Object.freeze({
       w2:{name:'W-2 Tax Return',amount:10000,productId:'prod_REPLACE_W2',priceId:'price_REPLACE_W2',extraLabel:'Extra SSN'},
-      mileage:{name:'W-2 + 1099 with mileage',amount:25000,productId:'prod_REPLACE_MILEAGE',priceId:'price_REPLACE_MILEAGE',extraLabel:'Extra W-2 or SSN'},
-      expenses:{name:'W-2 + 1099 with expenses',amount:40000,productId:'prod_REPLACE_EXPENSES',priceId:'price_REPLACE_EXPENSES',extraLabel:'Extra W-2 or SSN'},
+      mileage:{name:'Uber/Lyft 1099 with organized mileage',amount:25000,productId:'prod_REPLACE_MILEAGE',priceId:'price_REPLACE_MILEAGE',extraLabel:'Extra W-2 or SSN'},
+      expenses:{name:'Uber/Lyft 1099 with organized expenses',amount:40000,productId:'prod_REPLACE_EXPENSES',priceId:'price_REPLACE_EXPENSES',extraLabel:'Extra W-2 or SSN'},
       llc:{name:'Complete LLC package',amount:30000,productId:'prod_REPLACE_LLC',priceId:'price_REPLACE_LLC',extraLabel:'No extra filing'}
     });
     var STRIPE_EXTRA = Object.freeze({name:'Extra SSN or W-2 filing',amount:3000,productId:'prod_REPLACE_EXTRA',priceId:'price_REPLACE_EXTRA'});
@@ -633,24 +696,24 @@
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Tax'],['#menuLlc','LLC'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
+        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Tax'],['#menuLlc','LLC'],['#menuProgress','Progress'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Progress'],['.nav-links a:nth-child(4)','How it works'],['.nav-links a:nth-child(5)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
 ['.hero-note','Serving clients in the United States from Perth Amboy, New Jersey.'],['#llc-title','Why an LLC can matter for your business.'],['#llc-intro','An LLC is not a magic tax shortcut. It is a legal and organizational structure that can help separate your business activity from your personal life when it is maintained correctly.'],['#llc-benefits-title','Potential advantages'],['#llc-benefit-1','Helps separate business assets and personal assets.'],['#llc-benefit-2','Creates a more professional structure for clients, vendors and banks.'],['#llc-benefit-3','Makes it easier to organize business income, expenses and records.'],['#llc-benefit-4','Can support legitimate business deductions when expenses are ordinary, necessary and documented.'],['#llc-benefit-5','Provides a foundation to grow, open business accounts or add services.'],['#llc-consider-title','Responsibilities to consider'],['#llc-consider-1','Formation and annual state fees may apply.'],['#llc-consider-2','You must keep records, reports and registrations current.'],['#llc-consider-3','Business and personal finances should remain separate.'],['#llc-consider-4','An LLC does not eliminate taxes or guarantee deductions.'],['#llc-consider-5','Your structure should match your state, activity and professional advice.'],['#llc-callout','Single-member LLC note: the IRS may treat a single-member LLC as a “disregarded entity” for federal income-tax reporting unless another election is made. That does not mean the LLC has no value; legal protection, banking, organization and compliance still depend on how the business is operated.'],['#llc-note','Educational information only. It is not legal, tax or financial advice. Speak with a qualified professional before forming or changing a business entity.'],
         ['#services-title','Straightforward services and transparent pricing.'],
         ['#services .section-heading p','Choose the option that matches your situation. Additional W-2 or SSN filings are $30 each and are calculated before you submit.'],
-        ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','W-2 + 1099 with mileage'],['.service-card:nth-child(3) h3','W-2 + 1099 with expenses'],['.service-card:nth-child(4) h3','Complete LLC package'],
+        ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','Uber/Lyft 1099 with organized mileage'],['.service-card:nth-child(3) h3','Uber/Lyft 1099 with organized expenses'],['.service-card:nth-child(4) h3','Complete LLC package'],
         ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Combined filing with business expenses and applicable deductions.'],['.service-card:nth-child(4) p','A focused launch package for a new business.'],
         ['#process-title','A simple process from request to completion.'],['#process .section-heading p','We review your request before confirming documents, payment details, and next steps.'],
         ['#process .step:nth-child(1) h3','Select your service'],['#process .step:nth-child(1) p','Choose a tax or business service and add any extra filings needed.'],['#process .step:nth-child(2) h3','Send your information'],['#process .step:nth-child(2) p','Your request goes directly to our professional email for review.'],['#process .step:nth-child(3) h3','Confirm and move forward'],['#process .step:nth-child(3) p','We contact you with the document list, payment instructions, and timeline.'],
-        ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['#documentsTitle','Secure document upload'],['#documentsNote','Upload clear PDF, JPG, or PNG files. Do not email passwords or payment information. Documents are confidential and will be reviewed for your request.'],['#ssnDocumentLabel','SSN document'],['#w2DocumentLabel','W-2 document'],['#1099DocumentLabel','1099 document'],['#insuranceDocumentLabel','Government insurance document'],['#licenseDocumentLabel','Driver license or government ID'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','W-2 + 1099 mileage'],['.service-choice:nth-child(3) strong','W-2 + 1099 expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
+        ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['#documentsTitle','Secure document upload'],['#documentsNote','Upload clear PDF, JPG, or PNG files. Do not email passwords or payment information. Documents are confidential and will be reviewed for your request.'],['#ssnDocumentLabel','SSN document'],['#w2DocumentLabel','W-2 document'],['#1099DocumentLabel','1099 document'],['#insuranceDocumentLabel','Government insurance document'],['#licenseDocumentLabel','Driver license or government ID'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','Uber/Lyft 1099 + organized mileage'],['.service-choice:nth-child(3) strong','Uber/Lyft 1099 + organized expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
         ['.submit-row .button','Send request'],['.receipt-button','Download order receipt'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
         ['#liveOrderTitle','Your selection'],['#liveTotalLabel','Estimated total'],['#paymentTitle','Payment options'],['#paymentNote','Choose how you prefer to pay. Click Zelle or Cash App to open its payment code.'],['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#liveNote','Updates in real time as you change the service or extra SSN quantity.'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.pdf-download','Download Uber expense guide PDF'],['.xlsx-download','Download expense tracker Excel'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
-        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
+        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuProgress','Progreso'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Progreso'],['.nav-links a:nth-child(4)','Cómo funciona'],['.nav-links a:nth-child(5)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
@@ -661,7 +724,7 @@
         ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Declaración combinada con gastos del negocio y deducciones aplicables.'],['.service-card:nth-child(4) p','Paquete práctico para comenzar un nuevo negocio.'],
         ['#process-title','Un proceso sencillo de solicitud a finalización.'],['#process .section-heading p','Revisamos tu solicitud antes de confirmar documentos, pagos y próximos pasos.'],
         ['#process .step:nth-child(1) h3','Selecciona tu servicio'],['#process .step:nth-child(1) p','Elige un servicio de impuestos o negocio y agrega las declaraciones adicionales que necesites.'],['#process .step:nth-child(2) h3','Envía tu información'],['#process .step:nth-child(2) p','Tu solicitud llega directamente a nuestro correo profesional para revisión.'],['#process .step:nth-child(3) h3','Confirma y continúa'],['#process .step:nth-child(3) p','Te contactaremos con la lista de documentos, instrucciones de pago y el tiempo estimado.'],
-        ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['#documentsTitle','Carga segura de documentos'],['#documentsNote','Sube archivos claros en PDF, JPG o PNG. No envíes contraseñas ni información de pago. Los documentos son confidenciales y se revisarán para tu solicitud.'],['#ssnDocumentLabel','Documento del SSN'],['#w2DocumentLabel','Documento W-2'],['#1099DocumentLabel','Documento 1099'],['#insuranceDocumentLabel','Documento del seguro gubernamental'],['#licenseDocumentLabel','Licencia de conducir o identificación gubernamental'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','W-2 + 1099 con millaje'],['.service-choice:nth-child(3) strong','W-2 + 1099 con gastos'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
+        ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['#documentsTitle','Carga segura de documentos'],['#documentsNote','Sube archivos claros en PDF, JPG o PNG. No envíes contraseñas ni información de pago. Los documentos son confidenciales y se revisarán para tu solicitud.'],['#ssnDocumentLabel','Documento del SSN'],['#w2DocumentLabel','Documento W-2'],['#1099DocumentLabel','Documento 1099'],['#insuranceDocumentLabel','Documento del seguro gubernamental'],['#licenseDocumentLabel','Licencia de conducir o identificación gubernamental'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','Uber/Lyft 1099 + millas organizadas'],['.service-choice:nth-child(3) strong','Uber/Lyft 1099 + gastos organizados'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
         ['.submit-row .button','Enviar solicitud'],['.receipt-button','Descargar recibo de la orden'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
         ['#liveOrderTitle','Tu selección'],['#liveTotalLabel','Total estimado'],['#paymentTitle','Opciones de pago'],['#paymentNote','Elige cómo prefieres pagar. Toca Zelle o Cash App para abrir su código de pago.'],['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#liveNote','Se actualiza en tiempo real cuando cambias el servicio o la cantidad de SSN adicionales.'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
         ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.pdf-download','Descargar guía PDF de gastos de Uber'],['.xlsx-download','Descargar tabla Excel de gastos'],['.footer-column:nth-child(2) h3','Compañía'],['.footer-column:nth-child(3) h3','Área de servicio']
@@ -697,6 +760,31 @@
     darkModeQuery.addEventListener('change',updateThemeColor);
     updateThemeColor();
     updateOrder();
+
+    (function(){
+      function formatNumber(value){return new Intl.NumberFormat('en-US').format(value);}
+      function renderProgress(data){
+        Object.keys(data.services || {}).forEach(function(key){
+          var card=document.querySelector('[data-progress-key="'+key+'"]');
+          var item=data.services[key];
+          if(!card||!item)return;
+          var completed=Math.max(0,Number(item.completed)||0);
+          var target=Math.max(1,Number(item.target)||1);
+          var percent=Math.min(100,Math.round((completed/target)*100));
+          var remaining=Math.max(0,target-completed);
+          card.querySelector('[data-count]').textContent=formatNumber(completed);
+          card.querySelector('[data-target]').textContent='of '+formatNumber(target);
+          card.querySelector('[data-percent]').textContent=percent+'% complete';
+          card.querySelector('[data-remaining]').textContent=remaining===0?'Goal reached':formatNumber(remaining)+' remaining';
+          card.querySelector('.progress-fill').style.width=percent+'%';
+          var track=card.querySelector('[role="progressbar"]');
+          track.setAttribute('aria-valuemax',String(target));
+          track.setAttribute('aria-valuenow',String(Math.min(completed,target)));
+        });
+        if(data.updated){document.getElementById('progressUpdated').textContent='Counts updated '+data.updated+' from verified completed-service records.';}
+      }
+      fetch('service-progress.json',{cache:'no-store'}).then(function(response){if(!response.ok)throw new Error('Progress unavailable');return response.json();}).then(renderProgress).catch(function(){});
+    }());
   
     (function(){var menu=document.getElementById('mobileMenu'),close=document.getElementById('menuClose');if(!menu)return;if(close)close.addEventListener('click',function(){menu.open=false});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){menu.open=false})});document.addEventListener('keydown',function(event){if(event.key==='Escape')menu.open=false});document.addEventListener('click',function(event){if(menu.open&&!menu.contains(event.target))menu.open=false})}());
 </script>

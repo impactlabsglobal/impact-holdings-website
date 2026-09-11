@@ -27,6 +27,7 @@ This project is a single-page HTML website built with:
 - English / Spanish language toggle
 - Light / dark theme toggle
 - Contact form powered by FormSubmit
+- Public service-milestone counter loaded from `service-progress.json`
 
 Main file:
 
@@ -71,6 +72,19 @@ Then visit:
 ```text
 http://localhost:4173
 ```
+
+## Updating Completed-Service Counts
+
+Edit only the `completed` values in `service-progress.json` after reconciling them with internal paid-and-completed service records. Do not count form submissions, estimates, canceled work, or unpaid requests. The public counter contains aggregate totals only and must never include client names or tax information.
+
+The current public milestones are:
+
+- W-2 tax returns: 1,000
+- Uber/Lyft 1099 with driver-organized mileage: 1,000
+- Uber/Lyft 1099 with driver-organized expenses: 1,000
+- LLC formation packages: 700
+
+Do not announce an active drawing until official rules define the prize, eligibility period, entry method, geographic restrictions, odds, privacy terms, and applicable legal requirements.
 
 ## Repository
 

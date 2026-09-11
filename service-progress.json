@@ -1,0 +1,21 @@
+{
+  "updated": "September 11, 2026",
+  "services": {
+    "w2": {
+      "completed": 0,
+      "target": 1000
+    },
+    "rideshareMileage": {
+      "completed": 0,
+      "target": 1000
+    },
+    "rideshareExpenses": {
+      "completed": 0,
+      "target": 1000
+    },
+    "llc": {
+      "completed": 0,
+      "target": 700
+    }
+  }
+}
