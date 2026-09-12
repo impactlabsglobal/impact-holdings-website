@@ -122,16 +122,6 @@
 
     .request-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(360px,.65fr);gap:56px;align-items:start}
     .request-form{padding:38px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
-    .notion-request{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
-    .notion-request-head{padding:32px 34px 18px;border-bottom:1px solid var(--line)}
-    .notion-request-head h2{font-size:1.8rem;margin-bottom:6px}
-    .notion-request-head p{color:var(--muted)}
-    .notion-request-frame{display:block;width:100%;min-height:790px;border:0;background:#fff}
-    .crm-request-aside{display:grid;gap:22px;align-content:start}
-    .crm-request-card{padding:22px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}
-    .crm-request-card h3{margin-bottom:8px;font-size:1rem}
-    .crm-request-card p{color:var(--muted);font-size:.9rem}
-    .crm-request-card a{color:var(--blue-deep);font-weight:800}
     .form-title{margin-bottom:24px}
     .form-title h2{font-size:1.8rem;margin-bottom:6px}
     .form-title p{color:var(--muted)}
@@ -434,14 +424,7 @@
 
     <section class="section" id="request" aria-labelledby="request-title">
       <div class="container request-layout">
-        <div class="notion-request">
-          <div class="notion-request-head">
-            <h2 id="request-title">Start your request</h2>
-            <p>Complete this request here. Your submission is organized directly in our client system for review.</p>
-          </div>
-          <iframe class="notion-request-frame" title="Impact Holdings LLC client request form" src="https://successful-potato-fa3.notion.site/ebd//3d97392c042980a89ebcf58bb3601b22" allowfullscreen>Client request form</iframe>
-        </div>
-        <form class="request-form" id="clientForm" action="https://formsubmit.co/founder@impactholdingsllc.com" method="POST" hidden aria-hidden="true">
+        <form class="request-form" id="clientForm" action="https://formsubmit.co/founder@impactholdingsllc.com" method="POST">
           <input type="hidden" name="_subject" value="New client request - Impact Holdings LLC">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -499,7 +482,7 @@
           <div class="submit-row"><button class="button" type="submit">Send request</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
         </form>
 
-        <aside class="request-aside" aria-label="Request information" hidden aria-hidden="true">
+        <aside class="request-aside" aria-label="Request information">
           <div class="live-order" aria-live="polite">
             <h3 id="liveOrderTitle">Your selection</h3>
             <div class="live-product"><span id="liveProduct">W-2 Tax Return</span><strong id="liveTotal">$100</strong></div>
@@ -514,20 +497,6 @@
           <div class="aside-copy">
             <h3 id="nextTitle">What happens next</h3>
             <p id="nextCopy">We review your request before confirming documents, payment details, and the next steps.</p>
-          </div>
-        </aside>
-        <aside class="crm-request-aside" aria-label="Client request information">
-          <div class="crm-request-card">
-            <h3>Your request, organized</h3>
-            <p>After you submit, the request appears in our private client workspace under the service you selected.</p>
-          </div>
-          <div class="crm-request-card">
-            <h3>What happens next</h3>
-            <p>We review your request, confirm the next steps, and send secure document instructions when needed.</p>
-          </div>
-          <div class="crm-request-card">
-            <h3>Professional contact</h3>
-            <p><a href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a><br>Perth Amboy, New Jersey</p>
           </div>
         </aside>
       </div>
