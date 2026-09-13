@@ -299,7 +299,7 @@
         function updateControls(){var count=rows.querySelectorAll('.document-row').length;add.disabled=count>=4;add.hidden=count>=4;rows.querySelectorAll('.document-row-remove').forEach(function(button){button.hidden=count<2;});}
         function bind(row){
           var select=row.querySelector('select'),file=row.querySelector('input[type="file"]'),remove=row.querySelector('.document-row-remove');
-          select.addEventListener('change',function(){file.name=select.value;});
+          select.addEventListener('change',function(){file.setAttribute('name',select.value);});
           remove.addEventListener('click',function(){row.remove();updateControls();});
         }
         bind(rows.querySelector('.document-row'));
