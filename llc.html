@@ -276,7 +276,7 @@
         function updateCost(){
           var state=selected(),total=serviceFee+state.filing;
           document.getElementById('llcStateFee').textContent=money(state.filing);
-          document.getElementById('llcFirstYearTotal').textContent=money(state.firstYear);
+          document.getElementById('llcFirstYearTotal').textContent=money(total);
           document.getElementById('llcSideFiling').textContent=money(state.filing);
           document.getElementById('llcSideTotal').textContent=money(total);
           document.getElementById('llcStateHidden').value=state[language]+' ('+state.code+')';
