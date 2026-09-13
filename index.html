@@ -374,7 +374,6 @@
       <div class="desktop-nav nav-links" aria-label="Main navigation links">
         <a href="#request">Tax</a>
         <a href="llc.html?v=20260822-llc200">LLC</a>
-        <a href="#milestones">Progress</a>
         <a href="#process">How it works</a>
         <a href="#request">Contact</a>
       </div>
@@ -389,7 +388,6 @@
             <nav class="site-menu-links" aria-label="Mobile navigation">
               <a id="menuTax" href="#request">Tax</a>
               <a id="menuLlc" href="llc.html?v=20260822-llc200">LLC</a>
-              <a id="menuProgress" href="#milestones">Progress</a>
               <a id="menuHow" href="#process">How it works</a>
               <a id="menuContact" href="#request">Contact</a>
             </nav>
@@ -515,42 +513,6 @@
     </section>
 
     
-
-    <section class="section milestones" id="milestones" aria-labelledby="milestones-title">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span class="milestone-kicker">Verified service milestones</span>
-            <h2 id="milestones-title">Every completed service moves the community forward.</h2>
-          </div>
-          <p>Only paid and completed work verified in our internal records is counted. Sending a request does not increase these totals.</p>
-        </div>
-        <div class="milestone-grid" id="milestoneGrid" aria-live="polite">
-          <article class="milestone-card" data-progress-key="w2">
-            <div class="milestone-card-head"><div><h3>W-2 tax returns</h3><p>Completed employee tax-return services.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 1,000</span></div></div>
-            <div class="progress-track" role="progressbar" aria-label="W-2 tax return progress" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"><div class="progress-fill"></div></div>
-            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>1,000 remaining</span></div>
-          </article>
-          <article class="milestone-card" data-progress-key="rideshareMileage">
-            <div class="milestone-card-head"><div><h3>Uber/Lyft · mileage</h3><p>Driver-provided mileage organized before preparation.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 1,000</span></div></div>
-            <div class="progress-track" role="progressbar" aria-label="Uber and Lyft mileage service progress" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"><div class="progress-fill"></div></div>
-            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>1,000 remaining</span></div>
-          </article>
-          <article class="milestone-card" data-progress-key="rideshareExpenses">
-            <div class="milestone-card-head"><div><h3>Uber/Lyft · expenses</h3><p>Driver-provided expenses organized before preparation.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 1,000</span></div></div>
-            <div class="progress-track" role="progressbar" aria-label="Uber and Lyft expense service progress" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"><div class="progress-fill"></div></div>
-            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>1,000 remaining</span></div>
-          </article>
-          <article class="milestone-card" data-progress-key="llc">
-            <div class="milestone-card-head"><div><h3>LLC formation packages</h3><p>Completed LLC, EIN, document kit and business-bank kit services.</p></div><div class="milestone-count"><strong data-count>0</strong><span data-target>of 700</span></div></div>
-            <div class="progress-track" role="progressbar" aria-label="LLC service progress" aria-valuemin="0" aria-valuemax="700" aria-valuenow="0"><div class="progress-fill"></div></div>
-            <div class="milestone-meta"><span data-percent>0% complete</span><span data-remaining>700 remaining</span></div>
-          </article>
-        </div>
-        <p class="progress-updated" id="progressUpdated">Counts are updated from verified completed-service records.</p>
-      </div>
-    </section>
-
     <section class="section soft" id="process" aria-labelledby="process-title">
       <div class="container">
         <div class="section-heading">
@@ -697,7 +659,7 @@
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Tax'],['#menuLlc','LLC'],['#menuProgress','Progress'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Progress'],['.nav-links a:nth-child(4)','How it works'],['.nav-links a:nth-child(5)','Contact'],
+        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Tax'],['#menuLlc','LLC'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
@@ -714,7 +676,7 @@
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.pdf-download','Download Uber expense guide PDF'],['.xlsx-download','Download expense tracker Excel'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
-        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuProgress','Progreso'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Progreso'],['.nav-links a:nth-child(4)','Cómo funciona'],['.nav-links a:nth-child(5)','Contacto'],
+        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
