@@ -424,20 +424,16 @@
 
     <section class="section" id="request" aria-labelledby="request-title">
       <div class="container request-layout">
-        <form class="request-form" id="clientForm" action="https://formsubmit.co/founder@impactholdingsllc.com" method="POST">
-          <input type="hidden" name="_subject" value="New client request - Impact Holdings LLC">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://impactholdingsllc.com/?sent=true">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" id="serviceHidden" name="Selected Service" value="W-2 Tax Return">
-          <input type="hidden" id="priceHidden" name="Estimated Price" value="$100">
-          <input type="hidden" id="extraHidden" name="Extra Filing Quantity" value="0">
+        <form class="request-form" id="clientForm" action="https://locjiudfzjpzfnxlpiii.supabase.co/functions/v1/client-intake" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" id="serviceHidden" name="service" value="W-2 Tax Return">
+          <input type="hidden" id="priceHidden" name="estimated_price" value="$100">
+          <input type="hidden" id="extraHidden" name="extra_quantity" value="0">
           <input type="hidden" id="stripeProductKeyHidden" name="Stripe Product Key" value="w2">
           <input type="hidden" id="stripeProductIdHidden" name="Stripe Product ID" value="prod_REPLACE_W2">
           <input type="hidden" id="stripePriceIdHidden" name="Stripe Price ID" value="price_REPLACE_W2">
           <input type="hidden" id="stripeLineItemsHidden" name="Stripe Checkout Items" value="W-2 Tax Return x1">
-          <input type="hidden" id="paymentHidden" name="Preferred Payment Method" value="Cash App Business">
+          <input type="hidden" id="paymentHidden" name="payment_method" value="Cash App Business">
 
           <div class="form-title">
             <h2 id="request-title">Start your request</h2>
@@ -470,16 +466,16 @@
           </div>
 
           <div class="form-grid">
-            <div class="field"><label for="firstName">First name</label><input id="firstName" name="First Name" autocomplete="given-name" required></div>
-            <div class="field"><label for="lastName">Last name</label><input id="lastName" name="Last Name" autocomplete="family-name" required></div>
-            <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" autocomplete="email" required></div>
-            <div class="field"><label for="phone">Phone</label><input id="phone" name="Phone" type="tel" autocomplete="tel" required></div>
-            <div class="field"><label for="language">Preferred language</label><select id="language" name="Preferred Language"><option>English</option><option>Spanish</option></select></div>
-            <div class="field"><label for="business">Business name, if applicable</label><input id="business" name="Business Name" placeholder="Business or LLC name"></div>
+            <div class="field"><label for="firstName">First name</label><input id="firstName" name="first_name" autocomplete="given-name" required></div>
+            <div class="field"><label for="lastName">Last name</label><input id="lastName" name="last_name" autocomplete="family-name" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div class="field"><label for="language">Preferred language</label><select id="language" name="language"><option>English</option><option>Spanish</option></select></div>
+            <div class="field"><label for="business">Business name, if applicable</label><input id="business" name="business_name" placeholder="Business or LLC name"></div>
             
-            <div class="field full"><label for="notes">Notes or questions</label><textarea id="notes" name="Message" placeholder="Tell us anything that will help us prepare for your request."></textarea></div>
+            <div class="field full"><label for="notes">Notes or questions</label><textarea id="notes" name="notes" placeholder="Tell us anything that will help us prepare for your request."></textarea></div>
           </div>
-          <div class="submit-row"><button class="button" type="submit">Send request</button><p class="fine-print">Your request is sent to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.</p></div>
+          <div class="submit-row"><button class="button" type="submit">Send request</button><p class="fine-print">Your request is saved securely in our private client workspace. We will contact you to confirm the next steps.</p></div>
         </form>
 
         <aside class="request-aside" aria-label="Request information">
