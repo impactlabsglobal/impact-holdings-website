@@ -296,23 +296,23 @@
         if(!rows||!add)return;
         var rowNumber=1;
         var accept='.pdf,.jpg,.jpeg,.png,.webp,.xls,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+        function updateControls(){var count=rows.querySelectorAll('.document-row').length;add.disabled=count>=4;add.hidden=count>=4;rows.querySelectorAll('.document-row-remove').forEach(function(button){button.hidden=count<2;});}
         function bind(row){
           var select=row.querySelector('select'),file=row.querySelector('input[type="file"]'),remove=row.querySelector('.document-row-remove');
           select.addEventListener('change',function(){file.name=select.value;});
-          remove.addEventListener('click',function(){row.remove();});
+          remove.addEventListener('click',function(){row.remove();updateControls();});
         }
         bind(rows.querySelector('.document-row'));
+        updateControls();
         add.addEventListener('click',function(){
-          if(rows.querySelectorAll('.document-row').length>=4){add.disabled=true;return;}
+          if(rows.querySelectorAll('.document-row').length>=4){updateControls();return;}
           rowNumber+=1;
           var row=document.createElement('div');
           row.className='document-row';
           row.innerHTML='<div class="field"><label for="llcDocumentType'+rowNumber+'">Document type</label><select id="llcDocumentType'+rowNumber+'" name="document_type"><option value="llc_documents">LLC</option><option value="license_documents">License / Licencia</option><option value="insurance_documents">Insurance / Seguro</option></select></div><div class="field"><label for="llcDocumentFile'+rowNumber+'">Choose files</label><input id="llcDocumentFile'+rowNumber+'" name="llc_documents" type="file" multiple accept="'+accept+'"></div><button class="document-row-remove" type="button">Remove</button>';
           rows.appendChild(row);
-          row.querySelector('.document-row-remove').hidden=false;
-          rows.querySelectorAll('.document-row-remove').forEach(function(button){button.hidden=rows.querySelectorAll('.document-row').length<2;});
-          add.disabled=rows.querySelectorAll('.document-row').length>=4;
           bind(row);
+          updateControls();
         });
       }());
     </script>
