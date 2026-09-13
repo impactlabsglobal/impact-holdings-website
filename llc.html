@@ -197,7 +197,7 @@
             </fieldset>
             <fieldset class="owner-fieldset document-upload">
               <legend data-en="LLC documents" data-es="Documentos de LLC">Documentos de LLC</legend>
-              <p class="form-kicker" data-en="Upload only documents needed for your LLC request. Do not upload an SSN, password or bank information." data-es="Sube solo los documentos necesarios para tu solicitud de LLC. No subas SSN, contraseñas ni información bancaria.">Sube solo los documentos necesarios para tu solicitud de LLC. No subas SSN, contraseñas ni información bancaria.</p>
+              <p class="form-kicker" data-en="Upload up to 4 documents, 5 MB each. Do not upload an SSN, password or bank information." data-es="Sube hasta 4 documentos de 5 MB cada uno. No subas SSN, contraseñas ni información bancaria.">Sube hasta 4 documentos de 5 MB cada uno. No subas SSN, contraseñas ni información bancaria.</p>
               <div class="document-rows" id="llcDocumentRows">
                 <div class="document-row">
                   <div class="field"><label for="llcDocumentType1" data-en="Document type" data-es="Tipo de documento">Tipo de documento</label><select id="llcDocumentType1" name="document_type"><option value="llc_documents">LLC</option><option value="license_documents">License / Licencia</option><option value="insurance_documents">Insurance / Seguro</option></select></div>
@@ -303,6 +303,7 @@
         }
         bind(rows.querySelector('.document-row'));
         add.addEventListener('click',function(){
+          if(rows.querySelectorAll('.document-row').length>=4){add.disabled=true;return;}
           rowNumber+=1;
           var row=document.createElement('div');
           row.className='document-row';
@@ -310,6 +311,7 @@
           rows.appendChild(row);
           row.querySelector('.document-row-remove').hidden=false;
           rows.querySelectorAll('.document-row-remove').forEach(function(button){button.hidden=rows.querySelectorAll('.document-row').length<2;});
+          add.disabled=rows.querySelectorAll('.document-row').length>=4;
           bind(row);
         });
       }());
