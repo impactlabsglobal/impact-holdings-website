@@ -197,11 +197,11 @@
             </fieldset>
             <fieldset class="owner-fieldset document-upload">
               <legend data-en="LLC documents" data-es="Documentos de LLC">Documentos de LLC</legend>
-              <p class="form-kicker" data-en="Upload up to 4 documents, 5 MB each. Do not upload an SSN, password or bank information." data-es="Sube hasta 4 documentos de 5 MB cada uno. No subas SSN, contraseñas ni información bancaria.">Sube hasta 4 documentos de 5 MB cada uno. No subas SSN, contraseñas ni información bancaria.</p>
+              <p class="form-kicker" data-en="Choose a document type, then select one or more files. Upload up to 4 documents, 5 MB each. Do not upload an SSN, password or bank information." data-es="Elige un tipo de documento y selecciona uno o varios archivos. Sube hasta 4 documentos de 5 MB cada uno. No subas SSN, contraseñas ni información bancaria.">Elige un tipo de documento y selecciona uno o varios archivos. Sube hasta 4 documentos de 5 MB cada uno. No subas SSN, contraseñas ni información bancaria.</p>
               <div class="document-rows" id="llcDocumentRows">
                 <div class="document-row">
                   <div class="field"><label for="llcDocumentType1" data-en="Document type" data-es="Tipo de documento">Tipo de documento</label><select id="llcDocumentType1" name="document_type"><option value="llc_documents">LLC</option><option value="license_documents">License / Licencia</option><option value="insurance_documents">Insurance / Seguro</option></select></div>
-                  <div class="field"><label for="llcDocumentFile1" data-en="Choose file" data-es="Elegir archivo">Elegir archivo</label><input id="llcDocumentFile1" name="llc_documents" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,.xls,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></div>
+                  <div class="field"><label for="llcDocumentFile1" data-en="Choose files" data-es="Elegir archivos">Elegir archivos</label><input id="llcDocumentFile1" name="llc_documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.xls,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></div>
                   <button class="document-row-remove" type="button" hidden data-en="Remove" data-es="Quitar">Quitar</button>
                 </div>
               </div>
@@ -307,7 +307,7 @@
           rowNumber+=1;
           var row=document.createElement('div');
           row.className='document-row';
-          row.innerHTML='<div class="field"><label for="llcDocumentType'+rowNumber+'">Document type</label><select id="llcDocumentType'+rowNumber+'" name="document_type"><option value="llc_documents">LLC</option><option value="license_documents">License / Licencia</option><option value="insurance_documents">Insurance / Seguro</option></select></div><div class="field"><label for="llcDocumentFile'+rowNumber+'">Choose file</label><input id="llcDocumentFile'+rowNumber+'" name="llc_documents" type="file" accept="'+accept+'"></div><button class="document-row-remove" type="button">Remove</button>';
+          row.innerHTML='<div class="field"><label for="llcDocumentType'+rowNumber+'">Document type</label><select id="llcDocumentType'+rowNumber+'" name="document_type"><option value="llc_documents">LLC</option><option value="license_documents">License / Licencia</option><option value="insurance_documents">Insurance / Seguro</option></select></div><div class="field"><label for="llcDocumentFile'+rowNumber+'">Choose files</label><input id="llcDocumentFile'+rowNumber+'" name="llc_documents" type="file" multiple accept="'+accept+'"></div><button class="document-row-remove" type="button">Remove</button>';
           rows.appendChild(row);
           row.querySelector('.document-row-remove').hidden=false;
           rows.querySelectorAll('.document-row-remove').forEach(function(button){button.hidden=rows.querySelectorAll('.document-row').length<2;});
