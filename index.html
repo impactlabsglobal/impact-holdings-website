@@ -474,7 +474,7 @@
           </div>
           <fieldset class="document-upload">
             <legend id="documentsTitle">Secure document upload</legend>
-            <p class="document-upload-note" id="documentsNote">Upload only W-2, 1099, LLC or license documents. PDF, JPG, PNG, WEBP, XLS and XLSX files up to 10 MB each. Do not upload SSNs, passwords or payment information.</p>
+            <p class="document-upload-note" id="documentsNote">Upload only W-2, 1099, LLC, license or insurance documents. PDF, JPG, PNG, WEBP, XLS and XLSX files up to 10 MB each. Do not upload SSNs, passwords or payment information.</p>
             <div class="document-rows" id="documentRows">
               <div class="document-row">
                 <div class="field"><label for="documentType1">Document type</label><select id="documentType1" name="document_type"><option value="w2_documents">W-2</option><option value="1099_documents">1099</option><option value="llc_documents">LLC</option><option value="license_documents">License</option><option value="insurance_documents">Insurance</option></select></div>
@@ -720,6 +720,8 @@
     function applyLanguage(nextLanguage){
       var entries = languageSets[nextLanguage];
       entries.forEach(function(entry){var node=document.querySelector(entry[0]);if(node) node.textContent=entry[1];});
+      var documentNote=document.getElementById('documentsNote');
+      if(documentNote) documentNote.textContent=nextLanguage==='es' ? 'Elige el tipo de cada documento y súbelo. W-2, 1099, LLC, licencia o seguro en PDF, JPG, PNG, WEBP, XLS o XLSX de hasta 10 MB cada uno. No envíes SSN, contraseñas ni información de pago.' : 'Choose the type of each document and upload it. W-2, 1099, LLC, license or insurance files in PDF, JPG, PNG, WEBP, XLS or XLSX format up to 10 MB each. Do not upload SSNs, passwords or payment information.';
       var extraOptions = document.querySelectorAll('#extraQuantity option');
       var extraOptionLabels = nextLanguage === 'es'
         ? ['0 — Sin SSN adicional','1 — +$30','2 — +$60','3 — +$90','4 — +$120']
