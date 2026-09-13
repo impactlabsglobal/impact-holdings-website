@@ -723,7 +723,7 @@
       var entries = languageSets[nextLanguage];
       entries.forEach(function(entry){var node=document.querySelector(entry[0]);if(node) node.textContent=entry[1];});
       var documentNote=document.getElementById('documentsNote');
-      if(documentNote) documentNote.textContent=nextLanguage==='es' ? 'Elige el tipo de cada documento y súbelo. W-2, 1099, LLC, licencia o seguro en PDF, JPG, PNG, WEBP, XLS o XLSX de hasta 5 MB cada uno, máximo 4 documentos. No envíes SSN, contraseñas ni información de pago.' : 'Choose the type of each document and upload it. W-2, 1099, LLC, license or insurance files in PDF, JPG, PNG, WEBP, XLS or XLSX format up to 5 MB each, maximum 4 documents. Do not upload SSNs, passwords or payment information.';
+      if(documentNote) documentNote.textContent=nextLanguage==='es' ? 'Elige un tipo de documento y selecciona uno o varios archivos. W-2, 1099, LLC, licencia o seguro en PDF, JPG, PNG, WEBP, XLS o XLSX de hasta 5 MB cada uno, máximo 4 documentos en total. No envíes SSN, contraseñas ni información de pago.' : 'Choose a document type, then select one or more files. W-2, 1099, LLC, license or insurance files in PDF, JPG, PNG, WEBP, XLS or XLSX format up to 5 MB each, maximum 4 documents total. Do not upload SSNs, passwords or payment information.';
       var extraOptions = document.querySelectorAll('#extraQuantity option');
       var extraOptionLabels = nextLanguage === 'es'
         ? ['0 — Sin SSN adicional','1 — +$30','2 — +$60','3 — +$90','4 — +$120']
