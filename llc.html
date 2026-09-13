@@ -42,11 +42,12 @@
     .llc-form input,.llc-form select,.llc-form textarea{width:100%;min-height:46px;border:1px solid #cbd8e4;border-radius:10px;background:#fff;color:var(--ink);padding:11px 13px;font:inherit}.llc-form textarea{min-height:110px;resize:vertical}.llc-form input:focus,.llc-form select:focus,.llc-form textarea:focus{outline:3px solid rgba(23,105,232,.16);border-color:var(--blue)}
     .llc-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.llc-form-grid .full{grid-column:1/-1}
     .owner-fieldset{border:1px solid var(--line);border-radius:14px;padding:17px;display:grid;gap:16px}.owner-fieldset legend{padding:0 7px}
+    .document-rows{display:grid;gap:10px}.document-row{display:grid;grid-template-columns:minmax(150px,.7fr) minmax(0,1.3fr) auto;gap:10px;align-items:end}.document-row-remove{min-height:46px;border:1px solid #cbd8e4;border-radius:10px;background:#fff;color:var(--muted);padding:0 12px;font-weight:800}.document-row-remove:hover{border-color:var(--blue);color:var(--blue)}.document-add{justify-self:start;border:0;background:transparent;color:var(--blue);font-weight:800;padding:4px 0}.document-add:hover{text-decoration:underline}
     .form-kicker{font-size:.9rem;color:var(--muted);margin-top:-10px}
     .llc-cost-card{border:1px solid #cfe0f1;border-radius:14px;background:#f5f9fd;padding:18px;display:grid;gap:11px}.llc-cost-row{display:flex;justify-content:space-between;gap:14px;align-items:baseline;color:var(--muted)}.llc-cost-row strong{color:var(--ink);text-align:right}.llc-cost-total{border-top:1px solid #cbdceb;padding-top:13px;margin-top:3px;font-size:1.05rem;color:var(--ink)}.llc-cost-total strong{font-size:1.4rem;color:var(--blue)}
     .llc-side-card{position:sticky;top:24px;background:var(--navy);color:#fff;border-color:rgba(255,255,255,.15)}.llc-side-card h3{font-size:1.35rem;margin-bottom:9px}.llc-side-card p{color:#cbd7e4}.llc-side-card .mini-list{display:grid;gap:12px;margin-top:22px}.llc-side-card .mini-list div{display:flex;justify-content:space-between;gap:15px;border-top:1px solid rgba(255,255,255,.16);padding-top:12px}.llc-side-card .mini-list span{color:#cbd7e4}.llc-side-card .mini-list strong{color:#fff}.llc-side-card .side-total{margin-top:20px;padding:16px;border-radius:12px;background:#fff;color:var(--ink);display:flex;justify-content:space-between;gap:12px;align-items:center}.llc-side-card .side-total strong{font-size:1.35rem;color:var(--blue)}.llc-note{font-size:.78rem;color:var(--muted)}.llc-note a{color:var(--blue);text-decoration:underline}.llc-submit{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.llc-submit .button{border:0}.llc-success-note{font-size:.82rem;color:var(--muted)}
     @media(max-width:800px){.llc-form-layout{grid-template-columns:1fr}.llc-side-card{position:static}.llc-form-grid{grid-template-columns:1fr}.llc-form-grid .full{grid-column:auto}}
-    @media(max-width:560px){.llc-form,.llc-side-card{padding:20px;border-radius:14px}.llc-form-grid{gap:13px}.llc-submit{display:grid}.llc-submit .button{width:100%;text-align:center}}
+    @media(max-width:560px){.llc-form,.llc-side-card{padding:20px;border-radius:14px}.llc-form-grid{gap:13px}.llc-submit{display:grid}.llc-submit .button{width:100%;text-align:center}.document-row{grid-template-columns:1fr}}
     .menu-trigger{position:relative;z-index:10002;width:44px;height:44px;display:grid;place-content:center;gap:5px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);flex:0 0 auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.menu-trigger span{display:block;width:18px;height:2px;border-radius:3px;background:currentColor}.menu-trigger:hover,.menu-trigger:focus-visible{color:var(--blue);border-color:var(--blue);outline:3px solid rgba(23,105,232,.16);outline-offset:2px}
     .menu-backdrop{position:fixed;inset:0;z-index:9998;background:rgba(8,22,38,.48);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:1}.menu-backdrop[hidden]{display:none}
     .site-menu{position:fixed;left:0;top:0;bottom:0;z-index:9999;width:min(360px,88vw);padding:25px 22px;background:#fff;color:var(--ink);box-shadow:18px 0 50px rgba(8,22,38,.18);transform:translate3d(-105%,0,0);visibility:hidden;pointer-events:none;transition:transform .25s ease,visibility 0s linear .25s;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain}.site-menu.is-open{transform:translate3d(0,0,0);visibility:visible;pointer-events:auto;transition:transform .25s ease,visibility 0s linear 0s}.site-menu-head{display:flex;align-items:center;justify-content:space-between;font-size:1.15rem}.menu-close{width:36px;height:36px;border:0;border-radius:50%;background:#eef4fa;color:var(--ink);font-size:1.5rem;line-height:1}.menu-close:focus-visible{outline:3px solid rgba(23,105,232,.25);outline-offset:2px}.menu-subtitle{color:var(--muted);font-size:.85rem;margin:8px 0 22px}.site-menu-links{display:grid;gap:5px}.site-menu-links a{display:block;padding:14px 13px;border-radius:10px;font-weight:800}.site-menu-links a:hover,.site-menu-links a:focus-visible{background:#eaf3ff;color:var(--blue);outline:0}.site-menu-divider{height:1px;background:var(--line);margin:22px 0}.menu-language{width:100%;min-height:44px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-weight:800;text-align:left;padding:0 13px}.menu-language:hover,.menu-language:focus-visible{border-color:var(--blue);color:var(--blue);outline:3px solid rgba(23,105,232,.12);outline-offset:2px}.menu-cta{margin-top:12px;width:100%}.menu-footer{margin-top:auto;padding-top:22px;color:var(--muted);font-size:.78rem;white-space:pre-line}.menu-open{overflow:hidden}
@@ -115,7 +116,6 @@
       <div class="desktop-nav nav-links" aria-label="Main navigation links">
         <a href="index.html" data-en="Tax" data-es="Impuestos">Impuestos</a>
         <a href="llc.html" data-en="LLC" data-es="LLC">LLC</a>
-        <a href="index.html#milestones" data-en="Progress" data-es="Progreso">Progreso</a>
         <a href="index.html#process" data-en="How it works" data-es="Cómo funciona">Cómo funciona</a>
         <a href="index.html#request" data-en="Contact" data-es="Contacto">Contacto</a>
       </div>
@@ -130,7 +130,6 @@
             <nav class="site-menu-links" aria-label="Mobile navigation">
               <a id="menuTax" href="index.html" data-en="Tax" data-es="Impuestos">Impuestos</a>
               <a id="menuLlc" href="llc.html" data-en="LLC" data-es="LLC">LLC</a>
-              <a href="index.html#milestones" data-en="Progress" data-es="Progreso">Progreso</a>
               <a id="menuHow" href="index.html#process" data-en="How it works" data-es="Cómo funciona">Cómo funciona</a>
               <a id="menuContact" href="index.html#request" data-en="Contact" data-es="Contacto">Contacto</a>
             </nav>
@@ -169,12 +168,12 @@
           <p data-en="Choose a state, enter the LLC name and provide basic owner information. We will review the request and confirm the exact scope before filing." data-es="Selecciona un estado, escribe el nombre de la LLC y comparte la información básica del dueño. Revisaremos la solicitud y confirmaremos el alcance exacto antes de presentar documentos.">Selecciona un estado, escribe el nombre de la LLC y comparte la información básica del dueño. Revisaremos la solicitud y confirmaremos el alcance exacto antes de presentar documentos.</p>
         </div>
         <div class="llc-form-layout">
-          <form class="llc-form" id="llcForm" action="https://formsubmit.co/founder@impactholdingsllc.com" method="POST">
-            <input type="hidden" name="_subject" value="Nueva solicitud de formación LLC - Impact Holdings LLC">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://impactholdingsllc.com/llc.html?sent=true#llc-request">
-            <input type="text" name="_honey" style="display:none">
+          <form class="llc-form" id="llcForm" action="https://locjiudfzjpzfnxlpiii.supabase.co/functions/v1/client-intake" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="service_key" value="llc">
+            <input type="hidden" name="service" value="Complete LLC package">
+            <input type="hidden" name="estimated_price" id="llcServicePriceHidden" value="$200">
+            <input type="hidden" name="price" value="200">
+            <input type="hidden" name="language" value="English">
             <input type="hidden" id="llcStateHidden" name="Estado de formación">
             <input type="hidden" id="llcFilingHidden" name="Tarifa estatal de presentación estimada">
             <input type="hidden" id="llcFirstYearHidden" name="Costo estatal estimado de referencia primer año">
@@ -195,6 +194,18 @@
                 <div class="field"><label for="ownerZip" data-en="State and ZIP code" data-es="Estado y código postal">Estado y código postal</label><input id="ownerZip" name="Estado y ZIP del dueño" autocomplete="postal-code" required></div>
                 <div class="field"><label for="ownerCount" data-en="Number of LLC owners" data-es="Cantidad de dueños de la LLC">Cantidad de dueños de la LLC</label><select id="ownerCount" name="Cantidad de dueños"><option value="1">1</option><option value="2">2</option><option value="3">3+</option></select></div>
               </div>
+            </fieldset>
+            <fieldset class="owner-fieldset document-upload">
+              <legend data-en="LLC documents" data-es="Documentos de LLC">Documentos de LLC</legend>
+              <p class="form-kicker" data-en="Upload only documents needed for your LLC request. Do not upload an SSN, password or bank information." data-es="Sube solo los documentos necesarios para tu solicitud de LLC. No subas SSN, contraseñas ni información bancaria.">Sube solo los documentos necesarios para tu solicitud de LLC. No subas SSN, contraseñas ni información bancaria.</p>
+              <div class="document-rows" id="llcDocumentRows">
+                <div class="document-row">
+                  <div class="field"><label for="llcDocumentType1" data-en="Document type" data-es="Tipo de documento">Tipo de documento</label><select id="llcDocumentType1" name="document_type"><option value="llc_documents">LLC</option><option value="license_documents">License / Licencia</option><option value="insurance_documents">Insurance / Seguro</option></select></div>
+                  <div class="field"><label for="llcDocumentFile1" data-en="Choose file" data-es="Elegir archivo">Elegir archivo</label><input id="llcDocumentFile1" name="llc_documents" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,.xls,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></div>
+                  <button class="document-row-remove" type="button" hidden data-en="Remove" data-es="Quitar">Quitar</button>
+                </div>
+              </div>
+              <button class="document-add" id="addLlcDocumentRow" type="button" data-en="+ Add another document" data-es="+ Agregar otro documento">+ Agregar otro documento</button>
             </fieldset>
             <div class="llc-cost-card" aria-live="polite">
               <div class="llc-cost-row"><span data-en="Impact Holdings service fee" data-es="Tarifa de servicio de Impact Holdings">Tarifa de servicio de Impact Holdings</span><strong id="llcServiceFee">$200.00</strong></div>
@@ -272,10 +283,35 @@
           document.getElementById('llcFilingHidden').value=money(state.filing);
           document.getElementById('llcFirstYearHidden').value=money(state.filing);
           document.getElementById('llcTotalHidden').value=money(total);
+          document.getElementById('llcServicePriceHidden').value=money(serviceFee);
         }
         stateSelect.addEventListener('change',updateCost);
         form.addEventListener('submit',updateCost);
         window.renderStateOptions(language);
+      }());
+    </script>
+    <script>
+      (function(){
+        var rows=document.getElementById('llcDocumentRows'),add=document.getElementById('addLlcDocumentRow');
+        if(!rows||!add)return;
+        var rowNumber=1;
+        var accept='.pdf,.jpg,.jpeg,.png,.webp,.xls,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+        function bind(row){
+          var select=row.querySelector('select'),file=row.querySelector('input[type="file"]'),remove=row.querySelector('.document-row-remove');
+          select.addEventListener('change',function(){file.name=select.value;});
+          remove.addEventListener('click',function(){row.remove();});
+        }
+        bind(rows.querySelector('.document-row'));
+        add.addEventListener('click',function(){
+          rowNumber+=1;
+          var row=document.createElement('div');
+          row.className='document-row';
+          row.innerHTML='<div class="field"><label for="llcDocumentType'+rowNumber+'">Document type</label><select id="llcDocumentType'+rowNumber+'" name="document_type"><option value="llc_documents">LLC</option><option value="license_documents">License / Licencia</option><option value="insurance_documents">Insurance / Seguro</option></select></div><div class="field"><label for="llcDocumentFile'+rowNumber+'">Choose file</label><input id="llcDocumentFile'+rowNumber+'" name="llc_documents" type="file" accept="'+accept+'"></div><button class="document-row-remove" type="button">Remove</button>';
+          rows.appendChild(row);
+          row.querySelector('.document-row-remove').hidden=false;
+          rows.querySelectorAll('.document-row-remove').forEach(function(button){button.hidden=rows.querySelectorAll('.document-row').length<2;});
+          bind(row);
+        });
       }());
     </script>
 </body>
