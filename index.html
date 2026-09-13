@@ -578,6 +578,7 @@
     var paymentModalTitle = document.getElementById('paymentModalTitle');
     var paymentModalNote = document.getElementById('paymentModalNote');
     var paymentModalImage = document.getElementById('paymentModalImage');
+    var clientForm = document.getElementById('clientForm');
 
     function money(cents){return '$' + (cents / 100).toLocaleString('en-US',{minimumFractionDigits:0});}
     function updateThemeColor(){themeColor.setAttribute('content','#f7fafc');}
@@ -636,6 +637,7 @@
 
     document.querySelectorAll('input[name="serviceChoice"]').forEach(function(input){input.addEventListener('change',function(){selectedServiceKey = input.value;updateOrder();});});
     extraQuantitySelect.addEventListener('change',function(){extraQuantity = Number(extraQuantitySelect.value);updateOrder();});
+    if(clientForm) clientForm.addEventListener('submit',function(){updateOrder();});
     if(downloadReceiptButton) downloadReceiptButton.addEventListener('click',downloadReceipt);
     document.querySelectorAll('.payment-option').forEach(function(button){button.addEventListener('click',function(){
       document.querySelectorAll('.payment-option').forEach(function(option){option.classList.toggle('is-selected',option === button);});
