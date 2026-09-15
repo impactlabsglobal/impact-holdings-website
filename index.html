@@ -189,12 +189,14 @@
     .payment-modal-image{display:block;width:min(100%,380px);max-height:68vh;margin:0 auto;padding:10px;object-fit:contain;border-radius:8px;background:#fff}
 
     footer{background:#0c1928;color:#c5d2df;padding:34px 0}
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+    .footer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:28px}
     .footer-brand{color:#fff;font-weight:800;margin-bottom:9px}
     .footer-copy{font-size:.84rem;max-width:360px}
     .footer-column h3{color:#fff;font-size:.82rem;margin-bottom:10px}
     .footer-column a,.footer-column span{display:block;margin-top:7px;font-size:.83rem}
-    .instagram-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#93bcff;font-size:.88rem;font-weight:800}
+    .footer-socials,.footer-contact{display:grid;gap:7px;margin-top:14px}.footer-socials a,.footer-contact a{color:#93bcff;font-size:.84rem;font-weight:800}.footer-socials a:hover,.footer-contact a:hover{color:#fff}
+    .instagram-link{display:inline-flex;align-items:center;gap:8px;color:#93bcff;font-size:.88rem;font-weight:800}
+    .tiktok-link{display:inline-flex;align-items:center;gap:8px}
     .pdf-download{display:inline-block;margin-top:12px;color:#93bcff;font-size:.88rem;font-weight:800}
     .xlsx-download{display:inline-block;margin-top:8px;color:#93bcff;font-size:.88rem;font-weight:800}
     .instagram-icon{width:22px;height:22px;display:inline-block;background:currentColor;-webkit-mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat;mask:url("https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/instagram.svg") center/contain no-repeat}
@@ -536,8 +538,8 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div><div class="footer-brand">Impact Holdings LLC</div><p class="footer-copy">Professional tax preparation and LLC formation for individuals and small businesses.</p><a class="instagram-link" href="https://www.instagram.com/mrbatistaj/" target="_blank" rel="noopener noreferrer"><span class="instagram-icon" aria-hidden="true"></span >Instagram @mrbatistaj</a><br><a class="pdf-download" href="output/pdf/uber-expense-guide.pdf" target="_blank" rel="noopener noreferrer">Download Uber expense guide PDF</a></div>
-        <div class="footer-column"><h3>Company</h3><a href="#top">About us</a><a href="#request">Services</a><a href="#request">Contact</a></div>
+        <div><div class="footer-brand">Impact Holdings LLC</div><p class="footer-copy">Professional tax preparation and LLC formation for individuals and small businesses.</p><div class="footer-socials"><a class="instagram-link" href="https://www.instagram.com/mrbatistaj/" target="_blank" rel="noopener noreferrer"><span class="instagram-icon" aria-hidden="true"></span>Instagram @mrbatistaj</a><a class="tiktok-link" href="https://www.tiktok.com/@mrbatistaj" target="_blank" rel="noopener noreferrer">♪ TikTok @mrbatistaj</a></div></div>
+        <div class="footer-column"><h3>Contact</h3><div class="footer-contact"><a href="https://wa.me/19086612313" target="_blank" rel="noopener noreferrer">WhatsApp +1 (908) 661-2313</a><a href="tel:+19086612313">Call +1 (908) 661-2313</a><a href="mailto:founder@impactholdingsllc.com">Email founder@impactholdingsllc.com</a></div></div>
         <div class="footer-column"><h3>Service area</h3><span>Perth Amboy, New Jersey</span><span>Available across the United States</span><span>English and Spanish support</span></div>
       </div>
       <div class="footer-bottom">© 2026 Impact Holdings LLC. Services are not legal or financial advice.</div>
@@ -703,7 +705,7 @@
         ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['#documentsTitle','Secure document upload'],['#documentsNote','Choose the type of each document and upload it. W-2, 1099, LLC, license or insurance files in PDF, JPG, PNG, WEBP, XLS or XLSX format up to 5 MB each, maximum 4 documents. Do not upload SSNs, passwords or payment information.'],['#addDocumentRow','+ Add another document'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','Uber/Lyft 1099 + organized mileage'],['.service-choice:nth-child(3) strong','Uber/Lyft 1099 + organized expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
         ['.submit-row .button','Send request'],['.receipt-button','Download order receipt'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
         ['#liveOrderTitle','Your selection'],['#liveTotalLabel','Estimated total'],['#paymentTitle','Payment options'],['#paymentNote','Choose how you prefer to pay. Click Zelle or Cash App to open its payment code.'],['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#liveNote','Updates in real time as you change the service or extra SSN quantity.'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
-        ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.pdf-download','Download Uber expense guide PDF'],['.xlsx-download','Download expense tracker Excel'],['.footer-column:nth-child(2) h3','Company'],['.footer-column:nth-child(3) h3','Service area']
+        ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Contact'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
         ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
@@ -720,7 +722,7 @@
         ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['#documentsTitle','Carga segura de documentos'],['#documentsNote','Elige el tipo de cada documento y súbelo. W-2, 1099, LLC, licencia o seguro en PDF, JPG, PNG, WEBP, XLS o XLSX de hasta 5 MB cada uno, máximo 4 documentos. No envíes SSN, contraseñas ni información de pago.'],['#addDocumentRow','+ Agregar otro documento'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','Uber/Lyft 1099 + millas organizadas'],['.service-choice:nth-child(3) strong','Uber/Lyft 1099 + gastos organizados'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
         ['.submit-row .button','Enviar solicitud'],['.receipt-button','Descargar recibo de la orden'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
         ['#liveOrderTitle','Tu selección'],['#liveTotalLabel','Total estimado'],['#paymentTitle','Opciones de pago'],['#paymentNote','Elige cómo prefieres pagar. Toca Zelle o Cash App para abrir su código de pago.'],['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#liveNote','Se actualiza en tiempo real cuando cambias el servicio o la cantidad de SSN adicionales.'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
-        ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.pdf-download','Descargar guía PDF de gastos de Uber'],['.xlsx-download','Descargar tabla Excel de gastos'],['.footer-column:nth-child(2) h3','Compañía'],['.footer-column:nth-child(3) h3','Área de servicio']
+        ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.footer-column:nth-child(2) h3','Contacto'],['.footer-column:nth-child(3) h3','Área de servicio']
       ]
     };
     function applyLanguage(nextLanguage){
