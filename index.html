@@ -124,8 +124,8 @@
     .progress-updated{margin-top:16px;color:#8fa4b9;font-size:.75rem}
 
 
-    .request-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(360px,.65fr);gap:56px;align-items:start}
-    .request-form{padding:38px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
+    .request-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:start}
+    .request-form{max-width:820px;width:100%;margin:0 auto;padding:38px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
     .request-form iframe{display:block;width:100%;border:0}
     .form-title{margin-bottom:24px}
     .form-title h2{font-size:1.8rem;margin-bottom:6px}
@@ -499,17 +499,6 @@
           <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
         </div>
 
-        <aside class="request-aside" aria-label="Request information">
-          <div class="aside-copy">
-            <h3 id="contactTitle">Professional contact</h3>
-            <p><a href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a></p>
-            <p>Perth Amboy, New Jersey</p>
-          </div>
-          <div class="aside-copy">
-            <h3 id="nextTitle">What happens next</h3>
-            <p id="nextCopy">We review your request before confirming documents, payment details, and the next steps.</p>
-          </div>
-        </aside>
       </div>
       <div class="payment-modal" id="paymentModal" hidden role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
         <div class="payment-modal-backdrop" data-close-payment></div>
@@ -583,7 +572,6 @@
         ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(1) .service-sub','Family (father, mother and son): maximum $160.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Complete LLC formation with EIN, business email, and the official CP 575 letter.'],['.service-card:nth-child(4) p','W-2 and 1099 together in one filing. Save $50 vs. $350 separately.'],
         ['#request-title','Start your request'],['#request-title + p','Fill out the form below and upload your documents securely.'],
         
-        ['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Services'],['.footer-column:nth-child(3) h3','Contact'],['.footer-column:nth-child(4) h3','Service area'],['.footer-services a:nth-child(2)','W-2 Tax Return'],['.footer-services a:nth-child(3)','Uber/Lyft 1099'],['.footer-services a:nth-child(4)','LLC formation'],['.footer-services a:nth-child(5)','Start your request'],
       ],
       es: [
@@ -598,7 +586,6 @@
         ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(1) .service-sub','Familia (padre, madre e hijo): máximo $160.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Formación completa de LLC con EIN, correo profesional y la carta oficial CP 575.'],['.service-card:nth-child(4) p','W-2 y 1099 juntos en una sola declaración. Ahorra $50 frente a $350 por separado.'],
         ['#request-title','Comienza tu solicitud'],['#request-title + p','Completa el formulario y sube tus documentos de forma segura.'],
         
-        ['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
         ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.footer-column:nth-child(2) h3','Servicios'],['.footer-column:nth-child(3) h3','Contacto'],['.footer-column:nth-child(4) h3','Área de servicio'],['.footer-services a:nth-child(2)','Declaración de impuestos W-2'],['.footer-services a:nth-child(3)','Uber/Lyft 1099'],['.footer-services a:nth-child(4)','Formación de LLC'],['.footer-services a:nth-child(5)','Comenzar solicitud'],
       ]
     };
