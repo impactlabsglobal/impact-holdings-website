@@ -378,6 +378,20 @@
     .mobile-menu-panel .menu-cta{background:#f2b72b;color:#0c1928;box-shadow:0 10px 24px rgba(0,0,0,.28)}
     .mobile-menu-panel .menu-cta:hover{background:#e0a91c;color:#0c1928}
     .mobile-menu-panel .menu-footer{color:#b9cae0}
+    /* Mobile menu — Stripe-style full screen, light, our colors (2026-11-26): replaces the navy card above */
+    .mobile-menu-panel{position:fixed;inset:0;width:auto;max-height:none;padding:18px 24px 28px;background:#fff;color:#102033;border:0;border-radius:0;box-shadow:none;display:flex;flex-direction:column;overflow-y:auto;z-index:10000}
+    .mobile-menu-panel .site-menu-head{margin-bottom:10px}
+    .mobile-menu-panel #menuTitle{color:#0f172a;font-size:1.3rem;font-weight:900;line-height:1.2}
+    .mobile-menu-panel .menu-close{width:48px;height:48px;border:0;border-radius:12px;background:#eaf3ff;color:#1769e8;font-size:1.6rem;line-height:1;flex:0 0 auto}
+    .mobile-menu-panel .menu-close:hover,.mobile-menu-panel .menu-close:focus-visible{background:#dbeafe;color:#0e3f86;outline:0}
+    .mobile-menu-panel .site-menu-links{display:grid;gap:0}
+    .mobile-menu-panel .site-menu-links a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 4px;border-radius:0;font-size:1.15rem;font-weight:800;color:#102033;border-bottom:1px dashed #dce6ef}
+    .mobile-menu-panel .site-menu-links a::after{content:'›';color:#1769e8;font-size:1.5rem;font-weight:800;line-height:1}
+    .mobile-menu-panel .site-menu-links a:hover,.mobile-menu-panel .site-menu-links a:focus-visible{background:#f4f8fb;color:#102033;box-shadow:none;outline:0}
+    .mobile-menu-panel .site-menu-divider{display:none}
+    .mobile-menu-panel .menu-cta{margin-top:auto;width:100%;background:var(--blue,#1769e8);color:#fff;box-shadow:0 10px 24px rgba(23,105,232,.28)}
+    .mobile-menu-panel .menu-cta:hover{background:#0e5bd7;color:#fff}
+    .mobile-menu-panel .menu-footer{margin-top:16px;color:#64748b;font-size:.82rem;line-height:1.6}
     @media(max-width:420px){.site-header .brand-copy{font-size:.86rem}.site-header .brand-copy small{font-size:.59rem}}
     @media(max-width:900px) and (min-width:561px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.footer-grid>div:first-child{grid-column:1/-1}}
     @media(max-width:560px){.footer-grid{gap:22px}.footer-social-button{max-width:100%;font-size:.8rem!important}.footer-contact a{align-items:flex-start;word-break:break-word}}
@@ -445,8 +459,7 @@
         <details class="mobile-menu" id="mobileMenu">
           <summary class="menu-trigger" id="menuTrigger" aria-label="Open menu"><span></span><span></span><span></span></summary>
           <div class="mobile-menu-panel">
-            <div class="site-menu-head"><div class="menu-head-copy"><span class="menu-kicker" id="menuKicker">Menu</span><strong id="menuTitle">Impact Holdings LLC</strong></div><button class="menu-close" id="menuClose" type="button" aria-label="Close menu">×</button></div>
-            <p class="menu-subtitle" id="menuSubtitle">Choose a section</p>
+            <div class="site-menu-head"><strong id="menuTitle">Impact Holdings LLC</strong><button class="menu-close" id="menuClose" type="button" aria-label="Close menu">×</button></div>
             <nav class="site-menu-links" aria-label="Mobile navigation">
               <a id="menuTax" href="#services">Services</a>
               <a id="menuContact" href="#contact">Contact</a>
@@ -585,7 +598,7 @@
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['#menuKicker','Menu'],['#menuTitle','Impact Holdings LLC'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Services'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','Contact'],
+        ['#menuTitle','Impact Holdings LLC'],['#menuCta','Start your request →'],['#menuTax','Services'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
@@ -599,7 +612,7 @@
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Services'],['.footer-column:nth-child(3) h3','Contact'],['.footer-column:nth-child(4) h3','Service area'],['.footer-services a:nth-child(2)','W-2 Tax Return'],['.footer-services a:nth-child(3)','Uber/Lyft 1099'],['.footer-services a:nth-child(4)','LLC formation'],['.footer-services a:nth-child(5)','Start your request'],
       ],
       es: [
-        ['#menuKicker','Menú'],['#menuTitle','Impact Holdings LLC'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Servicios'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','Contacto'],
+        ['#menuTitle','Impact Holdings LLC'],['#menuCta','Comenzar solicitud →'],['#menuTax','Servicios'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
