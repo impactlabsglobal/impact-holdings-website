@@ -8,7 +8,7 @@
   <title>Uber guide — Impact Holdings LLC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       color-scheme:light;
@@ -436,17 +436,25 @@
     .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:0;padding:20px 0 24px;border-top:1px solid #dbe3ec;font-size:.78rem;color:#64748b}
     .footer-brand-mark{font-size:1.05rem;font-weight:900;color:#0f172a;letter-spacing:-.02em}
     .footer-brand-mark:before{content:'';display:inline-block;width:22px;height:3px;background:#f2b72b;border-radius:2px;margin-right:8px;vertical-align:middle}
-    /* Uber deactivation guide section */
-    .uber-section{background:#f7fafc}
-    .uber-kicker{color:var(--blue);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
-    .uber-steps{margin:26px 0 8px;padding-left:22px;display:grid;gap:16px}
-    .uber-steps li{line-height:1.65;color:#334155}
-    .uber-steps li strong{color:#0f172a}
-    .uber-downloads{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 18px}
-    .uber-downloads .button.secondary{background:#fff;border:1px solid #cbd5e1;color:#0f172a}
-    .uber-downloads .button.secondary:hover{background:#eaf3ff;border-color:var(--blue);color:var(--blue)}
-    .uber-note{font-size:.88rem;color:#475569;max-width:720px}
-    .uber-sources{font-size:.78rem;color:#94a3b8;margin-top:10px}
+    /* Uber deactivation guide section — Polanco dark style (2026-11-26) */
+    .uber-section{background:#000;color:#fff;position:relative;overflow:hidden}
+    .uber-section:before{content:'';position:absolute;inset:0;background:radial-gradient(640px 320px at 18% 0%,rgba(31,143,255,.30),transparent 62%);pointer-events:none}
+    .uber-section .container{position:relative}
+    .uber-kicker{color:#1f8fff;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;margin-bottom:16px;display:flex;align-items:center;gap:9px}
+    .uber-kicker:before{content:'';width:8px;height:8px;border-radius:50%;background:#1f8fff;box-shadow:0 0 12px rgba(31,143,255,.9)}
+    .uber-section h2{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(2.1rem,7vw,3.4rem);line-height:1.04;color:#fff}
+    .uber-section #uber-intro{color:#9aa5b1;font-size:1.05rem;max-width:640px;margin-top:16px}
+    .uber-steps{margin:30px 0 8px;padding-left:0;list-style:none;display:grid;gap:14px;counter-reset:step}
+    .uber-steps li{line-height:1.65;color:#c7d0db;background:#11151c;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 20px 18px 66px;position:relative}
+    .uber-steps li:before{counter-increment:step;content:counter(step,decimal-leading-zero);position:absolute;left:20px;top:15px;font-family:Anton,Impact,sans-serif;font-size:1.5rem;color:#1f8fff}
+    .uber-steps li strong{color:#fff}
+    .uber-downloads{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 18px}
+    .uber-downloads .button{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;border-radius:14px;background:linear-gradient(180deg,#2f9bff,#0b6cff);box-shadow:0 10px 30px rgba(31,143,255,.35)}
+    .uber-downloads .button:hover{filter:brightness(1.08)}
+    .uber-downloads .button.secondary{background:#11151c;border:1px solid rgba(255,255,255,.22);color:#fff;box-shadow:none}
+    .uber-downloads .button.secondary:hover{background:#1a2230;border-color:#1f8fff;color:#fff}
+    .uber-note{font-size:.88rem;color:#8b96a3;max-width:720px}
+    .uber-sources{font-size:.78rem;color:#5b6473;margin-top:10px}
     /* Footer responsive fix (2026-11-26): these rules must sit AFTER the 4-column .footer-grid above, or that rule overrides them on phones/tablets */
     .footer-grid>div{min-width:0}
     @media(max-width:900px) and (min-width:561px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;padding-bottom:36px}.footer-grid>div:first-child{grid-column:1/-1}}
