@@ -88,16 +88,16 @@
     .section-heading p{max-width:460px;color:var(--muted)}
 
     .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    #services .service-grid{grid-template-columns:repeat(3,1fr)}
-    .service-card{display:flex;flex-direction:column;min-width:0;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 8px 22px rgba(16,32,51,.04)}
-    .service-card h3{font-size:1rem;line-height:1.25;min-height:48px}
-    .service-card .price{font-size:1.55rem;font-weight:700;color:var(--ink);margin:12px 0 8px;letter-spacing:-.02em}
-    .service-card p{color:var(--muted);font-size:.9rem;min-height:78px}
+    #services .service-grid{grid-template-columns:repeat(4,1fr)}
+    .service-card{display:flex;flex-direction:column;min-width:0;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 8px 22px rgba(16,32,51,.04)}
+    .service-card h3{font-size:.98rem;line-height:1.25;min-height:0}
+    .service-card .price{font-size:1.4rem;font-weight:700;color:var(--ink);margin:10px 0 8px;letter-spacing:-.02em}
+    .service-card p{color:var(--muted);font-size:.9rem;min-height:0}
+    .service-card .service-sub{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:.82rem;font-weight:700;color:var(--ink);min-height:0}
     .service-card ul{list-style:none;display:grid;gap:8px;margin:18px 0 22px;color:var(--muted);font-size:.84rem}
     .service-card li{display:flex;gap:8px}
     .service-card li::before{content:"✓";color:var(--blue);font-weight:800}
     .service-card a{margin-top:auto;color:var(--blue-deep);font-size:.88rem;font-weight:800}
-    .service-card.featured{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.12)}
 
     .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
     .step{border-top:2px solid var(--blue);padding-top:16px}
@@ -458,6 +458,7 @@
             <h3>W-2 Tax Return</h3>
             <div class="price">$100</div>
             <p>A simple tax filing for employees with a W-2 form.</p>
+            <p class="service-sub">Family (father, mother and son): maximum $160.</p>
             <a href="#request">Start your request →</a>
           </article>
           <article class="service-card">
@@ -467,21 +468,15 @@
             <a href="#request">Start your request →</a>
           </article>
           <article class="service-card">
-            <h3>Uber/Lyft 1099 with organized expenses</h3>
-            <div class="price">$400</div>
-            <p>Combined filing with business expenses and applicable deductions.</p>
-            <a href="#request">Start your request →</a>
-          </article>
-          <article class="service-card featured">
-            <h3>W-2 + 1099 combo</h3>
-            <div class="price">$300</div>
-            <p>W-2 and 1099 together in one filing. Save $50 vs. $350 separately.</p>
+            <h3>LLC formation</h3>
+            <div class="price">$180</div>
+            <p>Complete LLC formation with EIN, business email, and the official CP 575 letter.</p>
             <a href="#request">Start your request →</a>
           </article>
           <article class="service-card">
-            <h3>Family W-2</h3>
-            <div class="price">$160</div>
-            <p>W-2 filing for the family: father, mother and son. Save $140 vs. three separate filings.</p>
+            <h3>W-2 + 1099 combo</h3>
+            <div class="price">$300</div>
+            <p>W-2 and 1099 together in one filing. Save $50 vs. $350 separately.</p>
             <a href="#request">Start your request →</a>
           </article>
         </div>
@@ -579,8 +574,8 @@
 ['.hero-note','Serving clients in the United States from Perth Amboy, New Jersey.'],['#llc-kicker','LLC formation'],['#llc-title','Form your LLC with everything included.'],['#llc-intro','One flat price. We handle the formation paperwork, the EIN, and your professional setup — so your business starts clean, organized, and ready to work.'],['#llc-included-title','What’s included'],['#llc-item-1','EIN (Employer Identification Number) from the IRS'],['#llc-item-2','Complete LLC kit — formation documents and business records'],['#llc-item-3','Professional business email'],['#llc-item-4','CP 575 letter — the official IRS confirmation of your EIN'],['#llc-price-title','One flat price'],['#llc-price','$180'],['#llc-price-note','Everything listed included. No hidden fees.'],['#llc-cta','Start your LLC request →'],['#llc-note','State filing fees may apply separately. Services are not legal or financial advice.'],
         ['#services-title','Straightforward services and transparent pricing.'],
         ['#services .section-heading p','Choose the option that matches your situation. Fixed prices — no surprises.'],
-        ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','Uber/Lyft 1099 with organized mileage'],['.service-card:nth-child(3) h3','Uber/Lyft 1099 with organized expenses'],['.service-card:nth-child(4) h3','W-2 + 1099 combo'],
-        ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Combined filing with business expenses and applicable deductions.'],['.service-card:nth-child(4) p','W-2 and 1099 together in one filing. Save $50 vs. $350 separately.'],['.service-card:nth-child(5) h3','Family W-2'],['.service-card:nth-child(5) p','W-2 filing for the family: father, mother and son. Save $140 vs. three separate filings.'],
+        ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','Uber/Lyft 1099 with organized mileage'],['.service-card:nth-child(3) h3','LLC formation'],['.service-card:nth-child(4) h3','W-2 + 1099 combo'],
+        ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(1) .service-sub','Family (father, mother and son): maximum $160.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Complete LLC formation with EIN, business email, and the official CP 575 letter.'],['.service-card:nth-child(4) p','W-2 and 1099 together in one filing. Save $50 vs. $350 separately.'],
         ['#request-title','Start your request'],['#request-title + p','Fill out the form below and upload your documents securely.'],
         
         ['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
@@ -594,8 +589,8 @@
 ['.hero-note','Atendemos clientes en todo Estados Unidos desde Perth Amboy, New Jersey.'],['#llc-kicker','Formación de LLC'],['#llc-title','Crea tu LLC con todo incluido.'],['#llc-intro','Un solo precio fijo. Nosotros nos encargamos del papeleo de formación, el EIN y tu configuración profesional — para que tu negocio empiece limpio, organizado y listo para trabajar.'],['#llc-included-title','Qué incluye'],['#llc-item-1','EIN (Número de Identificación del Empleador) del IRS'],['#llc-item-2','Kit completo de LLC — documentos de formación y registros del negocio'],['#llc-item-3','Correo electrónico profesional para tu negocio'],['#llc-item-4','Carta CP 575 — la confirmación oficial del IRS de tu EIN'],['#llc-price-title','Un solo precio fijo'],['#llc-price','$180'],['#llc-price-note','Todo lo listado está incluido. Sin cargos ocultos.'],['#llc-cta','Comenzar solicitud de LLC →'],['#llc-note','Las tarifas estatales de presentación pueden aplicar por separado. Los servicios no son asesoría legal ni financiera.'],
         ['#services-title','Servicios directos y precios transparentes.'],
         ['#services .section-heading p','Elige la opción que corresponde a tu situación. Precios fijos, sin sorpresas.'],
-        ['.service-card:nth-child(1) h3','Declaración de impuestos W-2'],['.service-card:nth-child(2) h3','W-2 + 1099 con millaje'],['.service-card:nth-child(3) h3','W-2 + 1099 con gastos'],['.service-card:nth-child(4) h3','Combo W-2 + 1099'],
-        ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Declaración combinada con gastos del negocio y deducciones aplicables.'],['.service-card:nth-child(4) p','W-2 y 1099 juntos en una sola declaración. Ahorra $50 frente a $350 por separado.'],['.service-card:nth-child(5) h3','W-2 en familia'],['.service-card:nth-child(5) p','Declaración W-2 para la familia: padre, madre e hijo. Ahorra $140 frente a tres declaraciones por separado.'],
+        ['.service-card:nth-child(1) h3','Declaración de impuestos W-2'],['.service-card:nth-child(2) h3','W-2 + 1099 con millaje'],['.service-card:nth-child(3) h3','Formación de LLC'],['.service-card:nth-child(4) h3','Combo W-2 + 1099'],
+        ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(1) .service-sub','Familia (padre, madre e hijo): máximo $160.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Formación completa de LLC con EIN, correo profesional y la carta oficial CP 575.'],['.service-card:nth-child(4) p','W-2 y 1099 juntos en una sola declaración. Ahorra $50 frente a $350 por separado.'],
         ['#request-title','Comienza tu solicitud'],['#request-title + p','Completa el formulario y sube tus documentos de forma segura.'],
         
         ['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
