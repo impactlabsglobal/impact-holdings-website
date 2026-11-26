@@ -26,6 +26,7 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    html{overflow-x:hidden}
     body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--soft);color:var(--ink);line-height:1.5;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     button,input,select,textarea{font:inherit}
@@ -381,7 +382,7 @@
 
     /* Elegant footer — light, refined, Stripe-inspired */
     footer{background:#f1f5f9;border-top:3px solid var(--blue);padding:56px 0 0;color:#334155}
-    .footer-grid{grid-template-columns:1.35fr 1fr 1fr 1fr;gap:44px;padding-bottom:48px}
+    .footer-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:44px;padding-bottom:48px}
     .footer-brand{font-size:1.05rem;margin-bottom:12px;color:#0f172a}
     .footer-copy{font-size:.85rem;line-height:1.65;color:#64748b;max-width:340px}
     .footer-column h3{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0f172a;margin-bottom:16px}
@@ -397,6 +398,10 @@
     .footer-social-button strong{color:var(--blue)}
     .social-mark{border-color:var(--blue);color:var(--blue)}
     .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:0;padding:20px 0 24px;border-top:1px solid #e2e8f0;font-size:.78rem;color:#64748b}
+    /* Footer responsive fix (2026-11-26): these rules must sit AFTER the 4-column .footer-grid above, or that rule overrides them on phones/tablets */
+    .footer-grid>div{min-width:0}
+    @media(max-width:900px) and (min-width:561px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;padding-bottom:36px}.footer-grid>div:first-child{grid-column:1/-1}}
+    @media(max-width:560px){.footer-grid{grid-template-columns:minmax(0,1fr);gap:26px;padding-bottom:32px}footer{padding-top:40px}.footer-contact a{overflow-wrap:anywhere;word-break:break-word}.footer-social-button{max-width:100%}}
 
 </style>
 </head>
