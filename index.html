@@ -61,6 +61,11 @@
     .llc-list.consider li::before{content:'!';background:#b4232c}
     .llc-callout{margin-top:22px;padding:18px 20px;border-left:4px solid #f2b72b;border-radius:10px;background:rgba(242,183,43,.12);color:#fff;font-weight:700}
     .llc-note{margin-top:22px;color:#b9cae0;font-size:.85rem}
+    .llc-heading{max-width:720px;margin-bottom:32px}
+    .llc-heading h2{font-size:clamp(1.9rem,4vw,3.15rem);line-height:1.05;color:#fff;margin:10px 0 14px}
+    .llc-price{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:10px 0 6px}
+    .llc-price-note{color:#cbd8e6;font-size:.92rem}
+    .llc-cta{margin-top:20px}
 
     .hero{min-height:78vh;display:flex;align-items:flex-end;position:relative;color:#fff;background:#0b1928 url("assets/tax-consultation-hero.jpg") center/cover no-repeat}
     .hero::before{content:"";position:absolute;inset:0;background:rgba(8,22,38,.56)}
@@ -374,21 +379,24 @@
     .site-header .desktop-nav,.site-header .desktop-nav a,.site-header .header-language,.site-header .brand-copy{color:#102033!important}
 
 
-    /* Elegant footer — refined, Stripe-inspired */
-    footer{background:#0a1826;border-top:3px solid var(--blue);padding:56px 0 0}
+    /* Elegant footer — light, refined, Stripe-inspired */
+    footer{background:#f1f5f9;border-top:3px solid var(--blue);padding:56px 0 0;color:#334155}
     .footer-grid{grid-template-columns:1.35fr 1fr 1fr 1fr;gap:44px;padding-bottom:48px}
-    .footer-brand{font-size:1.05rem;margin-bottom:12px}
-    .footer-copy{font-size:.85rem;line-height:1.65;color:#9fb0c3;max-width:340px}
-    .footer-column h3{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:16px}
-    .footer-column a,.footer-column span{display:block;margin-top:10px;font-size:.86rem;color:#c5d2df}
-    .footer-column a:hover{color:#fff}
+    .footer-brand{font-size:1.05rem;margin-bottom:12px;color:#0f172a}
+    .footer-copy{font-size:.85rem;line-height:1.65;color:#64748b;max-width:340px}
+    .footer-column h3{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0f172a;margin-bottom:16px}
+    .footer-column a,.footer-column span{display:block;margin-top:10px;font-size:.86rem;color:#475569}
+    .footer-column a:hover{color:var(--blue)}
     .footer-contact{display:grid;gap:10px;margin-top:0}
-    .footer-contact a{display:block;padding:0;border:0;border-radius:0;background:transparent;color:#c5d2df;font-size:.86rem;font-weight:600}
+    .footer-contact a{display:block;padding:0;border:0;border-radius:0;background:transparent;color:#475569;font-size:.86rem;font-weight:600}
     .footer-contact a:after{display:none}
-    .footer-contact a:hover{background:transparent;color:#fff}
+    .footer-contact a:hover{background:transparent;color:var(--blue)}
     .footer-socials{margin-top:20px}
-    .footer-social-button{padding:8px 12px}
-    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:0;padding:20px 0 24px;border-top:1px solid rgba(255,255,255,.12);font-size:.78rem;color:#8fa4b9}
+    .footer-social-button{padding:8px 12px;background:#fff!important;border-color:#cbd5e1!important;color:#0f172a!important}
+    .footer-social-button:hover{background:#eaf3ff!important;border-color:var(--blue)!important}
+    .footer-social-button strong{color:var(--blue)}
+    .social-mark{border-color:var(--blue);color:var(--blue)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:0;padding:20px 0 24px;border-top:1px solid #e2e8f0;font-size:.78rem;color:#64748b}
 
 </style>
 </head>
@@ -400,8 +408,6 @@
       </a>
       <div class="desktop-nav nav-links" aria-label="Main navigation links">
         <a href="#services">Services</a>
-        <a href="llc.html?v=20260822-llc200">LLC</a>
-        <a href="#process">How it works</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-actions actions">
@@ -414,8 +420,6 @@
             <p class="menu-subtitle" id="menuSubtitle">Choose a section</p>
             <nav class="site-menu-links" aria-label="Mobile navigation">
               <a id="menuTax" href="#services">Services</a>
-              <a id="menuLlc" href="llc.html?v=20260822-llc200">LLC</a>
-              <a id="menuHow" href="#process">How it works</a>
               <a id="menuContact" href="#contact">Contact</a>
             </nav>
             <div class="site-menu-divider"></div>
@@ -519,16 +523,30 @@
     </section>
 
     
-    <section class="section soft" id="process" aria-labelledby="process-title">
+    <section class="section llc-section" id="llc" aria-labelledby="llc-title">
       <div class="container">
-        <div class="section-heading">
-          <h2 id="process-title">A simple process from request to completion.</h2>
-          <p>We review your request before confirming documents, payment details, and next steps.</p>
+        <div class="llc-heading">
+          <p class="llc-kicker" id="llc-kicker">LLC formation</p>
+          <h2 id="llc-title">Form your LLC with everything included.</h2>
+          <p class="llc-intro" id="llc-intro">One flat price. We handle the formation paperwork, the EIN, and your professional setup — so your business starts clean, organized, and ready to work.</p>
         </div>
-        <div class="process-grid">
-          <article class="step"><span>01</span><h3>Select your service</h3><p>Choose a tax or business service and add any extra filings needed.</p></article>
-          <article class="step"><span>02</span><h3>Send your information</h3><p>Your request goes directly to our professional email for review.</p></article>
-          <article class="step"><span>03</span><h3>Confirm and move forward</h3><p>We contact you with the document list, payment instructions, and timeline.</p></article>
+        <div class="llc-grid">
+          <div class="llc-card">
+            <h3 id="llc-included-title">What’s included</h3>
+            <ul class="llc-list">
+              <li id="llc-item-1">EIN (Employer Identification Number) from the IRS</li>
+              <li id="llc-item-2">Complete LLC kit — formation documents and business records</li>
+              <li id="llc-item-3">Professional business email</li>
+              <li id="llc-item-4">CP 575 letter — the official IRS confirmation of your EIN</li>
+            </ul>
+          </div>
+          <div class="llc-card">
+            <h3 id="llc-price-title">One flat price</h3>
+            <div class="llc-price" id="llc-price">$180</div>
+            <p class="llc-price-note" id="llc-price-note">Everything listed included. No hidden fees.</p>
+            <a class="button llc-cta" id="llc-cta" href="#request">Start your LLC request →</a>
+            <p class="llc-note" id="llc-note">State filing fees may apply separately. Services are not legal or financial advice.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -539,7 +557,7 @@
     <div class="container">
       <div class="footer-grid">
         <div><div class="footer-brand">Impact Holdings LLC</div><p class="footer-copy">Professional tax preparation and LLC formation for individuals and small businesses.</p><div class="footer-socials"><a class="footer-social-button" href="https://www.instagram.com/mrbatistaj/" target="_blank" rel="noopener noreferrer"><span class="social-mark" aria-hidden="true">◎</span><span>Instagram</span><strong>@mrbatistaj</strong><span aria-hidden="true">↗</span></a><a class="footer-social-button" href="https://www.tiktok.com/@mrbatistaj" target="_blank" rel="noopener noreferrer"><span class="social-mark" aria-hidden="true">♪</span><span>TikTok</span><strong>@mrbatistaj</strong><span aria-hidden="true">↗</span></a></div></div>
-        <div class="footer-column footer-services"><h3>Services</h3><a href="#services">W-2 Tax Return</a><a href="#services">Uber/Lyft 1099</a><a href="llc.html?v=20260822-llc200">LLC formation</a><a href="#request">Start your request</a></div>
+        <div class="footer-column footer-services"><h3>Services</h3><a href="#services">W-2 Tax Return</a><a href="#services">Uber/Lyft 1099</a><a href="#llc">LLC formation</a><a href="#request">Start your request</a></div>
         <div class="footer-column"><h3>Contact</h3><div class="footer-contact"><a href="https://wa.me/19086612313" target="_blank" rel="noopener noreferrer">WhatsApp +1 (908) 661-2313</a><a href="tel:+19086612313">Call +1 (908) 661-2313</a><a href="mailto:founder@impactholdingsllc.com">Email founder@impactholdingsllc.com</a></div></div>
         <div class="footer-column"><h3>Service area</h3><span>Perth Amboy, New Jersey</span><span>Available across the United States</span><span>English and Spanish support</span></div>
       </div>
@@ -554,34 +572,30 @@
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Services'],['#menuLlc','LLC'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
+        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Services'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
-['.hero-note','Serving clients in the United States from Perth Amboy, New Jersey.'],['#llc-title','Why an LLC can matter for your business.'],['#llc-intro','An LLC is not a magic tax shortcut. It is a legal and organizational structure that can help separate your business activity from your personal life when it is maintained correctly.'],['#llc-benefits-title','Potential advantages'],['#llc-benefit-1','Helps separate business assets and personal assets.'],['#llc-benefit-2','Creates a more professional structure for clients, vendors and banks.'],['#llc-benefit-3','Makes it easier to organize business income, expenses and records.'],['#llc-benefit-4','Can support legitimate business deductions when expenses are ordinary, necessary and documented.'],['#llc-benefit-5','Provides a foundation to grow, open business accounts or add services.'],['#llc-consider-title','Responsibilities to consider'],['#llc-consider-1','Formation and annual state fees may apply.'],['#llc-consider-2','You must keep records, reports and registrations current.'],['#llc-consider-3','Business and personal finances should remain separate.'],['#llc-consider-4','An LLC does not eliminate taxes or guarantee deductions.'],['#llc-consider-5','Your structure should match your state, activity and professional advice.'],['#llc-callout','Single-member LLC note: the IRS may treat a single-member LLC as a “disregarded entity” for federal income-tax reporting unless another election is made. That does not mean the LLC has no value; legal protection, banking, organization and compliance still depend on how the business is operated.'],['#llc-note','Educational information only. It is not legal, tax or financial advice. Speak with a qualified professional before forming or changing a business entity.'],
+['.hero-note','Serving clients in the United States from Perth Amboy, New Jersey.'],['#llc-kicker','LLC formation'],['#llc-title','Form your LLC with everything included.'],['#llc-intro','One flat price. We handle the formation paperwork, the EIN, and your professional setup — so your business starts clean, organized, and ready to work.'],['#llc-included-title','What’s included'],['#llc-item-1','EIN (Employer Identification Number) from the IRS'],['#llc-item-2','Complete LLC kit — formation documents and business records'],['#llc-item-3','Professional business email'],['#llc-item-4','CP 575 letter — the official IRS confirmation of your EIN'],['#llc-price-title','One flat price'],['#llc-price','$180'],['#llc-price-note','Everything listed included. No hidden fees.'],['#llc-cta','Start your LLC request →'],['#llc-note','State filing fees may apply separately. Services are not legal or financial advice.'],
         ['#services-title','Straightforward services and transparent pricing.'],
         ['#services .section-heading p','Choose the option that matches your situation. Fixed prices — no surprises.'],
         ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','Uber/Lyft 1099 with organized mileage'],['.service-card:nth-child(3) h3','Uber/Lyft 1099 with organized expenses'],['.service-card:nth-child(4) h3','W-2 + 1099 combo'],
         ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Combined filing with business expenses and applicable deductions.'],['.service-card:nth-child(4) p','W-2 and 1099 together in one filing. Save $50 vs. $350 separately.'],['.service-card:nth-child(5) h3','Family W-2'],['.service-card:nth-child(5) p','W-2 filing for the family: father, mother and son. Save $140 vs. three separate filings.'],
-        ['#process-title','A simple process from request to completion.'],['#process .section-heading p','We review your request before confirming documents, payment details, and next steps.'],
-        ['#process .step:nth-child(1) h3','Select your service'],['#process .step:nth-child(1) p','Choose a tax or business service and add any extra filings needed.'],['#process .step:nth-child(2) h3','Send your information'],['#process .step:nth-child(2) p','Your request goes directly to our professional email for review.'],['#process .step:nth-child(3) h3','Confirm and move forward'],['#process .step:nth-child(3) p','We contact you with the document list, payment instructions, and timeline.'],
         ['#request-title','Start your request'],['#request-title + p','Fill out the form below and upload your documents securely.'],
         
         ['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Services'],['.footer-column:nth-child(3) h3','Contact'],['.footer-column:nth-child(4) h3','Service area'],['.footer-services a:nth-child(2)','W-2 Tax Return'],['.footer-services a:nth-child(3)','Uber/Lyft 1099'],['.footer-services a:nth-child(4)','LLC formation'],['.footer-services a:nth-child(5)','Start your request'],
       ],
       es: [
-        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Servicios'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
+        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Servicios'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
-['.hero-note','Atendemos clientes en todo Estados Unidos desde Perth Amboy, New Jersey.'],['#llc-title','Por qué una LLC puede ser importante para tu negocio.'],['#llc-intro','Una LLC no es un atajo mágico para pagar menos impuestos. Es una estructura legal y organizativa que puede ayudar a separar la actividad del negocio de tu vida personal cuando se mantiene correctamente.'],['#llc-benefits-title','Posibles ventajas'],['#llc-benefit-1','Ayuda a separar los bienes del negocio de los bienes personales.'],['#llc-benefit-2','Crea una estructura más profesional para clientes, proveedores y bancos.'],['#llc-benefit-3','Facilita organizar los ingresos, gastos y documentos del negocio.'],['#llc-benefit-4','Puede apoyar deducciones legítimas cuando los gastos son ordinarios, necesarios y están documentados.'],['#llc-benefit-5','Ofrece una base para crecer, abrir cuentas comerciales o agregar servicios.'],['#llc-consider-title','Responsabilidades importantes'],['#llc-consider-1','Pueden aplicar costos de formación y tarifas anuales del estado.'],['#llc-consider-2','Debes mantener al día los registros, reportes y permisos.'],['#llc-consider-3','Las finanzas personales y del negocio deben mantenerse separadas.'],['#llc-consider-4','Una LLC no elimina los impuestos ni garantiza deducciones.'],['#llc-consider-5','La estructura debe corresponder a tu estado, actividad y asesoría profesional.'],['#llc-callout','Nota sobre una LLC de un solo miembro: el IRS puede tratarla como una “disregarded entity” para reportes federales de impuestos sobre ingresos, salvo que se haga otra elección. Eso no significa que la LLC no tenga valor; la protección legal, las cuentas bancarias, la organización y el cumplimiento dependen de cómo se opere el negocio.'],['#llc-note','Información educativa solamente. No es asesoría legal, tributaria ni financiera. Consulta a un profesional calificado antes de formar o cambiar una entidad comercial.'],
+['.hero-note','Atendemos clientes en todo Estados Unidos desde Perth Amboy, New Jersey.'],['#llc-kicker','Formación de LLC'],['#llc-title','Crea tu LLC con todo incluido.'],['#llc-intro','Un solo precio fijo. Nosotros nos encargamos del papeleo de formación, el EIN y tu configuración profesional — para que tu negocio empiece limpio, organizado y listo para trabajar.'],['#llc-included-title','Qué incluye'],['#llc-item-1','EIN (Número de Identificación del Empleador) del IRS'],['#llc-item-2','Kit completo de LLC — documentos de formación y registros del negocio'],['#llc-item-3','Correo electrónico profesional para tu negocio'],['#llc-item-4','Carta CP 575 — la confirmación oficial del IRS de tu EIN'],['#llc-price-title','Un solo precio fijo'],['#llc-price','$180'],['#llc-price-note','Todo lo listado está incluido. Sin cargos ocultos.'],['#llc-cta','Comenzar solicitud de LLC →'],['#llc-note','Las tarifas estatales de presentación pueden aplicar por separado. Los servicios no son asesoría legal ni financiera.'],
         ['#services-title','Servicios directos y precios transparentes.'],
         ['#services .section-heading p','Elige la opción que corresponde a tu situación. Precios fijos, sin sorpresas.'],
         ['.service-card:nth-child(1) h3','Declaración de impuestos W-2'],['.service-card:nth-child(2) h3','W-2 + 1099 con millaje'],['.service-card:nth-child(3) h3','W-2 + 1099 con gastos'],['.service-card:nth-child(4) h3','Combo W-2 + 1099'],
         ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Declaración combinada con gastos del negocio y deducciones aplicables.'],['.service-card:nth-child(4) p','W-2 y 1099 juntos en una sola declaración. Ahorra $50 frente a $350 por separado.'],['.service-card:nth-child(5) h3','W-2 en familia'],['.service-card:nth-child(5) p','Declaración W-2 para la familia: padre, madre e hijo. Ahorra $140 frente a tres declaraciones por separado.'],
-        ['#process-title','Un proceso sencillo de solicitud a finalización.'],['#process .section-heading p','Revisamos tu solicitud antes de confirmar documentos, pagos y próximos pasos.'],
-        ['#process .step:nth-child(1) h3','Selecciona tu servicio'],['#process .step:nth-child(1) p','Elige un servicio de impuestos o negocio y agrega las declaraciones adicionales que necesites.'],['#process .step:nth-child(2) h3','Envía tu información'],['#process .step:nth-child(2) p','Tu solicitud llega directamente a nuestro correo profesional para revisión.'],['#process .step:nth-child(3) h3','Confirma y continúa'],['#process .step:nth-child(3) p','Te contactaremos con la lista de documentos, instrucciones de pago y el tiempo estimado.'],
         ['#request-title','Comienza tu solicitud'],['#request-title + p','Completa el formulario y sube tus documentos de forma segura.'],
         
         ['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
