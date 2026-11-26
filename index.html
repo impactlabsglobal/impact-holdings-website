@@ -83,6 +83,7 @@
     .section-heading p{max-width:460px;color:var(--muted)}
 
     .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    #services .service-grid{grid-template-columns:repeat(3,1fr)}
     .service-card{display:flex;flex-direction:column;min-width:0;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 8px 22px rgba(16,32,51,.04)}
     .service-card h3{font-size:1rem;line-height:1.25;min-height:48px}
     .service-card .price{font-size:2.25rem;font-weight:800;color:var(--blue);margin:15px 0 10px}
@@ -91,6 +92,7 @@
     .service-card li{display:flex;gap:8px}
     .service-card li::before{content:"✓";color:var(--blue);font-weight:800}
     .service-card a{margin-top:auto;color:var(--blue-deep);font-size:.88rem;font-weight:800}
+    .service-card.featured{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,232,.12)}
 
     .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
     .step{border-top:2px solid var(--blue);padding-top:16px}
@@ -118,6 +120,7 @@
 
     .request-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(360px,.65fr);gap:56px;align-items:start}
     .request-form{padding:38px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
+    .request-form iframe{display:block;width:100%;border:0}
     .form-title{margin-bottom:24px}
     .form-title h2{font-size:1.8rem;margin-bottom:6px}
     .form-title p{color:var(--muted)}
@@ -215,6 +218,7 @@
     }
     @media(max-width:980px){
       .service-grid{grid-template-columns:repeat(2,1fr)}
+      #services .service-grid{grid-template-columns:repeat(2,1fr)}
       .service-card p{min-height:0}
       .request-layout{grid-template-columns:1fr}
       .request-aside{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -242,6 +246,7 @@
       .section-heading{display:block;margin-bottom:24px}
       .section-heading p{margin-top:10px}
       .service-grid,.process-grid,.footer-grid,.form-grid,.llc-grid{grid-template-columns:1fr}
+      #services .service-grid{grid-template-columns:1fr}
       .milestone-grid{grid-template-columns:1fr}
       .service-select{grid-template-columns:1fr}
       .service-choice label{min-height:72px}
@@ -377,10 +382,10 @@
         <span class="brand-copy">Impact Holdings LLC<small>Tax &amp; business services</small></span>
       </a>
       <div class="desktop-nav nav-links" aria-label="Main navigation links">
-        <a href="#request">Tax</a>
+        <a href="#services">Services</a>
         <a href="llc.html?v=20260822-llc200">LLC</a>
         <a href="#process">How it works</a>
-        <a href="#request">Contact</a>
+        <a href="#contact">Contact</a>
       </div>
       <div class="nav-actions actions">
         <button class="language-toggle header-language" id="languageToggle" type="button" aria-label="Switch website language">Español</button>
@@ -391,10 +396,10 @@
             <div class="site-menu-head"><strong id="menuTitle">Menu</strong><button class="menu-close" id="menuClose" type="button" aria-label="Close menu">×</button></div>
             <p class="menu-subtitle" id="menuSubtitle">Choose a section</p>
             <nav class="site-menu-links" aria-label="Mobile navigation">
-              <a id="menuTax" href="#request">Tax</a>
+              <a id="menuTax" href="#services">Services</a>
               <a id="menuLlc" href="llc.html?v=20260822-llc200">LLC</a>
               <a id="menuHow" href="#process">How it works</a>
-              <a id="menuContact" href="#request">Contact</a>
+              <a id="menuContact" href="#contact">Contact</a>
             </nav>
             <div class="site-menu-divider"></div>
             <a class="button menu-cta" id="menuCta" href="#request">Start your request →</a>
@@ -414,89 +419,66 @@
           <p>Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.</p>
           <div class="hero-actions">
             <a class="button" href="#request">Start your request</a>
-            <a class="button secondary" href="#request">View services</a>
+            <a class="button secondary" href="#services">View services</a>
           </div>
           <p class="hero-note">Serving clients in the United States from Perth Amboy, New Jersey.</p>
         </div>
       </div>
     </section>
 
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="services-title">Straightforward services and transparent pricing.</h2>
+          <p>Choose the option that matches your situation. Fixed prices — no surprises.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>W-2 Tax Return</h3>
+            <div class="price">$100</div>
+            <p>A simple tax filing for employees with a W-2 form.</p>
+            <a href="#request">Start your request →</a>
+          </article>
+          <article class="service-card">
+            <h3>Uber/Lyft 1099 with organized mileage</h3>
+            <div class="price">$250</div>
+            <p>Combined filing for employees and independent contractors with mileage.</p>
+            <a href="#request">Start your request →</a>
+          </article>
+          <article class="service-card">
+            <h3>Uber/Lyft 1099 with organized expenses</h3>
+            <div class="price">$400</div>
+            <p>Combined filing with business expenses and applicable deductions.</p>
+            <a href="#request">Start your request →</a>
+          </article>
+          <article class="service-card featured">
+            <h3>W-2 + 1099 combo</h3>
+            <div class="price">$300</div>
+            <p>W-2 and 1099 together in one filing. Save $50 vs. $350 separately.</p>
+            <a href="#request">Start your request →</a>
+          </article>
+          <article class="service-card">
+            <h3>Family W-2</h3>
+            <div class="price">$160</div>
+            <p>W-2 filing for the family: father, mother and son. Save $140 vs. three separate filings.</p>
+            <a href="#request">Start your request →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="request" aria-labelledby="request-title">
       <div class="container request-layout">
-        <form class="request-form" id="clientForm" action="https://locjiudfzjpzfnxlpiii.supabase.co/functions/v1/client-intake" method="POST" enctype="multipart/form-data">
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" id="serviceHidden" name="service" value="W-2 Tax Return">
-          <input type="hidden" id="serviceKeyHidden" name="service_key" value="w2">
-          <input type="hidden" id="priceHidden" name="estimated_price" value="$100">
-          <input type="hidden" id="extraHidden" name="extra_quantity" value="0">
-          <input type="hidden" id="stripeProductKeyHidden" name="Stripe Product Key" value="w2">
-          <input type="hidden" id="stripeProductIdHidden" name="Stripe Product ID" value="prod_REPLACE_W2">
-          <input type="hidden" id="stripePriceIdHidden" name="Stripe Price ID" value="price_REPLACE_W2">
-          <input type="hidden" id="stripeLineItemsHidden" name="Stripe Checkout Items" value="W-2 Tax Return x1">
-          <input type="hidden" id="paymentHidden" name="payment_method" value="Cash App Business">
-
+        <div class="request-form">
           <div class="form-title">
             <h2 id="request-title">Start your request</h2>
-            <p>Select a service, add extras when needed, and send your information securely.</p>
+            <p>Fill out the form below and upload your documents securely.</p>
           </div>
-
-          <div class="service-select" role="radiogroup" aria-label="Select service">
-            <div class="service-choice"><input id="w2" type="radio" name="serviceChoice" value="w2" checked><label for="w2"><strong>W-2 Tax Return</strong><span>$100</span></label></div>
-            <div class="service-choice"><input id="mileage" type="radio" name="serviceChoice" value="mileage"><label for="mileage"><strong>Uber/Lyft 1099 + organized mileage</strong><span>$250</span></label></div>
-            <div class="service-choice"><input id="expenses" type="radio" name="serviceChoice" value="expenses"><label for="expenses"><strong>Uber/Lyft 1099 + organized expenses</strong><span>$400</span></label></div>
-          </div>
-
-          <div class="extra-row" id="extraRow">
-            <div><strong id="extraLabel">Extra SSN</strong><span>$30 each, up to four extras</span></div>
-            <label class="extra-dropdown">
-              <span class="sr-only">Extra SSN quantity</span>
-              <select id="extraQuantity" aria-label="Extra SSN quantity">
-                <option value="0">0 — No extra SSN</option>
-                <option value="1">1 — +$30</option>
-                <option value="2">2 — +$60</option>
-                <option value="3">3 — +$90</option>
-                <option value="4">4 — +$120</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="order-summary" aria-live="polite">
-            <div><span>Estimated total</span><strong id="summaryService">W-2 Tax Return</strong></div>
-            <b id="summaryPrice">$100</b>
-          </div>
-
-          <div class="form-grid">
-            <div class="field"><label for="firstName">First name</label><input id="firstName" name="first_name" autocomplete="given-name" required></div>
-            <div class="field"><label for="lastName">Last name</label><input id="lastName" name="last_name" autocomplete="family-name" required></div>
-            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
-            <div class="field"><label for="language">Preferred language</label><select id="language" name="language"><option>English</option><option>Spanish</option></select></div>
-            <div class="field"><label for="business">Business name, if applicable</label><input id="business" name="business_name" placeholder="Business or LLC name"></div>
-            
-            <div class="field full"><label for="notes">Notes or questions</label><textarea id="notes" name="notes" placeholder="Tell us anything that will help us prepare for your request."></textarea></div>
-          </div>
-          <fieldset class="document-upload">
-            <legend id="documentsTitle">Secure document upload</legend>
-            <p class="document-upload-note" id="documentsNote">Choose a document type, then select one or more files. W-2, 1099, LLC, license or insurance documents in PDF, JPG, PNG, WEBP, XLS or XLSX format up to 5 MB each, maximum 4 documents total. Do not upload SSNs, passwords or payment information.</p>
-            <div class="document-rows" id="documentRows">
-              <div class="document-row">
-                <div class="field"><label for="documentType1">Document type</label><select id="documentType1" name="document_type"><option value="w2_documents">W-2</option><option value="1099_documents">1099</option><option value="llc_documents">LLC</option><option value="license_documents">License</option><option value="insurance_documents">Insurance</option></select></div>
-                <div class="field"><label for="documentFile1">Choose files</label><input id="documentFile1" name="w2_documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.xls,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></div>
-                <button class="document-row-remove" type="button" hidden>Remove</button>
-              </div>
-            </div>
-            <button class="document-add" id="addDocumentRow" type="button">+ Add another document</button>
-          </fieldset>
-          <div class="submit-row"><button class="button" type="submit">Send request</button><p class="fine-print">Your request is saved securely in our private client workspace. We will contact you to confirm the next steps.</p></div>
-        </form>
+          <iframe data-tally-src="https://tally.so/embed/o9GM9O?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0" title="Solicitud de cliente — Impact Holdings"></iframe>
+          <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
+        </div>
 
         <aside class="request-aside" aria-label="Request information">
-          <div class="live-order" aria-live="polite">
-            <h3 id="liveOrderTitle">Your selection</h3>
-            <div class="live-product"><span id="liveProduct">W-2 Tax Return</span><strong id="liveTotal">$100</strong></div>
-            <div class="live-total-label" id="liveTotalLabel">Estimated total</div>
-            <p class="live-note" id="liveNote">Updates in real time as you change the service or extra SSN quantity.</p>
-          </div>
           <div class="aside-copy">
             <h3 id="contactTitle">Professional contact</h3>
             <p><a href="mailto:founder@impactholdingsllc.com">founder@impactholdingsllc.com</a></p>
@@ -536,7 +518,7 @@
 
   </main>
 
-  <footer>
+  <footer id="contact">
     <div class="container">
       <div class="footer-grid">
         <div><div class="footer-brand">Impact Holdings LLC</div><p class="footer-copy">Professional tax preparation and LLC formation for individuals and small businesses.</p><div class="footer-socials"><a class="footer-social-button" href="https://www.instagram.com/mrbatistaj/" target="_blank" rel="noopener noreferrer"><span class="social-mark" aria-hidden="true">◎</span><span>Instagram</span><strong>@mrbatistaj</strong><span aria-hidden="true">↗</span></a><a class="footer-social-button" href="https://www.tiktok.com/@mrbatistaj" target="_blank" rel="noopener noreferrer"><span class="social-mark" aria-hidden="true">♪</span><span>TikTok</span><strong>@mrbatistaj</strong><span aria-hidden="true">↗</span></a></div></div>
@@ -548,181 +530,43 @@
   </footer>
 
   <script>
-    var STRIPE_CATALOG = Object.freeze({
-      w2:{name:'W-2 Tax Return',amount:10000,productId:'prod_REPLACE_W2',priceId:'price_REPLACE_W2',extraLabel:'Extra SSN'},
-      mileage:{name:'Uber/Lyft 1099 with organized mileage',amount:25000,productId:'prod_REPLACE_MILEAGE',priceId:'price_REPLACE_MILEAGE',extraLabel:'Extra W-2 or SSN'},
-      expenses:{name:'Uber/Lyft 1099 with organized expenses',amount:40000,productId:'prod_REPLACE_EXPENSES',priceId:'price_REPLACE_EXPENSES',extraLabel:'Extra W-2 or SSN'},
-      llc:{name:'Complete LLC package',amount:30000,productId:'prod_REPLACE_LLC',priceId:'price_REPLACE_LLC',extraLabel:'No extra filing'}
-    });
-    var STRIPE_EXTRA = Object.freeze({name:'Extra SSN or W-2 filing',amount:3000,productId:'prod_REPLACE_EXTRA',priceId:'price_REPLACE_EXTRA'});
-
-    var selectedServiceKey = 'w2';
-    var extraQuantity = 0;
     var themeColor = document.getElementById('themeColor');
     var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    var serviceHidden = document.getElementById('serviceHidden');
-    var serviceKeyHidden = document.getElementById('serviceKeyHidden');
-    var priceHidden = document.getElementById('priceHidden');
-    var extraHidden = document.getElementById('extraHidden');
-    var stripeProductKeyHidden = document.getElementById('stripeProductKeyHidden');
-    var stripeProductIdHidden = document.getElementById('stripeProductIdHidden');
-    var stripePriceIdHidden = document.getElementById('stripePriceIdHidden');
-    var stripeLineItemsHidden = document.getElementById('stripeLineItemsHidden');
-    var paymentHidden = document.getElementById('paymentHidden');
-    var downloadReceiptButton = document.getElementById('downloadReceipt');
-    var summaryService = document.getElementById('summaryService');
-    var summaryPrice = document.getElementById('summaryPrice');
-    var liveProduct = document.getElementById('liveProduct');
-    var liveTotal = document.getElementById('liveTotal');
-    var extraRow = document.getElementById('extraRow');
-    var extraLabel = document.getElementById('extraLabel');
-    var extraQuantitySelect = document.getElementById('extraQuantity');
-    var paymentModal = document.getElementById('paymentModal');
-    var paymentModalTitle = document.getElementById('paymentModalTitle');
-    var paymentModalNote = document.getElementById('paymentModalNote');
-    var paymentModalImage = document.getElementById('paymentModalImage');
-    var clientForm = document.getElementById('clientForm');
-
-    function money(cents){return '$' + (cents / 100).toLocaleString('en-US',{minimumFractionDigits:0});}
     function updateThemeColor(){themeColor.setAttribute('content','#f7fafc');}
-    function updateOrder(){
-      var service = STRIPE_CATALOG[selectedServiceKey];
-      var allowExtras = selectedServiceKey !== 'llc';
-      if(!allowExtras) extraQuantity = 0;
-      extraRow.hidden = !allowExtras;
-      extraLabel.textContent = service.extraLabel;
-      var total = service.amount + (extraQuantity * STRIPE_EXTRA.amount);
-      var lineItems = [service.name + ' x1'];
-      if(extraQuantity) lineItems.push(STRIPE_EXTRA.name + ' x' + extraQuantity);
-      summaryService.textContent = service.name;
-      summaryPrice.textContent = money(total);
-      liveProduct.textContent = service.name;
-      liveTotal.textContent = money(total);
-      serviceHidden.value = service.name;
-      serviceKeyHidden.value = selectedServiceKey;
-      priceHidden.value = money(total);
-      extraHidden.value = String(extraQuantity);
-      stripeProductKeyHidden.value = selectedServiceKey;
-      stripeProductIdHidden.value = service.productId;
-      stripePriceIdHidden.value = service.priceId;
-      stripeLineItemsHidden.value = lineItems.join(', ');
-      extraQuantitySelect.value = String(extraQuantity);
-    }
-
-    function escapeReceipt(value){return String(value || '').replace(/[&<>\"']/g,function(character){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[character];});}
-    function downloadReceipt(){
-      var service = STRIPE_CATALOG[selectedServiceKey];
-      var total = service.amount + (extraQuantity * STRIPE_EXTRA.amount);
-      var isSpanish = document.documentElement.lang === 'es';
-      var customerName = [document.getElementById('firstName').value,document.getElementById('lastName').value].filter(Boolean).join(' ') || (isSpanish ? 'No indicado' : 'Not provided');
-      var customerEmail = document.getElementById('email').value || (isSpanish ? 'No indicado' : 'Not provided');
-      var customerPhone = document.getElementById('phone').value || (isSpanish ? 'No indicado' : 'Not provided');
-      var businessName = document.getElementById('business').value || (isSpanish ? 'No indicado' : 'Not provided');
-      var now = new Date();
-      var receiptNumber = 'IH-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getTime()).slice(-5);
-      var labels = isSpanish ? {
-        title:'Recibo de solicitud',status:'Pendiente de confirmación de pago',date:'Fecha',number:'Número',customer:'Cliente',email:'Correo electrónico',phone:'Teléfono',business:'Empresa',service:'Servicio',extras:'SSN adicionales',payment:'Método de pago preferido',subtotal:'Subtotal',extraTotal:'Extras',total:'Total estimado',note:'Este documento resume la solicitud y no confirma que el pago haya sido recibido.'
-      } : {
-        title:'Order receipt',status:'Pending payment confirmation',date:'Date',number:'Number',customer:'Customer',email:'Email',phone:'Phone',business:'Business',service:'Service',extras:'Extra SSN',payment:'Preferred payment method',subtotal:'Subtotal',extraTotal:'Extras',total:'Estimated total',note:'This document summarizes the request and does not confirm that payment has been received.'
-      };
-      var extraTotal = extraQuantity * STRIPE_EXTRA.amount;
-      var receiptHtml = '<!doctype html><html lang="' + (isSpanish ? 'es' : 'en') + '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + labels.title + ' - Impact Holdings LLC</title><style>body{font-family:Arial,sans-serif;color:#102033;max-width:760px;margin:0 auto;padding:32px;line-height:1.5}h1{margin-bottom:4px}h2{margin-top:30px;border-bottom:2px solid #1769e8;padding-bottom:8px}.muted{color:#5e7086}.status{display:inline-block;padding:7px 10px;border-radius:6px;background:#eaf3ff;color:#0e3f86;font-weight:700}.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:22px 0}.row{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid #dce6ef}.total{font-size:1.35rem;font-weight:800;color:#1769e8;border-top:2px solid #102033;border-bottom:0;margin-top:8px}@media(max-width:560px){body{padding:20px}.meta{grid-template-columns:1fr}}</style></head><body><h1>Impact Holdings LLC</h1><p class="muted">Tax &amp; business services<br>Perth Amboy, New Jersey<br>founder@impactholdingsllc.com</p><p class="status">' + labels.status + '</p><div class="meta"><div><strong>' + labels.number + ':</strong><br>' + escapeReceipt(receiptNumber) + '</div><div><strong>' + labels.date + ':</strong><br>' + escapeReceipt(now.toLocaleString(isSpanish ? 'es-US' : 'en-US')) + '</div></div><h2>' + labels.customer + '</h2><p><strong>' + escapeReceipt(customerName) + '</strong><br>' + labels.email + ': ' + escapeReceipt(customerEmail) + '<br>' + labels.phone + ': ' + escapeReceipt(customerPhone) + '<br>' + labels.business + ': ' + escapeReceipt(businessName) + '</p><h2>' + labels.service + '</h2><div class="row"><span>' + escapeReceipt(service.name) + '</span><strong>' + money(service.amount) + '</strong></div><div class="row"><span>' + labels.extras + ' (' + extraQuantity + ' × ' + money(STRIPE_EXTRA.amount) + ')</span><strong>' + money(extraTotal) + '</strong></div><div class="row"><span>' + labels.payment + '</span><strong>' + escapeReceipt(paymentHidden.value) + '</strong></div><div class="row total"><span>' + labels.total + '</span><strong>' + money(total) + '</strong></div><p class="muted">' + labels.note + '</p></body></html>';
-      var blob = new Blob([receiptHtml],{type:'text/html;charset=utf-8'});
-      var url = URL.createObjectURL(blob);
-      var link = document.createElement('a');
-      link.href = url;
-      link.download = 'impact-holdings-receipt-' + now.toISOString().slice(0,10) + '.html';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      setTimeout(function(){URL.revokeObjectURL(url);},1000);
-    }
-
-    document.querySelectorAll('input[name="serviceChoice"]').forEach(function(input){input.addEventListener('change',function(){selectedServiceKey = input.value;updateOrder();});});
-    extraQuantitySelect.addEventListener('change',function(){extraQuantity = Number(extraQuantitySelect.value);updateOrder();});
-    if(clientForm) clientForm.addEventListener('submit',function(){updateOrder();});
-    if(downloadReceiptButton) downloadReceiptButton.addEventListener('click',downloadReceipt);
-    document.querySelectorAll('.payment-option').forEach(function(button){button.addEventListener('click',function(){
-      document.querySelectorAll('.payment-option').forEach(function(option){option.classList.toggle('is-selected',option === button);});
-      paymentHidden.value = button.dataset.payment;
-      var code = button.dataset.paymentCode;
-      if(code === 'zelle' || code === 'cashapp'){
-        paymentModalTitle.textContent = code === 'zelle' ? 'Zelle Business' : 'Cash App Business';
-        paymentModalNote.textContent = code === 'zelle' ? 'Scan this code with your banking app to pay.' : 'Scan this code with the Cash App to pay.';
-        paymentModalImage.removeAttribute('src');
-        paymentModalImage.dataset.paymentCode = code;
-        fetch(code === 'zelle' ? 'assets/zelle-qr.b64' : 'assets/cashapp-qr.b64')
-          .then(function(response){return response.text();})
-          .then(function(base64){
-            if(paymentModalImage.dataset.paymentCode === code){
-              paymentModalImage.src = 'data:image/jpeg;base64,' + base64.trim();
-            }
-          });
-        paymentModalImage.alt = code === 'zelle' ? 'Zelle payment QR code' : 'Cash App payment QR code';
-        paymentModal.hidden = false;
-      }
-    });});
-    document.querySelectorAll('[data-close-payment]').forEach(function(node){node.addEventListener('click',function(){paymentModal.hidden = true;});});
-    document.addEventListener('keydown',function(event){if(event.key === 'Escape') paymentModal.hidden = true;});
-    document.querySelectorAll('[data-service-link]').forEach(function(link){link.addEventListener('click',function(){var serviceInput = document.getElementById(link.dataset.serviceLink);serviceInput.checked = true;selectedServiceKey = link.dataset.serviceLink;updateOrder();});});
-    (function(){
-      var rows = document.getElementById('documentRows'), add = document.getElementById('addDocumentRow');
-      if(!rows || !add) return;
-      var rowNumber = 1;
-      var accept = '.pdf,.jpg,.jpeg,.png,.webp,.xls,.xlsx,application/pdf,image/jpeg,image/png,image/webp,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-      function updateControls(){var count=rows.querySelectorAll('.document-row').length;add.disabled=count>=4;add.hidden=count>=4;rows.querySelectorAll('.document-row-remove').forEach(function(button){button.hidden=count<2;});}
-      function bind(row){
-        var select = row.querySelector('select'), file = row.querySelector('input[type="file"]'), remove = row.querySelector('.document-row-remove');
-        select.addEventListener('change',function(){file.setAttribute('name',select.value);});
-        remove.addEventListener('click',function(){row.remove();updateControls();});
-      }
-      bind(rows.querySelector('.document-row'));
-      updateControls();
-      add.addEventListener('click',function(){
-        if(rows.querySelectorAll('.document-row').length >= 4){updateControls();return;}
-        rowNumber += 1;
-        var row = document.createElement('div');
-        row.className = 'document-row';
-        row.innerHTML = '<div class="field"><label for="documentType'+rowNumber+'">Document type</label><select id="documentType'+rowNumber+'" name="document_type"><option value="w2_documents">W-2</option><option value="1099_documents">1099</option><option value="llc_documents">LLC</option><option value="license_documents">License</option><option value="insurance_documents">Insurance</option></select></div><div class="field"><label for="documentFile'+rowNumber+'">Choose files</label><input id="documentFile'+rowNumber+'" name="w2_documents" type="file" multiple accept="'+accept+'"></div><button class="document-row-remove" type="button">Remove</button>';
-        rows.appendChild(row);
-        bind(row);
-        updateControls();
-      });
-    }());
     var languageToggle = document.getElementById('languageToggle');
     var languageSets = {
       en: [
-        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Tax'],['#menuLlc','LLC'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Tax'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
+        ['#menuTitle','Menu'],['#menuSubtitle','Choose a section'],['#menuCta','Start your request →'],['#menuTax','Services'],['#menuLlc','LLC'],['#menuHow','How it works'],['#menuContact','Contact'],['.nav-links a:nth-child(1)','Services'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','How it works'],['.nav-links a:nth-child(4)','Contact'],
         ['.nav-price','Prices'],['.nav-cta','Get started'],['.quick-actions a:nth-child(1)','Services & prices'],['.quick-actions a:nth-child(2)','Start request'],
         ['.eyebrow','Professional support for every step'],['#hero-title','Taxes made clear. Business built with confidence.'],
         ['.hero-copy p','Professional tax preparation and LLC formation for individuals, contractors, and growing small businesses.'],
 ['.hero-note','Serving clients in the United States from Perth Amboy, New Jersey.'],['#llc-title','Why an LLC can matter for your business.'],['#llc-intro','An LLC is not a magic tax shortcut. It is a legal and organizational structure that can help separate your business activity from your personal life when it is maintained correctly.'],['#llc-benefits-title','Potential advantages'],['#llc-benefit-1','Helps separate business assets and personal assets.'],['#llc-benefit-2','Creates a more professional structure for clients, vendors and banks.'],['#llc-benefit-3','Makes it easier to organize business income, expenses and records.'],['#llc-benefit-4','Can support legitimate business deductions when expenses are ordinary, necessary and documented.'],['#llc-benefit-5','Provides a foundation to grow, open business accounts or add services.'],['#llc-consider-title','Responsibilities to consider'],['#llc-consider-1','Formation and annual state fees may apply.'],['#llc-consider-2','You must keep records, reports and registrations current.'],['#llc-consider-3','Business and personal finances should remain separate.'],['#llc-consider-4','An LLC does not eliminate taxes or guarantee deductions.'],['#llc-consider-5','Your structure should match your state, activity and professional advice.'],['#llc-callout','Single-member LLC note: the IRS may treat a single-member LLC as a “disregarded entity” for federal income-tax reporting unless another election is made. That does not mean the LLC has no value; legal protection, banking, organization and compliance still depend on how the business is operated.'],['#llc-note','Educational information only. It is not legal, tax or financial advice. Speak with a qualified professional before forming or changing a business entity.'],
         ['#services-title','Straightforward services and transparent pricing.'],
-        ['#services .section-heading p','Choose the option that matches your situation. Additional W-2 or SSN filings are $30 each and are calculated before you submit.'],
-        ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','Uber/Lyft 1099 with organized mileage'],['.service-card:nth-child(3) h3','Uber/Lyft 1099 with organized expenses'],['.service-card:nth-child(4) h3','Complete LLC package'],
-        ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Combined filing with business expenses and applicable deductions.'],['.service-card:nth-child(4) p','A focused launch package for a new business.'],
+        ['#services .section-heading p','Choose the option that matches your situation. Fixed prices — no surprises.'],
+        ['.service-card:nth-child(1) h3','W-2 Tax Return'],['.service-card:nth-child(2) h3','Uber/Lyft 1099 with organized mileage'],['.service-card:nth-child(3) h3','Uber/Lyft 1099 with organized expenses'],['.service-card:nth-child(4) h3','W-2 + 1099 combo'],
+        ['.service-card:nth-child(1) p','A simple tax filing for employees with a W-2 form.'],['.service-card:nth-child(2) p','Combined filing for employees and independent contractors with mileage.'],['.service-card:nth-child(3) p','Combined filing with business expenses and applicable deductions.'],['.service-card:nth-child(4) p','W-2 and 1099 together in one filing. Save $50 vs. $350 separately.'],['.service-card:nth-child(5) h3','Family W-2'],['.service-card:nth-child(5) p','W-2 filing for the family: father, mother and son. Save $140 vs. three separate filings.'],
         ['#process-title','A simple process from request to completion.'],['#process .section-heading p','We review your request before confirming documents, payment details, and next steps.'],
         ['#process .step:nth-child(1) h3','Select your service'],['#process .step:nth-child(1) p','Choose a tax or business service and add any extra filings needed.'],['#process .step:nth-child(2) h3','Send your information'],['#process .step:nth-child(2) p','Your request goes directly to our professional email for review.'],['#process .step:nth-child(3) h3','Confirm and move forward'],['#process .step:nth-child(3) p','We contact you with the document list, payment instructions, and timeline.'],
-        ['#request-title','Start your request'],['#request-title + p','Select a service, add extras when needed, and send your information securely.'],['#documentsTitle','Secure document upload'],['#documentsNote','Choose the type of each document and upload it. W-2, 1099, LLC, license or insurance files in PDF, JPG, PNG, WEBP, XLS or XLSX format up to 5 MB each, maximum 4 documents. Do not upload SSNs, passwords or payment information.'],['#addDocumentRow','+ Add another document'],['.service-choice:nth-child(1) strong','W-2 Tax Return'],['.service-choice:nth-child(2) strong','Uber/Lyft 1099 + organized mileage'],['.service-choice:nth-child(3) strong','Uber/Lyft 1099 + organized expenses'],['.service-choice:nth-child(4) strong','Complete LLC package'],['#extraLabel','Extra SSN'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Card checkout'],
-        ['.submit-row .button','Send request'],['.receipt-button','Download order receipt'],['.fine-print','Your request is sent directly to founder@impactholdingsllc.com. We will confirm documents and payment details before work begins.'],
-        ['#liveOrderTitle','Your selection'],['#liveTotalLabel','Estimated total'],['#paymentTitle','Payment options'],['#paymentNote','Choose how you prefer to pay. Click Zelle or Cash App to open its payment code.'],['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#liveNote','Updates in real time as you change the service or extra SSN quantity.'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
+        ['#request-title','Start your request'],['#request-title + p','Fill out the form below and upload your documents securely.'],
+        
+        ['#contactTitle','Professional contact'],['#nextTitle','What happens next'],['#nextCopy','We review your request before confirming documents, payment details, and the next steps.'],
         ['.footer-copy','Professional tax preparation and LLC formation for individuals and small businesses.'],['.footer-column:nth-child(2) h3','Contact'],['.footer-column:nth-child(3) h3','Service area']
       ],
       es: [
-        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Impuestos'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Impuestos'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
+        ['#menuTitle','Menú'],['#menuSubtitle','Elige una sección'],['#menuCta','Comenzar solicitud →'],['#menuTax','Servicios'],['#menuLlc','LLC'],['#menuHow','Cómo funciona'],['#menuContact','Contacto'],['.nav-links a:nth-child(1)','Servicios'],['.nav-links a:nth-child(2)','LLC'],['.nav-links a:nth-child(3)','Cómo funciona'],['.nav-links a:nth-child(4)','Contacto'],
         ['.nav-price','Precios'],['.nav-cta','Comenzar'],['.quick-actions a:nth-child(1)','Servicios y precios'],['.quick-actions a:nth-child(2)','Solicitar ahora'],
         ['.eyebrow','Apoyo profesional en cada paso'],['#hero-title','Impuestos claros. Negocios con confianza.'],
         ['.hero-copy p','Preparación profesional de impuestos y formación de LLC para individuos, contratistas y pequeños negocios.'],
 ['.hero-note','Atendemos clientes en todo Estados Unidos desde Perth Amboy, New Jersey.'],['#llc-title','Por qué una LLC puede ser importante para tu negocio.'],['#llc-intro','Una LLC no es un atajo mágico para pagar menos impuestos. Es una estructura legal y organizativa que puede ayudar a separar la actividad del negocio de tu vida personal cuando se mantiene correctamente.'],['#llc-benefits-title','Posibles ventajas'],['#llc-benefit-1','Ayuda a separar los bienes del negocio de los bienes personales.'],['#llc-benefit-2','Crea una estructura más profesional para clientes, proveedores y bancos.'],['#llc-benefit-3','Facilita organizar los ingresos, gastos y documentos del negocio.'],['#llc-benefit-4','Puede apoyar deducciones legítimas cuando los gastos son ordinarios, necesarios y están documentados.'],['#llc-benefit-5','Ofrece una base para crecer, abrir cuentas comerciales o agregar servicios.'],['#llc-consider-title','Responsabilidades importantes'],['#llc-consider-1','Pueden aplicar costos de formación y tarifas anuales del estado.'],['#llc-consider-2','Debes mantener al día los registros, reportes y permisos.'],['#llc-consider-3','Las finanzas personales y del negocio deben mantenerse separadas.'],['#llc-consider-4','Una LLC no elimina los impuestos ni garantiza deducciones.'],['#llc-consider-5','La estructura debe corresponder a tu estado, actividad y asesoría profesional.'],['#llc-callout','Nota sobre una LLC de un solo miembro: el IRS puede tratarla como una “disregarded entity” para reportes federales de impuestos sobre ingresos, salvo que se haga otra elección. Eso no significa que la LLC no tenga valor; la protección legal, las cuentas bancarias, la organización y el cumplimiento dependen de cómo se opere el negocio.'],['#llc-note','Información educativa solamente. No es asesoría legal, tributaria ni financiera. Consulta a un profesional calificado antes de formar o cambiar una entidad comercial.'],
         ['#services-title','Servicios directos y precios transparentes.'],
-        ['#services .section-heading p','Elige la opción que corresponde a tu situación. Cada W-2 o SSN adicional cuesta $30 y se calcula antes de enviar la solicitud.'],
-        ['.service-card:nth-child(1) h3','Declaración de impuestos W-2'],['.service-card:nth-child(2) h3','W-2 + 1099 con millaje'],['.service-card:nth-child(3) h3','W-2 + 1099 con gastos'],['.service-card:nth-child(4) h3','Paquete completo de LLC'],
-        ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Declaración combinada con gastos del negocio y deducciones aplicables.'],['.service-card:nth-child(4) p','Paquete práctico para comenzar un nuevo negocio.'],
+        ['#services .section-heading p','Elige la opción que corresponde a tu situación. Precios fijos, sin sorpresas.'],
+        ['.service-card:nth-child(1) h3','Declaración de impuestos W-2'],['.service-card:nth-child(2) h3','W-2 + 1099 con millaje'],['.service-card:nth-child(3) h3','W-2 + 1099 con gastos'],['.service-card:nth-child(4) h3','Combo W-2 + 1099'],
+        ['.service-card:nth-child(1) p','Declaración sencilla para empleados con formulario W-2.'],['.service-card:nth-child(2) p','Declaración combinada para empleados y contratistas independientes con millaje.'],['.service-card:nth-child(3) p','Declaración combinada con gastos del negocio y deducciones aplicables.'],['.service-card:nth-child(4) p','W-2 y 1099 juntos en una sola declaración. Ahorra $50 frente a $350 por separado.'],['.service-card:nth-child(5) h3','W-2 en familia'],['.service-card:nth-child(5) p','Declaración W-2 para la familia: padre, madre e hijo. Ahorra $140 frente a tres declaraciones por separado.'],
         ['#process-title','Un proceso sencillo de solicitud a finalización.'],['#process .section-heading p','Revisamos tu solicitud antes de confirmar documentos, pagos y próximos pasos.'],
         ['#process .step:nth-child(1) h3','Selecciona tu servicio'],['#process .step:nth-child(1) p','Elige un servicio de impuestos o negocio y agrega las declaraciones adicionales que necesites.'],['#process .step:nth-child(2) h3','Envía tu información'],['#process .step:nth-child(2) p','Tu solicitud llega directamente a nuestro correo profesional para revisión.'],['#process .step:nth-child(3) h3','Confirma y continúa'],['#process .step:nth-child(3) p','Te contactaremos con la lista de documentos, instrucciones de pago y el tiempo estimado.'],
-        ['#request-title','Comienza tu solicitud'],['#request-title + p','Selecciona un servicio, agrega extras si los necesitas y envía tus datos de forma segura.'],['#documentsTitle','Carga segura de documentos'],['#documentsNote','Elige el tipo de cada documento y súbelo. W-2, 1099, LLC, licencia o seguro en PDF, JPG, PNG, WEBP, XLS o XLSX de hasta 5 MB cada uno, máximo 4 documentos. No envíes SSN, contraseñas ni información de pago.'],['#addDocumentRow','+ Agregar otro documento'],['.service-choice:nth-child(1) strong','Declaración de impuestos W-2'],['.service-choice:nth-child(2) strong','Uber/Lyft 1099 + millas organizadas'],['.service-choice:nth-child(3) strong','Uber/Lyft 1099 + gastos organizados'],['.service-choice:nth-child(4) strong','Paquete completo de LLC'],['#extraLabel','SSN adicional'],['.payment-choice:nth-child(1) label','Cash App Business'],['.payment-choice:nth-child(2) label','Zelle Business'],['.payment-choice:nth-child(3) label','Pago con tarjeta'],
-        ['.submit-row .button','Enviar solicitud'],['.receipt-button','Descargar recibo de la orden'],['.fine-print','Tu solicitud llega directamente a founder@impactholdingsllc.com. Confirmaremos los documentos y el pago antes de comenzar.'],
-        ['#liveOrderTitle','Tu selección'],['#liveTotalLabel','Total estimado'],['#paymentTitle','Opciones de pago'],['#paymentNote','Elige cómo prefieres pagar. Toca Zelle o Cash App para abrir su código de pago.'],['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#liveNote','Se actualiza en tiempo real cuando cambias el servicio o la cantidad de SSN adicionales.'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
+        ['#request-title','Comienza tu solicitud'],['#request-title + p','Completa el formulario y sube tus documentos de forma segura.'],
+        
+        ['#contactTitle','Contacto profesional'],['#nextTitle','Qué sucede después'],['#nextCopy','Revisamos tu solicitud antes de confirmar los documentos, el pago y los próximos pasos.'],
         ['.footer-copy','Preparación profesional de impuestos y formación de LLC para individuos y pequeños negocios.'],['.footer-column:nth-child(2) h3','Contacto'],['.footer-column:nth-child(3) h3','Área de servicio']
       ]
     };
@@ -746,43 +590,10 @@
     }
     languageToggle.addEventListener('click',function(){applyLanguage(languageToggle.dataset.language === 'es' ? 'en' : 'es');});
     applyLanguage('en');
-    try{
-      var requestedService = new URLSearchParams(window.location.search).get('service');
-      if(requestedService && document.getElementById(requestedService)){
-        document.getElementById(requestedService).checked = true;
-        selectedServiceKey = requestedService;
-        updateOrder();
-      }
-    }catch(error){}
 
     darkModeQuery.addEventListener('change',updateThemeColor);
     updateThemeColor();
-    updateOrder();
 
-    (function(){
-      function formatNumber(value){return new Intl.NumberFormat('en-US').format(value);}
-      function renderProgress(data){
-        Object.keys(data.services || {}).forEach(function(key){
-          var card=document.querySelector('[data-progress-key="'+key+'"]');
-          var item=data.services[key];
-          if(!card||!item)return;
-          var completed=Math.max(0,Number(item.completed)||0);
-          var target=Math.max(1,Number(item.target)||1);
-          var percent=Math.min(100,Math.round((completed/target)*100));
-          var remaining=Math.max(0,target-completed);
-          card.querySelector('[data-count]').textContent=formatNumber(completed);
-          card.querySelector('[data-target]').textContent='of '+formatNumber(target);
-          card.querySelector('[data-percent]').textContent=percent+'% complete';
-          card.querySelector('[data-remaining]').textContent=remaining===0?'Goal reached':formatNumber(remaining)+' remaining';
-          card.querySelector('.progress-fill').style.width=percent+'%';
-          var track=card.querySelector('[role="progressbar"]');
-          track.setAttribute('aria-valuemax',String(target));
-          track.setAttribute('aria-valuenow',String(Math.min(completed,target)));
-        });
-        if(data.updated){document.getElementById('progressUpdated').textContent='Counts updated '+data.updated+' from verified completed-service records.';}
-      }
-      fetch('service-progress.json',{cache:'no-store'}).then(function(response){if(!response.ok)throw new Error('Progress unavailable');return response.json();}).then(renderProgress).catch(function(){});
-    }());
   
     (function(){var menu=document.getElementById('mobileMenu'),close=document.getElementById('menuClose');if(!menu)return;if(close)close.addEventListener('click',function(){menu.open=false});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){menu.open=false})});document.addEventListener('keydown',function(event){if(event.key==='Escape')menu.open=false});document.addEventListener('click',function(event){if(menu.open&&!menu.contains(event.target))menu.open=false})}());
 </script>
