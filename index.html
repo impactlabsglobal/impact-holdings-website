@@ -99,6 +99,8 @@
     .service-card li{display:flex;gap:8px}
     .service-card li::before{content:"✓";color:var(--blue);font-weight:800}
     .service-card a{margin-top:auto;color:var(--blue-deep);font-size:.88rem;font-weight:800}
+    .service-card[data-service]{cursor:pointer}
+    .service-card.selected{outline:2px solid #f2b72b;outline-offset:2px}
 
     .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
     .step{border-top:2px solid var(--blue);padding-top:16px}
@@ -515,20 +517,20 @@
           <p>Choose the option that matches your situation. Fixed prices — no surprises.</p>
         </div>
         <div class="service-grid">
-          <article class="service-card">
+          <article class="service-card" data-service="W-2 Tax Return — $100">
             <h3>W-2 Tax Return</h3>
             <div class="price">$100</div>
             <p>A simple tax filing for employees with a W-2 form.</p>
             <p class="service-sub">Family (father, mother and son): maximum $160.</p>
             <a href="#request">Start your request →</a>
           </article>
-          <article class="service-card">
+          <article class="service-card" data-service="Uber/Lyft 1099 + millaje — $250">
             <h3>Uber/Lyft 1099 with organized mileage</h3>
             <div class="price">$250</div>
             <p>Combined filing for employees and independent contractors with mileage.</p>
             <a href="#request">Start your request →</a>
           </article>
-          <article class="service-card">
+          <article class="service-card" data-service="LLC SERVICE — $180">
             <h3>LLC formation</h3>
             <div class="price">$180</div>
             <p>Complete LLC formation with EIN, business email, and the official CP 575 letter.</p>
@@ -553,6 +555,23 @@
           </div>
           <iframe data-tally-src="https://tally.so/embed/o9GM9O?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0" title="Solicitud de cliente — Impact Holdings"></iframe>
           <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
+          <script>
+          (function(){
+            var frame=document.querySelector('iframe[data-tally-src]');
+            if(!frame) return;
+            var base='https://tally.so/embed/o9GM9O?hideTitle=1&transparentBackground=1&dynamicHeight=1';
+            document.querySelectorAll('.service-card[data-service]').forEach(function(card){
+              card.addEventListener('click',function(){
+                var service=card.getAttribute('data-service');
+                frame.src=base+'&servicio='+encodeURIComponent(service);
+                document.querySelectorAll('.service-card.selected').forEach(function(c){c.classList.remove('selected');});
+                card.classList.add('selected');
+                var target=document.getElementById('request');
+                if(target) target.scrollIntoView({behavior:'smooth'});
+              });
+            });
+          })();
+          </script>
         </div>
 
       </div>
